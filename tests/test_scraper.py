@@ -1,6 +1,6 @@
 import unittest
 from scraper import utils
-from scraper.scraper.spiders.supervisors_spider import SupervisorsSpider
+from scraper.scraper.spiders.supervisors_spider import BguCsSpider
 import scrapy
 import json
 import os
@@ -54,7 +54,7 @@ class TestUtils(unittest.TestCase):
             },
         }
 
-        utils.run_spider(SupervisorsSpider,settings=settings)
+        utils.run_spider(BguCsSpider,settings=settings)
 
         try:
             with open(output_path) as f:
@@ -66,6 +66,16 @@ class TestUtils(unittest.TestCase):
         if os.path.exists(output_path):
             os.remove(output_path)
 
+
+class TestPipelines(unittest.TestCase):
+    def test_json_bgu(self):
+        settings = {
+            "ITEM_PIPELINES":{
+                "scraper.scraper.pipelines.JsonWriterPipeline":300
+            }
+        }
+
+        utils.run_spider(BguCsSpider,settings=settings)
 
 if __name__ == "__main__":
     unittest.main()

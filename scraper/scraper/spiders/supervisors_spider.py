@@ -5,8 +5,8 @@ from scraper.scraper.items import SupervisorItem
 from pathlib import Path
 
 
-class SupervisorsSpider(scrapy.Spider):
-    name="supervisors"
+class BguCsSpider(scrapy.Spider):
+    name="bgu_cs"
     start_urls = [
         "https://csdynamicweb.cs.bgu.ac.il/ResearchAreas.aspx?area=9",
         "https://csdynamicweb.cs.bgu.ac.il/ResearchAreas.aspx?area=8", # Interdisciplinary Research
