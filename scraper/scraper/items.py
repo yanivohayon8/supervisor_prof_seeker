@@ -5,9 +5,9 @@
 
 import scrapy
 # from w3lib.html import remove_tags
-# from itemloaders.processors import Join
+from itemloaders.processors import TakeFirst
 
 
 class SupervisorItem(scrapy.Item):
-    name = scrapy.Field()
+    name = scrapy.Field(output_processor=TakeFirst())
     personal_website_url = scrapy.Field()

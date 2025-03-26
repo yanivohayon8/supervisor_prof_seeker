@@ -76,6 +76,16 @@ class TestPipelines(unittest.TestCase):
         }
 
         utils.run_spider(BguCsSpider,settings=settings)
+    
+    def test_duplicates_json_bgu(self):
+        settings = {
+            "ITEM_PIPELINES":{
+                "scraper.scraper.pipelines.DuplicatesPipeline":300,
+                "scraper.scraper.pipelines.JsonWriterPipeline":500
+            }
+        }
+
+        utils.run_spider(BguCsSpider,settings=settings)
 
 if __name__ == "__main__":
     unittest.main()
