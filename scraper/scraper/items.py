@@ -4,9 +4,10 @@
 # https://docs.scrapy.org/en/latest/topics/items.html
 
 import scrapy
+# from w3lib.html import remove_tags
+# from itemloaders.processors import Join
 
 
-class ScraperItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class SupervisorItem(scrapy.Item):
+    name = scrapy.Field()
+    personal_website_url = scrapy.Field()

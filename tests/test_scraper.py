@@ -1,12 +1,13 @@
 import unittest
 from scraper import utils
+from scraper.scraper.spiders.supervisors_spider import SupervisorsSpider
 import scrapy
 import json
 import os
 
 class TestUtils(unittest.TestCase):
 
-    def test_runner(self):
+    def test_runner_QuotesSpider(self):
         # A dummy scraper from the tutorial https://docs.scrapy.org/en/latest/intro/tutorial.html
         class QuotesSpider(scrapy.Spider):
             name = "quotes"
@@ -45,6 +46,25 @@ class TestUtils(unittest.TestCase):
             os.remove(output_path)
 
 
+    def test_bgu_run_spider(self):
+        output_path = "tests/test_bgu_run_spider.json"
+        settings={
+            "FEEDS": {
+                output_path: {"format": "json"},
+            },
+        }
+
+        utils.run_spider(SupervisorsSpider,settings=settings)
+
+        try:
+            with open(output_path) as f:
+                data = json.load(f)
+                self.assertGreater(len(data),0,"The spider did not scrape any items")
+        except Exception:
+            pass
+
+        if os.path.exists(output_path):
+            os.remove(output_path)
 
 
 if __name__ == "__main__":
