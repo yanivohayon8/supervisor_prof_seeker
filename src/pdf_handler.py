@@ -8,7 +8,7 @@ def remove_citation_(text:str):
     return re.sub("\[\d+\]","",text)
 
 def remove_references_(text:str):
-    return re.sub("(References)\n*.*","",text,flags=re.DOTALL|re.IGNORECASE)
+    return re.sub("(References)\s?\n*.*","",text,flags=re.DOTALL|re.IGNORECASE)
 
 def clean_(text:str):
     text = remove_new_line_(text)
@@ -32,4 +32,8 @@ def read_pdf(input_path):
 
     return text
 
+def extract_absract(text):
+    abstract = re.search("(Abstract|ABSTRACT|A B S T R A C T)(.+)(Introduction|INTRODUCTION)",text,flags=re.DOTALL).group()
+    abstract = abstract[:len(abstract)-len("Introduction")]
 
+    return abstract

@@ -35,13 +35,6 @@ class TestCleaning(unittest.TestCase):
                 of the IEEE, 65(11):1558–1564, 1977.
                 [3] S.-I. Amari. Learning patterns and pattern sequences by self-organizing nets of threshold elements. IEEE
                 Transactions on computers, 100(11):1197–1206, 1972.
-                [4] B. D. Anderson. Reverse-time diffusion equation models. Stochastic Processes and their Applications,
-                12(3):313–326, 1982.
-                [5] M. Arjovsky, A. Shah, and Y. Bengio. Unitary evolution recurrent neural networks. In International
-                conference on machine learning. PMLR, 2016.
-                [6] O. Azencot, N. B. Erichson, V. Lin, and M. Mahoney. Forecasting sequential data using consistent
-                Koopman autoencoders. In International Conference on Machine Learning, pages 475–485. PMLR,
-                2020.
                 
                 Apenndix
                 yada yada
@@ -60,6 +53,87 @@ class TestCleaning(unittest.TestCase):
         self.assertNotEqual(len(text),0)
 
 
+    def test_extract_abstract_1(self):
+        text = """
+            Vision Research 228 (2025) 108546
+            Available online 31 January 2025
+            0042-6989/© 2025 The Authors. Published by Elsevier Ltd. This is an open access article under the CC BY-NC-ND license (http://creativecommons.org/licenses/by-
+            nc-nd/4.0/).
+            Contents lists available at ScienceDirect
+            Vision Research
+            journal homepage: www.elsevier.com/locate/visres
+            The Polar Saccadic Flow model: Re-modeling the center bias from fixations to
+            saccades
+            Rotem Mairon, Ohad Ben-Shahar ∗
+            Department of Computer Science, Ben-Gurion University of the Negev, Israel
+            School of Brain Sciences and Cognition, Ben-Gurion University of the Negev, Israel
+            A R T I C L E
+            I N F O
+            Keywords:
+            Eye-movements
+            Saccades
+            Center bias
+            Polar representation
+            Mixture models
+            A B S T R A C T
+            Research indicates that a significant component of human eye movement behavior constitutes a set of consistent
+            biases independent of visual content, the most well-known of which is the central bias. While all prior art
+            focuses on representing saccadic motion and biases in Cartesian retinotopic coordinates, here we propose
+            the Polar Saccadic Flow model, a novel approach for modeling saccades’ space-dependent biases in a polar
+            representation. By breaking saccades into orientation and amplitude, the Polar Saccadic Flow model enables
+            more accurate modeling of these components, leading also to a better understanding of the saccadic bias.
+            Moreover, the polar representation also uncovers hitherto unknown patterns and biases in eye movement data,
+            allowing for a more detailed and nuanced analysis of saccadic behavior. These findings have implications for
+            the study of human visual perception, can help to develop more accurate eye movement models, and also may
+            improve eye tracking technologies.
+            1. Introduction and background
+            The center bias is a prevalent tendency in human eye movement
+            behavior. Regardless of various factors that influence eye movements,
+            such as task demands, the visual stimuli itself, and individual differ-
+            ences, observers consistently exhibit a strong inclination to direct their
+            gaze centrally. Understanding this persistent center bias is crucial as it
+            can shed light on the underlying mechanisms driving visual attention
+            and perception.
+        """
+
+        abstract = pdf_handler.extract_absract(text)
+
+
+        self.assertIsNotNone(abstract)
+        self.assertIsNot(len(abstract),0)
+        self.assertNotIn("Introduction",abstract)
+        assert abstract.endswith("1. ")
+
+    def test_extract_abstract_2(self):
+        text = """Recognizing Artistic Style of Archaeological
+        Image Fragments Using Deep Style Extrapolation
+        Gur Elkin , Ofir Itzhak Shahar , Yaniv Ohayon , Nadav Alali , and Ohad
+        Ben-Shahar
+        Ben-Gurion University of the Negev
+        {gurshal, shofir, yanivoha, nadavala}@post.bgu.ac.il, obs@bgu.ac.il
+        Abstract. Ancient artworks obtained in archaeological excavations usu-
+        ally suffer from a certain degree of fragmentation and physical degrada-
+        tion. Often, fragments of multiple artifacts from different periods or artis-
+        tic styles could be found on the same site. With each fragment containing
+        only partial information about its source, and pieces from different ob-
+        jects being mixed, categorizing broken artifacts based on their visual
+        cues could be a challenging task, even for professionals. As classification
+        is a common function of many machine learning models, the power of
+        modern architectures can be harnessed for efficient and accurate frag-
+        ment classification. In this work, we present a generalized deep-learning
+        framework for predicting the artistic style of image fragments, achieving
+        state-of-the-art results for pieces with varying styles and geometries.
+        Keywords: Image Classification · Artistic Style · Cultural Heritage.
+        1
+        Introduction
+        The ability to automatically recognize and classify artistic styles from images
+        """
+
+        abstract = pdf_handler.extract_absract(text)
+
+        self.assertIsNotNone(abstract)
+        self.assertIsNot(len(abstract),0)
+        self.assertNotIn("Introduction",abstract)
 
 
 if __name__ == "__main__":
