@@ -136,5 +136,35 @@ class TestCleaning(unittest.TestCase):
         self.assertNotIn("Introduction",abstract)
 
 
+    def test_extract_introduction_1(self):
+        text = """
+        results against strong baselines. In the unconditional generation tasks, we show
+        remarkable mean improvements of 58.17% over previous diffusion models in the
+        short discriminative score and 132.61% in the (ultra-)long classification scores.
+        Code is at https://github.com/azencot-group/ImagenTime.
+        1
+        Introduction
+        Generative modeling of real-world information such as images [72], texts [13], and other types of
+        data [99, 55, 8] has drawn increased attention recently. In this work, we focus on the setting of
+        1. We view generative modeling of time series as a visual challenge, allowing to harness advances in
+        time series to image transforms as well as vision diffusion models.
+        2. We develop a novel generative model for time series that scales from short to very long sequence
+        lengths without significant modifications to the neural architecture or training method.
+        3. Our approach achieves state-of-the-art results in comparison to strong baselines in unconditional
+        and conditional generative benchmarks for time series of lengths in the range [24, 17.5k]. Particularly,
+        we attain the best scores on a new challenging benchmark of very long sequences that we introduce.
+        2
+        Related work
+        Time series to image works.
+        Motivated by the success of c
+        """
+
+        intro = pdf_handler.extract_introduction(text)
+        self.assertIsNotNone(intro)
+        self.assertIsNot(len(intro),0)
+        assert intro.endswith("Related work")
+
+
+
 if __name__ == "__main__":
     unittest.main()

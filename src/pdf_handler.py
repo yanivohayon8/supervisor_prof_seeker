@@ -37,3 +37,8 @@ def extract_absract(text):
     abstract = abstract[:len(abstract)-len("Introduction")]
 
     return abstract
+
+def extract_introduction(text):
+    intro = re.search("(Introduction|INTRODUCTION)(.+)(?i:Related work|Methods)",text,flags=re.DOTALL).group()
+
+    return intro
