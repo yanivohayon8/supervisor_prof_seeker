@@ -4,27 +4,20 @@ from src import pdf_handler
 class TestCleaning(unittest.TestCase):
 
     def test_clean_1(self):
-        text = '''Transformer models have consistently achieved remarkable results in various domains such
-                as natural language processing and computer vision. However, despite ongoing research
-                efforts to better understand these models, the field still lacks a comprehensive understand-
-                ing. This is particularly true for deep time series forecasting methods, where analysis and
-                understanding work is relatively limited. Time series data, unlike image and text informa-
-                tion, can be more challenging to interpret and analyze. To address this, we approach the
-                problem from a manifold learning perspective, assuming that the latent representations of
-                time series forecasting models lie next to a low-dimensional manifold. In our study, we focus
-                on analyzing the geometric features of these latent data manifolds, including intrinsic di-
-                mension and principal curvatures. Our findings reveal that deep transformer models exhibit
-                similar geometric behavior across layers, and these geometric features are correlated with
-                model performance. Additionally, we observe that untrained models initially have different
-                structures, but they rapidly converge during training. By leveraging our geometric analy-
-                sis and differentiable tools, we can potentially design new and improved deep forecasting
-                neural networks. This approach complements existing analysis studies and contributes to a
-                better understanding of transformer models in the context of time series forecasting. Code
-                is released at https://github.com/azencot-group/GATLM.'''
+        text = '''The ability to automatically recognize and classify artistic styles from images
+                is a challenging problem in computer vision and digital art analysis. Artistic
+                styles encompass the distinctive visual patterns, techniques, and movements
+                that characterize the works of different artists, periods, and schools through-
+                out history [35]. Accurately identifying these styles holds significant value for
+                applications such as archiving and cataloging art collections, supporting art ed-
+                ucation and appreciation [34], and enabling content-based image retrieval and
+                recommendation systems [7].'''
         
         text = pdf_handler.clean_(text)
 
         self.assertNotIn("\n",text)
+        self.assertNotIn("[7]",text)
+        self.assertNotIn("[34]",text)
 
 
 if __name__ == "__main__":
