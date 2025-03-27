@@ -32,13 +32,13 @@ def read_pdf(input_path):
 
     return text
 
-def extract_absract(text):
+def extract_absract(text:str):
     abstract = re.search("(Abstract|ABSTRACT|A B S T R A C T)(.+)(Introduction|INTRODUCTION)",text,flags=re.DOTALL).group()
     abstract = abstract[:len(abstract)-len("Introduction")]
 
     return abstract
 
-def extract_introduction(text):
-    intro = re.search("(Introduction|INTRODUCTION)(.+)(?i:Related work|Methods)",text,flags=re.DOTALL).group()
+def extract_introduction(text:str):
+    intro = re.search("(Introduction|INTRODUCTION)(.+)(Related work|Related Work|Methods)",text,flags=re.DOTALL).group()
 
     return intro

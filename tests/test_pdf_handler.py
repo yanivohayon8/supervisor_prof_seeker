@@ -135,7 +135,6 @@ class TestCleaning(unittest.TestCase):
         self.assertIsNot(len(abstract),0)
         self.assertNotIn("Introduction",abstract)
 
-
     def test_extract_introduction_1(self):
         text = """
         results against strong baselines. In the unconditional generation tasks, we show
@@ -164,7 +163,13 @@ class TestCleaning(unittest.TestCase):
         self.assertIsNot(len(intro),0)
         assert intro.endswith("Related work")
 
-
+    def test_read_abstract_intro_1(self):
+        in_path = "tests/data/Harel_et_al-2024-International_Journal_of_Computer_Vision.pdf"
+        text = pdf_handler.read_pdf(in_path)
+        abstract = pdf_handler.extract_absract(text)
+        self.assertNotEqual(len(abstract),0)
+        intro = pdf_handler.extract_introduction(text)
+        self.assertNotEqual(len(intro),0)
 
 if __name__ == "__main__":
     unittest.main()
