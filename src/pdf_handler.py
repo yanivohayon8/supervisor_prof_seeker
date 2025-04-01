@@ -39,6 +39,6 @@ def extract_absract(text:str):
     return abstract
 
 def extract_introduction(text:str):
-    intro = re.search("(Introduction|INTRODUCTION)(.+)(Related work|Related Work|Methods)",text,flags=re.DOTALL).group()
+    intro = re.search("(Introduction|INTRODUCTION)(.+)(Related work|Related Work)",text,flags=re.DOTALL).group() # Methods
 
     return intro

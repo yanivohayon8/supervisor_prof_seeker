@@ -1,12 +1,15 @@
 import unittest
-from src.indexing_pipeline import index_text_file
+from src.indexing_pipeline.pipeline import index_pdf_paper,index_text_file,Pipeline
 from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_community.vectorstores import FAISS
+import faiss
+from langchain_community.docstore import InMemoryDocstore
 
 class TestIndexTextFile(unittest.TestCase):
 
-    def test_indexing_dummy_abstract(self):
+    def test_index_text_file(self):
         file_path = "tests/data/2501.00836v2.txt"
 
         text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000,chunk_overlap=200)
@@ -22,6 +25,53 @@ class TestIndexTextFile(unittest.TestCase):
 
         print(similar_docs)
 
+
+    def test_index_pdf_InMemoryVectorStore(self):
+        file_path = "tests/data/Harel_et_al-2024-International_Journal_of_Computer_Vision.pdf"
+
+        text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000,chunk_overlap=200)
+        embeddings = HuggingFaceEmbeddings(model_name = "sentence-transformers/all-mpnet-base-v2")
+        vector_store = InMemoryVectorStore(embeddings)
+
+        index_pdf_paper(file_path,text_splitter,vector_store)
+
+        query = "Ancient artworks are obtained in archaeological excavations."
+        similar_docs = vector_store.similarity_search(query,k=2)
+
+        self.assertEqual(len(similar_docs),2)
+
+        print(similar_docs)
+
+    def test_index_pdf_faiss_1(self):
+        file_path = "tests/data/Harel_et_al-2024-International_Journal_of_Computer_Vision.pdf"
+
+        text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000,chunk_overlap=200)
+        embeddings = HuggingFaceEmbeddings(model_name = "sentence-transformers/all-mpnet-base-v2")
+        vector = embeddings.embed_query("hello world")
+        index = faiss.IndexFlatL2(len(vector))
+        vector_store = FAISS(
+            embedding_function=embeddings,
+            index=index,
+            docstore=InMemoryDocstore(),
+            index_to_docstore_id={}
+            )
+
+        index_pdf_paper(file_path,text_splitter,vector_store)
+
+        query = "Ancient artworks are obtained in archaeological excavations."
+        similar_docs = vector_store.similarity_search(query,k=2)
+
+        self.assertEqual(len(similar_docs),2)
+
+        print(similar_docs)
+
+
+class TestPipeline(unittest.TestCase):
+    def test_simple_1(self):
+        file_path = "tests/data/Harel_et_al-2024-International_Journal_of_Computer_Vision.pdf"
+
+        pipeline = Pipeline()
+        pipeline.run([file_path])
 
 if __name__ == "__main__":
     unittest.main()
