@@ -25,7 +25,7 @@ def load_json_settings(file_path:str,override_settings:dict=None):
     return settings
 
 
-class Pipeline():
+class IndexingPipeline():
 
     def __init__(self,config_path="src/indexing_pipeline/config.json",override_settings:dict=None):
         total_settings = load_json_settings(config_path,override_settings=override_settings)

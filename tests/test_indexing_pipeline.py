@@ -1,5 +1,5 @@
 import unittest
-from src.indexing_pipeline.pipeline import index_pdf_paper,index_text_file,Pipeline
+from src.indexing_pipeline.indexing_pipeline import index_pdf_paper,index_text_file,IndexingPipeline
 from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -76,7 +76,7 @@ class TestPipeline(unittest.TestCase):
             }
         }
 
-        pipeline = Pipeline(override_settings=settings)
+        pipeline = IndexingPipeline(override_settings=settings)
         pipeline.run([file_path])
 
     def test_faiss_1(self):
@@ -87,8 +87,8 @@ class TestPipeline(unittest.TestCase):
                 "type":"FAISS"
             }
         }
-        
-        pipeline = Pipeline(override_settings=settings)
+
+        pipeline = IndexingPipeline(override_settings=settings)
         pipeline.run([file_path])
 
 if __name__ == "__main__":
