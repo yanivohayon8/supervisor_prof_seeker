@@ -1,0 +1,5 @@
+{
+    "vector_store":{
+        "input_folder": "./faiss_vector_db"
+    }
+}

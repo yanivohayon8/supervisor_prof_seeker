@@ -90,6 +90,19 @@ class TestPipeline(unittest.TestCase):
 
         pipeline = IndexingPipeline(override_settings=settings)
         pipeline.run([file_path])
+    
+    def test_faiss_save_db(self):
+        file_path = "tests/data/Harel_et_al-2024-International_Journal_of_Computer_Vision.pdf"
+        
+        settings = {
+            "vector_store":{
+                "type":"FAISS",
+                "dst_folder": "./faiss_vector_db"
+            }
+        }
+
+        pipeline = IndexingPipeline(override_settings=settings)
+        pipeline.run([file_path])
 
 if __name__ == "__main__":
     unittest.main()

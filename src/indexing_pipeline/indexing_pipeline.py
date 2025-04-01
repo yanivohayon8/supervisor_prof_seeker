@@ -3,26 +3,11 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter, TextSplitte
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_core.vectorstores import InMemoryVectorStore,VectorStore
 from langchain_community.document_loaders import TextLoader
-import json
 from langchain_community.vectorstores import FAISS
 import faiss
 from langchain_community.docstore import InMemoryDocstore
 from src import pdf_handler
-
-
-def load_json_settings(file_path:str,override_settings:dict=None):
-    try:
-        with open(file_path,"r") as f:
-            settings = json.load(f)
-    except FileNotFoundError as e:
-        settings= {}
-    
-    if override_settings is None:
-        override_settings = {}
-    
-    settings.update(override_settings)
-    
-    return settings
+from src.utils import load_json_settings
 
 
 class IndexingPipeline():
