@@ -67,10 +67,28 @@ class TestIndexTextFile(unittest.TestCase):
 
 
 class TestPipeline(unittest.TestCase):
-    def test_simple_1(self):
+    def test_default(self):
         file_path = "tests/data/Harel_et_al-2024-International_Journal_of_Computer_Vision.pdf"
 
-        pipeline = Pipeline()
+        settings = {
+            "vector_store":{
+                "type":"InMemoryVectorStore"
+            }
+        }
+
+        pipeline = Pipeline(override_settings=settings)
+        pipeline.run([file_path])
+
+    def test_faiss_1(self):
+        file_path = "tests/data/Harel_et_al-2024-International_Journal_of_Computer_Vision.pdf"
+        
+        settings = {
+            "vector_store":{
+                "type":"FAISS"
+            }
+        }
+        
+        pipeline = Pipeline(override_settings=settings)
         pipeline.run([file_path])
 
 if __name__ == "__main__":
