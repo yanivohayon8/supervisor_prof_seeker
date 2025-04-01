@@ -19,7 +19,8 @@ class GeneratingPipeline:
         self.init_vector_store_(self.vector_store_settings)
 
     def init_embeddings_(self,settings:dict):
-        # TODO: read the meta data (write it?) and then load the appropriate embedding
+        ''' TODO: read the meta data (write it?) and then load the appropriate embedding'''
+
         supported_embeddings = {
             "HuggingFaceEmbeddings":HuggingFaceEmbeddings
         }
@@ -44,8 +45,8 @@ class GeneratingPipeline:
             **other_kwargs
         )
     
-    def retrieve_context(self,query):
-        pass
+    def similarity_search(self,query:str,**kwargs):
+        return self.vector_store.similarity_search(query,**kwargs)
 
     def augment_promt(self):
         pass
