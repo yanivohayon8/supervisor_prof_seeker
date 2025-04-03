@@ -56,20 +56,25 @@ class IndexingPipeline():
         else:
             raise NotImplementedError(f"Currently, Pipeline does not support vector store {vector_store_type}")
 
+
     def run(self,pdf_files:list[str]):
+        self.index_pdfs_(pdf_files)
+        self.save_indxing_()
+
+    def save_indxing_(self):
+        if isinstance(self.vector_store,FAISS):
+            save_folder = self.vector_store_settings.get("save_folder",None)
+
+            if save_folder:
+                self.vector_store.save_local(save_folder)
+                
+    def index_pdfs_(self,pdf_files:list[str]):
         for pdf in pdf_files:
             try:
                 print(f"Indexing {pdf}")
                 index_pdf_paper(pdf,self.text_splitter,self.vector_store)
             except Exception as e:
                 print(f"Failed to index {pdf}: {e}")
-
-        if isinstance(self.vector_store,FAISS):
-            save_folder = self.vector_store_settings.get("save_folder",None)
-
-            if save_folder:
-                self.vector_store.save_local(save_folder)
-
 
 def index_pdf_paper(pdf_path:str,text_splitter:TextSplitter,vector_store:VectorStore):
     text = pdf_handler.read_pdf(pdf_path)
