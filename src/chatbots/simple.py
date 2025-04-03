@@ -87,13 +87,16 @@ class SimpleRAGChatbot():
         self.graph_builder.add_edge("generate_",END)
 
         self.graph = self.graph_builder.compile(checkpointer=MemorySaver())
-
         self.prompt = ChatPromptTemplate([
-            ("system", "You are an assistant for question-answering tasks. Use the following context to answer." +
-                        " If you do not know the answer say you do not know. Answer concisely."
-                        "\n\n {docs_content}"),
+            ("system", 
+                "You are an expert assistant designed to help M.Sc. and Ph.D. students find a suitable research supervisor. "
+                "Use the provided context to answer questions accurately and concisely. "
+                "If the answer is not in the given context, say you do not know instead of making assumptions."
+                "\n\nContext:\n{docs_content}"
+            ),
             ("human", "Question: {question}")
         ])
+
 
         self.user_input = user_input
 
