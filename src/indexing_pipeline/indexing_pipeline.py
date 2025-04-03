@@ -3,74 +3,56 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter, TextSplitte
 from langchain_core.vectorstores import InMemoryVectorStore,VectorStore
 from langchain_community.document_loaders import TextLoader
 from langchain_community.vectorstores import FAISS
-import faiss
-from langchain_community.docstore import InMemoryDocstore
 from src import pdf_handler
 from src.utils import load_json_settings
 from src.api_utils import init_embeddings
 
+from src.vector_store_loaders.faiss_loader import load_vector_store,init_faiss
+
 class IndexingPipeline():
 
     def __init__(self,config_path="src/indexing_pipeline/config.json",override_settings:dict=None):
-        total_settings = load_json_settings(config_path,override_settings=override_settings)
+        self.config_path = config_path
+        self.total_settings = load_json_settings(config_path,override_settings=override_settings)
 
-        self.text_splitter_settings = total_settings.get("text_splitter",{})
-        self.init_text_splitter_(self.text_splitter_settings)
+        self.text_splitter_settings = self.total_settings.get("text_splitter",{})
+        self.init_text_splitter_()
         
-        self.embeddings_settings = total_settings.get("embedding",{})
+        self.embeddings_settings = self.total_settings.get("embedding",{})
         embedding_type = self.embeddings_settings.pop("type",None)
         self.embeddings = init_embeddings(embedding_type,self.embeddings_settings)
 
-        self.vector_store_settings = total_settings.get("vector_store",{})
-        self.init_vector_store_(self.vector_store_settings)
+        self.init_vector_store_()
         
     
-    def init_text_splitter_(self,settings:dict):
+    def init_text_splitter_(self):
         supported_splitters = {
             "RecursiveCharacterTextSplitter": RecursiveCharacterTextSplitter,
         }
 
-        spliter_type = settings.get("type","RecursiveCharacterTextSplitter") #
+        spliter_type = self.text_splitter_settings.get("type","RecursiveCharacterTextSplitter") #
         
         if  not spliter_type in supported_splitters:
             raise NotImplementedError(f"Currently, Pipeline do not support {spliter_type} text splitter")
 
-        settings.pop("type",None)
-        self.text_splitter = supported_splitters[spliter_type](**settings)
+        self.text_splitter_settings.pop("type",None)
+        self.text_splitter = supported_splitters[spliter_type](**self.text_splitter_settings)
 
-    def init_vector_store_(self,settings:dict):
-        vector_store_type = settings.get("type","InMemoryVectorStore") 
+    def init_vector_store_(self):
+        self.vector_store_settings  = self.total_settings.get("vector_store")
+        vector_store_type = self.vector_store_settings.pop("type","InMemoryVectorStore") 
         
         if vector_store_type == "InMemoryVectorStore":
             self.vector_store = InMemoryVectorStore(self.embeddings)
         elif vector_store_type == "FAISS":
-            
-            input_folder = settings.get("input_folder",None)
+            input_folder = self.vector_store_settings.get("input_folder",None)
 
             if input_folder:
-                index_name = settings.get("index_name","index")
-                allow_dangerous_deserialization = settings.get("allow_dangerous_deserialization",True)
-                used_keys = ["type","input_folder","index_name","allow_dangerous_deserialization","dst_folder"]
-                other_kwargs =  {k:v for k,v in settings.items() if not k in used_keys}
-
-                self.vector_store = FAISS.load_local(
-                    folder_path=input_folder,embeddings=self.embeddings,
-                    index_name=index_name,
-                    allow_dangerous_deserialization=allow_dangerous_deserialization,
-                    **other_kwargs
-                    )
+                self.vector_store = load_vector_store(self.embeddings,self.vector_store_settings)
             else:
-                settings.pop("type",None)
-                # del settings["input_folder"]
-
-                vector = self.embeddings.embed_query("hello world")
-                index = faiss.IndexFlatL2(len(vector))
-                self.vector_store = FAISS(
-                    embedding_function=self.embeddings,
-                    index=index,
-                    docstore=InMemoryDocstore(),
-                    index_to_docstore_id={}
-                    )
+                # settings.pop("type",None)
+                self.vector_store = init_faiss(self.embeddings)
+                
         else:
             raise NotImplementedError(f"Currently, Pipeline does not support vector store {vector_store_type}")
 
@@ -82,10 +64,10 @@ class IndexingPipeline():
                 print(f"Failed to index {pdf}: {e}")
 
         if isinstance(self.vector_store,FAISS):
-            dst_folder = self.vector_store_settings.get("dst_folder",None)
+            save_folder = self.vector_store_settings.get("save_folder",None)
 
-            if dst_folder:
-                self.vector_store.save_local(dst_folder)
+            if save_folder:
+                self.vector_store.save_local(save_folder)
 
 
 def index_pdf_paper(pdf_path:str,text_splitter:TextSplitter,vector_store:VectorStore):

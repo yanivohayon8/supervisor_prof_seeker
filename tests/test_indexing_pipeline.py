@@ -84,31 +84,25 @@ class TestPipeline(unittest.TestCase):
     def test_faiss_1(self):
         file_path = "tests/data/Harel_et_al-2024-International_Journal_of_Computer_Vision.pdf"
         
-        settings = {
-            "vector_store":{
-                "type":"FAISS"
-            }
-        }
-
-        pipeline = IndexingPipeline(override_settings=settings)
+        pipeline = IndexingPipeline()
         pipeline.run([file_path])
     
     def test_faiss_save_db(self):
         file_path = "tests/data/Harel_et_al-2024-International_Journal_of_Computer_Vision.pdf"
-        dst_folder = "tests/tmp/faiss_vector_db"
+        save_folder = "tests/tmp/faiss_vector_db"
 
         settings = {
             "vector_store":{
                 "type":"FAISS",
-                "dst_folder": dst_folder
+                "save_folder": save_folder
             }
         }
 
         pipeline = IndexingPipeline(override_settings=settings)
         pipeline.run([file_path])
 
-        if os.path.exists(dst_folder):
-            shutil.rmtree(dst_folder)
+        if os.path.exists(save_folder):
+            shutil.rmtree(save_folder)
 
 if __name__ == "__main__":
     unittest.main()

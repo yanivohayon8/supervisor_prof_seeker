@@ -1,5 +1,5 @@
 import unittest
-from src.vector_store_loaders.faiss_loader import load_faiss,init_faiss,save_faiss
+from src.vector_store_loaders.faiss_loader import load_faiss_indexed,init_faiss,save_faiss
 from src.api_utils import init_openai_embeddings_
 
 
@@ -11,7 +11,7 @@ class TestInitFAISS(unittest.TestCase):
         # save_faiss(vector_store, "./faiss_openai_text-embedding-3-small")
 
     def test_loading_faiss(self):
-        vector_store = load_faiss()
+        vector_store = load_faiss_indexed()
 
         query = "Ancient artworks are obtained in archaeological excavations."
         similar_docs = vector_store.similarity_search(query,k=2)
