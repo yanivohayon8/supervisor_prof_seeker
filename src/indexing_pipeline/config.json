@@ -4,8 +4,12 @@
         "chunk_size":1000,
         "chunk_overlap":200
     },
+    "embedding":{
+        "type":"OpenAIEmbeddings",
+        "model": "text-embedding-3-small"
+    },
     "vector_store":{
         "type":"FAISS",
-        "dst_folder": "./faiss_vector_db"
+        "dst_folder": "./faiss_openai_text-embedding-3-small"
     }
 }

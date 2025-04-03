@@ -1,6 +1,5 @@
 from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter, TextSplitter
-from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_core.vectorstores import InMemoryVectorStore,VectorStore
 from langchain_community.document_loaders import TextLoader
 from langchain_community.vectorstores import FAISS
@@ -8,7 +7,7 @@ import faiss
 from langchain_community.docstore import InMemoryDocstore
 from src import pdf_handler
 from src.utils import load_json_settings
-
+from src.api_utils import init_embeddings
 
 class IndexingPipeline():
 
@@ -18,9 +17,10 @@ class IndexingPipeline():
         self.text_splitter_settings = total_settings.get("text_splitter",{})
         self.init_text_splitter_(self.text_splitter_settings)
         
-        self.embeddings_settings = total_settings.get("embeddings",{})
-        self.init_embeddings_(self.embeddings_settings)
-        
+        self.embeddings_settings = total_settings.get("embedding",{})
+        embedding_type = self.embeddings_settings.pop("type",None)
+        self.embeddings = init_embeddings(embedding_type,self.embeddings_settings)
+
         self.vector_store_settings = total_settings.get("vector_store",{})
         self.init_vector_store_(self.vector_store_settings)
         
@@ -37,18 +37,6 @@ class IndexingPipeline():
 
         settings.pop("type",None)
         self.text_splitter = supported_splitters[spliter_type](**settings)
-
-    def init_embeddings_(self,settings:dict):
-        supported_embeddings = {
-            "HuggingFaceEmbeddings":HuggingFaceEmbeddings
-        }
-        embedding_type = settings.get("type","HuggingFaceEmbeddings")
-
-        if not embedding_type in supported_embeddings:
-            raise NotImplementedError(f"Currently, Pipeline do not support {embedding_type} embeddings")
-        
-        settings.pop("type",None)
-        self.embeddings = supported_embeddings[embedding_type](**settings)
 
     def init_vector_store_(self,settings:dict):
         vector_store_type = settings.get("type","InMemoryVectorStore") 

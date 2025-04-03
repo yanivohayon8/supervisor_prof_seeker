@@ -6,6 +6,8 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
 import faiss
 from langchain_community.docstore import InMemoryDocstore
+import shutil
+import os
 
 class TestIndexTextFile(unittest.TestCase):
 
@@ -93,16 +95,20 @@ class TestPipeline(unittest.TestCase):
     
     def test_faiss_save_db(self):
         file_path = "tests/data/Harel_et_al-2024-International_Journal_of_Computer_Vision.pdf"
-        
+        dst_folder = "tests/tmp/faiss_vector_db"
+
         settings = {
             "vector_store":{
                 "type":"FAISS",
-                "dst_folder": "./faiss_vector_db"
+                "dst_folder": dst_folder
             }
         }
 
         pipeline = IndexingPipeline(override_settings=settings)
         pipeline.run([file_path])
+
+        if os.path.exists(dst_folder):
+            shutil.rmtree(dst_folder)
 
 if __name__ == "__main__":
     unittest.main()

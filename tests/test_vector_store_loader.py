@@ -1,12 +1,12 @@
 import unittest
 from src.vector_store_loaders.faiss_loader import load_faiss,init_faiss,save_faiss
-from src.api_utils import init_openai_embeddings
+from src.api_utils import init_openai_embeddings_
 
 
 class TestInitFAISS(unittest.TestCase):
 
     def test_init_faiss(self):
-        embeddings = init_openai_embeddings("text-embedding-3-small")
+        embeddings = init_openai_embeddings_("text-embedding-3-small")
         vector_store= init_faiss(embeddings)
         # save_faiss(vector_store, "./faiss_openai_text-embedding-3-small")
 

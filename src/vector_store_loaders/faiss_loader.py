@@ -1,27 +1,8 @@
 import faiss
 from langchain_community.vectorstores import FAISS
 from langchain_community.docstore.in_memory import InMemoryDocstore
-from langchain_huggingface import HuggingFaceEmbeddings
 from src.utils import load_json_settings
-from src.api_utils import init_openai_embeddings
-from langchain_openai import OpenAIEmbeddings
-
-
-def init_embeddings_(settings:dict):
-    ''' TODO: read the meta data (write it?) and then load the appropriate embedding'''
-
-    supported_embeddings = {
-        "HuggingFaceEmbeddings":HuggingFaceEmbeddings,
-        "OpenAIEmbeddings": init_openai_embeddings
-    }
-
-    embedding_type = settings.get("type","HuggingFaceEmbeddings")
-
-    if not embedding_type in supported_embeddings:
-        raise NotImplementedError(f"Currently, Pipeline do not support {embedding_type} embeddings")
-    
-    settings.pop("type",None)
-    return supported_embeddings[embedding_type](**settings)
+from src.api_utils import init_embeddings
 
 
 def init_vector_store_(embeddings,settings:dict):
@@ -49,7 +30,8 @@ def load_faiss(config_path="src/vector_store_loaders/config.json",override_setti
         raise ValueError(f"The input_folder under vector_store key in {config_path} is not specified")
     
     embeddings_settings = total_settings.get("embeddings",{})
-    embeddings = init_embeddings_(embeddings_settings)
+    embedding_type = embeddings_settings.pop("type",None)
+    embeddings = init_embeddings(embedding_type,embeddings_settings)
 
     vector_store = init_vector_store_(embeddings, vector_store_settings)
 
