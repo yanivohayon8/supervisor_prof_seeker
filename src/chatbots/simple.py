@@ -16,6 +16,9 @@ from langchain_core.prompts import ChatPromptTemplate
 class SimpleState(TypedDict):
     messages: Annotated[list, add_messages]
 
+
+KEYWORD_TO_QUIT_CHATBOT = ["q", "exit", "quit"]
+
 class SimpleChatbot:
 
     def __init__(self):
@@ -71,7 +74,7 @@ class SimpleRAGState(TypedDict):
 
 class SimpleRAGChatbot():
     
-    def __init__(self,vector_store):
+    def __init__(self,vector_store,user_input="keyboard"):
         verify_openai_api_key()
         self.llm = init_chat_model("gpt-4o-mini", model_provider="openai")
         self.vector_store = vector_store
@@ -91,6 +94,13 @@ class SimpleRAGChatbot():
                         "\n\n {docs_content}"),
             ("human", "Question: {question}")
         ])
+
+        self.user_input = user_input
+
+        if isinstance(self.user_input,list):
+            self.user_input_iterator_index = 0 
+
+            assert all([isinstance(query,str) for query in self.user_input])
     
     def retrieve_(self,state:SimpleRAGState):
         retrieved_docs = self.vector_store.similarity_search(state["question"])
@@ -104,19 +114,20 @@ class SimpleRAGChatbot():
         return {"answer":response.content}
     
     def stream_graph_update(self, user_input,config):
+        print("AI output:",end=" ")
         for step in self.graph.stream({"question":user_input},config=config):
             if "generate_" in step.keys():
                 print(step["generate_"]["answer"])
-
+        print()
 
     def run(self,thread_id="aaa"):
         config = {"configurable":{"thread_id":thread_id}}
 
         while True:
             try:
-                user_input = input("User:")
-                print()
-                if user_input in ["q", "exit", "quit"]:
+                user_input = self.get_user_input()
+                print(f"Recieved user input: {user_input}")
+                if user_input in KEYWORD_TO_QUIT_CHATBOT:
                     print("Goodbye")
                     break
                 
@@ -127,3 +138,17 @@ class SimpleRAGChatbot():
                 self.stream_graph_update(user_input,config)
                 print("Goodbye")
                 break
+    
+
+    def get_user_input(self):
+        if self.user_input == "keyboard":
+            return input("User:")
+                
+        if isinstance(self.user_input,list):
+            if self.user_input_iterator_index == len(self.user_input):
+                return KEYWORD_TO_QUIT_CHATBOT[0]
+            
+            next_query = self.user_input[self.user_input_iterator_index]
+            self.user_input_iterator_index +=1
+
+            return next_query

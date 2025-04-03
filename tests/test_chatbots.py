@@ -38,6 +38,12 @@ class TestSimpleRAGChatbot(unittest.TestCase):
 
         bot = SimpleRAGChatbot(vector_store)
         bot.run()
+    
+    def test_run_fixed_queries_1(self):
+        vector_store = load_faiss_indexed()
+        queries = ["I want to do a research on deep learning. Do you recommend on a supervisor?"]
+        bot = SimpleRAGChatbot(vector_store,user_input=queries)
+        bot.run()
 
 if __name__ == "__main__":
     unittest.main()
