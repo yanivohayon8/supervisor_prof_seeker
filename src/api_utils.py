@@ -19,3 +19,6 @@ def verify_environment_variable_(name,message=None):
 def verify_openai_api_key():
     verify_environment_variable_("OPENAI_API_KEY")
 
+def init_openai_embeddings(model:str):
+    verify_openai_api_key()
+    return OpenAIEmbeddings(model=model)

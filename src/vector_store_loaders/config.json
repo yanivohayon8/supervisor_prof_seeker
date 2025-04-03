@@ -1,0 +1,9 @@
+{
+    "vector_store":{
+        "input_folder": "./faiss_openai_text-embedding-3-small"
+    },
+    "embeddings":{
+        "type":"OpenAIEmbeddings",
+        "model":"text-embedding-3-small"
+    }
+}
