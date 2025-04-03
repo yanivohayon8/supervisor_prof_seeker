@@ -8,6 +8,8 @@ from src.utils import load_json_settings
 from src.api_utils import init_embeddings
 import os
 from src.vector_store_loaders.faiss_loader import load_vector_store,init_faiss
+import json
+
 
 class IndexingPipeline():
 
@@ -58,7 +60,7 @@ class IndexingPipeline():
 
 
     def run(self,pdf_files:list[str]):
-        self.index_pdfs_(pdf_files)
+        self.index_papers_abstract_(pdf_files)
         self.save_indxing_()
 
     def save_indxing_(self):
@@ -67,7 +69,26 @@ class IndexingPipeline():
 
             if save_folder:
                 self.vector_store.save_local(save_folder)
-                
+
+
+    def get_supervisor_name_(self,pdf_file:str):
+        return os.path.dirname(pdf_file)
+
+    def index_papers_abstract_(self,pdf_files:list[str]):
+        docs = []
+
+        for pdf_path in pdf_files:
+            supervisor = self.get_supervisor_name_(pdf_path)
+            metadata={"pdf_path":pdf_path,"supervisor":supervisor,"sections":["abstract"]}
+            text = pdf_handler.read_pdf(pdf_path)
+            abstract_text = pdf_handler.extract_absract(text)
+            abstract_text = f"The supervisor {supervisor} present the following paper:\n" + abstract_text
+
+            docs.append(Document(page_content=abstract_text,metadata=metadata))
+        
+        self.vector_store.add_documents(docs)
+
+    
     def index_pdfs_(self,pdf_files:list[str]):
         for pdf in pdf_files:
             try:

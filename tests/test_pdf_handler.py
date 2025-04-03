@@ -21,7 +21,7 @@ class TestCleaning(unittest.TestCase):
 
     
     def test_read_pdf_internal_func(self):
-        in_path = "tests/data/Harel_et_al-2024-International_Journal_of_Computer_Vision.pdf"
+        in_path = "tests/Ohad Ben-shahar/Harel_et_al-2024-International_Journal_of_Computer_Vision.pdf"
         text = pdf_handler.read_pdf_text_(in_path)
         print(text)
         self.assertNotEqual(len(text),0)
@@ -47,7 +47,7 @@ class TestCleaning(unittest.TestCase):
                 """)
 
     def test_read_pdf(self):
-        in_path = "tests/data/Harel_et_al-2024-International_Journal_of_Computer_Vision.pdf"
+        in_path = "tests/Ohad Ben-shahar/Harel_et_al-2024-International_Journal_of_Computer_Vision.pdf"
         text = pdf_handler.read_pdf(in_path)
         # print(text)
         self.assertNotEqual(len(text),0)
@@ -164,7 +164,7 @@ class TestCleaning(unittest.TestCase):
         assert intro.endswith("Related work")
 
     def test_read_abstract_intro_1(self):
-        in_path = "tests/data/Harel_et_al-2024-International_Journal_of_Computer_Vision.pdf"
+        in_path = "tests/Ohad Ben-shahar/Harel_et_al-2024-International_Journal_of_Computer_Vision.pdf"
         text = pdf_handler.read_pdf(in_path)
         abstract = pdf_handler.extract_absract(text)
         self.assertNotEqual(len(abstract),0)

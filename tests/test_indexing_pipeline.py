@@ -29,7 +29,7 @@ class TestIndexTextFile(unittest.TestCase):
 
 
     def test_index_pdf_InMemoryVectorStore(self):
-        file_path = "tests/data/Harel_et_al-2024-International_Journal_of_Computer_Vision.pdf"
+        file_path = "tests/data/Ohad Ben-shahar/Harel_et_al-2024-International_Journal_of_Computer_Vision.pdf"
 
         text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000,chunk_overlap=200)
         embeddings = HuggingFaceEmbeddings(model_name = "sentence-transformers/all-mpnet-base-v2")
@@ -45,7 +45,7 @@ class TestIndexTextFile(unittest.TestCase):
         print(similar_docs)
 
     def test_index_pdf_faiss_1(self):
-        file_path = "tests/data/Harel_et_al-2024-International_Journal_of_Computer_Vision.pdf"
+        file_path = "tests/data/Ohad Ben-shahar/Harel_et_al-2024-International_Journal_of_Computer_Vision.pdf"
 
         text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000,chunk_overlap=200)
         embeddings = HuggingFaceEmbeddings(model_name = "sentence-transformers/all-mpnet-base-v2")
@@ -70,7 +70,7 @@ class TestIndexTextFile(unittest.TestCase):
 
 class TestPipeline(unittest.TestCase):
     def test_default(self):
-        file_path = "tests/data/Harel_et_al-2024-International_Journal_of_Computer_Vision.pdf"
+        file_path = "tests/data/Ohad Ben-shahar/Harel_et_al-2024-International_Journal_of_Computer_Vision.pdf"
 
         settings = {
             "vector_store":{
@@ -82,13 +82,13 @@ class TestPipeline(unittest.TestCase):
         pipeline.run([file_path])
 
     def test_faiss_1(self):
-        file_path = "tests/data/Harel_et_al-2024-International_Journal_of_Computer_Vision.pdf"
+        file_path = "tests/data/Ohad Ben-shahar/Harel_et_al-2024-International_Journal_of_Computer_Vision.pdf"
         
         pipeline = IndexingPipeline()
         pipeline.run([file_path])
     
     def test_faiss_save_db(self):
-        file_path = "tests/data/Harel_et_al-2024-International_Journal_of_Computer_Vision.pdf"
+        file_path = "tests/data/Ohad Ben-shahar/Harel_et_al-2024-International_Journal_of_Computer_Vision.pdf"
         save_folder = "tests/tmp/faiss_vector_db"
 
         settings = {
