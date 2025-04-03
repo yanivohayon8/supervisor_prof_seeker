@@ -6,7 +6,7 @@ from langchain_community.vectorstores import FAISS
 from src import pdf_handler
 from src.utils import load_json_settings
 from src.api_utils import init_embeddings
-
+import os
 from src.vector_store_loaders.faiss_loader import load_vector_store,init_faiss
 
 class IndexingPipeline():
@@ -47,7 +47,7 @@ class IndexingPipeline():
         elif vector_store_type == "FAISS":
             input_folder = self.vector_store_settings.get("input_folder",None)
 
-            if input_folder:
+            if input_folder and os.path.exists(input_folder):
                 self.vector_store = load_vector_store(self.embeddings,self.vector_store_settings)
             else:
                 # settings.pop("type",None)
@@ -59,6 +59,7 @@ class IndexingPipeline():
     def run(self,pdf_files:list[str]):
         for pdf in pdf_files:
             try:
+                print(f"Indexing {pdf}")
                 index_pdf_paper(pdf,self.text_splitter,self.vector_store)
             except Exception as e:
                 print(f"Failed to index {pdf}: {e}")

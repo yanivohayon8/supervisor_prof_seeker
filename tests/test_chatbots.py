@@ -5,6 +5,9 @@ from langchain_openai import OpenAIEmbeddings
 from src.api_utils import verify_openai_api_key
 from langchain_core.documents import Document
 
+
+from src.vector_store_loaders.faiss_loader import load_faiss_indexed
+
 class TestSimple(unittest.TestCase):
 
     def test_run_single_user(self):
@@ -29,6 +32,12 @@ class TestSimpleRAGChatbot(unittest.TestCase):
         bot = SimpleRAGChatbot(vector_store)
         bot.run()
 
+
+    def test_run_indexed_faiss(self):
+        vector_store = load_faiss_indexed()
+
+        bot = SimpleRAGChatbot(vector_store)
+        bot.run()
 
 if __name__ == "__main__":
     unittest.main()
