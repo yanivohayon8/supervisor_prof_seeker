@@ -105,6 +105,24 @@ class TestGoogleScholarSpider(unittest.TestCase):
 
         
         utils.run_spider(ScholarSpider)
+    
+    def test_hardcoded_download_pdf(self):
+        class DownloaderSpider(scrapy.Spider):
+            name="downloader"
+            start_urls = ["https://arxiv.org/pdf/2502.19337"]
+
+            def parse(self,response):
+                name = response.url.split('/')[-1]
+                
+                if not name.endswith(".pdf"):
+                    name = name + ".pdf"
+
+                save_path = f"tests/tmp/{name}"
+
+                with open(save_path, 'wb') as f:
+                    f.write(response.body)
+        
+        utils.run_spider(DownloaderSpider)
 
 
 if __name__ == "__main__":
