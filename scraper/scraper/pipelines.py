@@ -8,6 +8,8 @@
 from itemadapter import ItemAdapter
 from scrapy.exceptions import DropItem
 import json
+import pandas as pd
+import os
 
 class ScraperPipeline:
     def process_item(self, item, spider):
@@ -41,3 +43,9 @@ class JsonWriterPipeline:
         self.file.write(line)
 
         return item
+    
+
+class GoogleScholarAuditPipeline:
+    def close_spider(self,spider):
+        df = pd.DataFrame(spider.audits)
+        df.to_csv(os.path.join(spider.save_folder,"audits.csv"))

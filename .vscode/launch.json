@@ -11,6 +11,13 @@
             "request": "launch",
             "program": "${workspaceFolder}/index_pdfs.py",
             "console": "integratedTerminal"
+        },
+        {
+            "name": "scrape_pdfs",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scrape_pdfs.py",
+            "console": "integratedTerminal"
         }
     ]
 }
