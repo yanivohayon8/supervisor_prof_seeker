@@ -3,6 +3,7 @@ import unittest
 import scrapy.spiders
 from scraper import utils
 from scraper.scraper.spiders.supervisors_spider import BguCsSpider
+from scraper.scraper.spiders.googlescholar_spider import GoogleScholarArticlesSpider
 import scrapy
 import json
 import os
@@ -123,6 +124,18 @@ class TestGoogleScholarSpider(unittest.TestCase):
                     f.write(response.body)
         
         utils.run_spider(DownloaderSpider)
+
+    def test_GoogleScholarArticlesSpider_1(self):
+        start_urls = [
+            "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:3s1wT3WcHBgC"
+            ] 
+        
+        save_folder = f"tests/tmp/"
+        utils.run_spider(GoogleScholarArticlesSpider,starting_urls=start_urls,save_folder=save_folder)
+        expecteed_file_path = os.path.join(save_folder,"2502.19337.pdf")
+
+        self.assertTrue(os.path.exists(expecteed_file_path))
+        os.remove(expecteed_file_path)
 
 
 if __name__ == "__main__":

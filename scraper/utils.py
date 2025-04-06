@@ -1,5 +1,4 @@
 from scrapy.crawler import CrawlerProcess
-# from scraper.scraper.spiders.supervisor_spider import SupervisorSpider
 from scrapy.utils.project import get_project_settings
 
 def create_crawler_process_(settings:dict=None):
@@ -12,13 +11,13 @@ def create_crawler_process_(settings:dict=None):
 
     return process
 
-def start_crawl_(spider_class, process:CrawlerProcess):
-    process.crawl(spider_class)
+def start_crawl_(spider_class, process:CrawlerProcess,**spider_kwargs):
+    process.crawl(spider_class,**spider_kwargs)
     process.start()
 
-def run_spider(spider_class,settings:dict=None):
+def run_spider(spider_class,settings:dict=None,**spider_kwargs):
     process = create_crawler_process_(settings)
-    start_crawl_(spider_class,process)
+    start_crawl_(spider_class,process,**spider_kwargs)
     
 
 
