@@ -1,4 +1,6 @@
 import unittest
+
+import scrapy.spiders
 from scraper import utils
 from scraper.scraper.spiders.supervisors_spider import BguCsSpider
 import scrapy
@@ -86,6 +88,24 @@ class TestPipelines(unittest.TestCase):
         }
 
         utils.run_spider(BguCsSpider,settings=settings)
+
+
+class TestGoogleScholarSpider(unittest.TestCase):
+    def test_hardcoded_extract_link(self):
+        class ScholarSpider(scrapy.Spider):
+            name="Scholar"
+            start_urls = ["https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:3s1wT3WcHBgC"] 
+
+            def parse(self,response):
+                link = response.css("div.gsc_oci_title_ggi a").attrib["href"]
+                print()
+                print(link)
+                print()
+                assert link == "https://arxiv.org/pdf/2502.19337"
+
+        
+        utils.run_spider(ScholarSpider)
+
 
 if __name__ == "__main__":
     unittest.main()
