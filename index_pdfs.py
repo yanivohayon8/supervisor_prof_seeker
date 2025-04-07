@@ -1,9 +1,8 @@
-from src.indexing_pipeline.indexing_pipeline import IndexingPipeline
+from src.indexing_pipeline.indexing_pipeline import IndexingPipeline,PapersMetadataRetriever
 from glob import glob 
 
 if __name__ == "__main__":
+    metadata_retriever = PapersMetadataRetriever("data/google_scholar")
     indx_pipeline = IndexingPipeline()
-
-    pdfs = glob("data/**/*.pdf")
-    indx_pipeline.run(pdfs)
+    indx_pipeline.run()
     

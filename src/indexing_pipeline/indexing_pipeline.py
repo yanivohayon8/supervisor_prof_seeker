@@ -9,11 +9,85 @@ from src.api_utils import init_embeddings
 import os
 from src.vector_store_loaders.faiss_loader import load_vector_store,init_faiss
 import json
+from glob import glob
+
+
+class PapersMetadataRetriever():
+
+    def __init__(self,root_dir):
+        self.root_dir = root_dir # "data/google_scholar/**/*.pdf"
+        self.authors_details_paths = [path for path in glob(os.path.join(self.root_dir,"**","author_details.json"))]
+        # if you find any other useful source add it here....(profile.json does not seem to be useful now...) 
+
+    def get_supervisors_metadata(self):
+        for supervisor_folder in glob(os.path.join(self.root_dir,"*")):
+            yield self.get_metadata(supervisor_folder)
+
+    def get_metadata(self,supervisor_folder:str):
+        with open(os.path.join(supervisor_folder,"author_details.json"),"r") as f:
+            supervisor_metadata = json.load(f)
+
+        supervisor_metadata["supervisor_name"] = supervisor_metadata.get("author").get("name")
+        available_pdfs = list()
+
+        for paper_path in glob(os.path.join(supervisor_folder,"paper","*.pdf")):
+            file_name = os.path.basename(paper_path)
+            article_index = int(file_name.split("_")[0])
+
+            available_pdfs.append({
+                "path":paper_path,
+                "article_index":article_index,
+                **supervisor_metadata["articles"][article_index]
+            })
+        
+        supervisor_metadata["available_pdfs"] = available_pdfs
+
+        return supervisor_metadata
+
+
+
+def get_supervisor_brief(name:str, affilations:str, interests:list[str],website:str=None)->str:
+    intro_txt = f"{name} is a M.Sc. and Ph.D. supervisor at {affilations}"
+
+    if len(interests) != 0:
+        interests_str = ""
+
+        if len(interests) == 1:
+            interests_str = interests[0]
+        else:
+            interests_str = ", ".join(interests[:-1]) + f", and {interests[-1]}"
+
+        final_txt = f"{intro_txt}, with research interests in {interests_str}. "
+    else:
+        final_txt = intro_txt+". "
+
+    if not website:
+        return final_txt
+    
+    return final_txt + f"More information is available on the supervisor's personal site at {website}."
+
+
+def get_paper_overview(supervisor_name:str, title:str, publication:str, year,authors:str,num_cites:int):    
+    context = (
+        f"{supervisor_name} is a co-author of the paper titled \"{title}\", "
+        f"published in {publication} in {year}. "
+        f"The full list of authors includes: {authors}. "
+    )
+
+    try:
+        if num_cites>0:
+            context = context +f"As of April 2025, the work has been cited {num_cites} times. "
+    except Exception as e:
+        pass
+
+    return context
 
 
 class IndexingPipeline():
 
-    def __init__(self,config_path="src/indexing_pipeline/config.json",override_settings:dict=None):
+    def __init__(self,config_path="src/indexing_pipeline/config.json",override_settings:dict=None,metadata_retriever:PapersMetadataRetriever=None):
+        self.metadata_retriever = metadata_retriever
+        
         self.config_path = config_path
         self.total_settings = load_json_settings(config_path,override_settings=override_settings)
 
@@ -25,8 +99,7 @@ class IndexingPipeline():
         self.embeddings = init_embeddings(embedding_type,self.embeddings_settings)
 
         self.init_vector_store_()
-        
-    
+ 
     def init_text_splitter_(self):
         supported_splitters = {
             "RecursiveCharacterTextSplitter": RecursiveCharacterTextSplitter,
@@ -58,11 +131,6 @@ class IndexingPipeline():
         else:
             raise NotImplementedError(f"Currently, Pipeline does not support vector store {vector_store_type}")
 
-
-    def run(self,pdf_files:list[str]):
-        self.index_papers_abstract_(pdf_files)
-        self.save_indxing_()
-
     def save_indxing_(self):
         if isinstance(self.vector_store,FAISS):
             save_folder = self.vector_store_settings.get("save_folder",None)
@@ -70,56 +138,47 @@ class IndexingPipeline():
             if save_folder:
                 self.vector_store.save_local(save_folder)
 
+    def run(self):
+        for supervisor_metadata in self.metadata_retriever.get_supervisors_metadata():
+            self.index_supervisor(supervisor_metadata)
 
-    def get_supervisor_name_(self,pdf_file:str):
-        return os.path.dirname(pdf_file)
+        self.save_indxing_()
 
-    def index_papers_abstract_(self,pdf_files:list[str]):
-        docs = []
+    def index_supervisor(self,supervisor_metadata:dict):
+        self.index_supervisor_brief_(supervisor_metadata)
+        supervisor_name = supervisor_metadata.get("supervisor_name")
 
-        for pdf_path in pdf_files:
-            supervisor = self.get_supervisor_name_(pdf_path)
-            metadata={"pdf_path":pdf_path,"supervisor":supervisor,"sections":["abstract"]}
-            text = pdf_handler.read_pdf(pdf_path)
-            abstract_text = pdf_handler.extract_absract(text)
-            abstract_text = f"The supervisor {supervisor} present the following paper:\n" + abstract_text
-
-            docs.append(Document(page_content=abstract_text,metadata=metadata))
-        
-        self.vector_store.add_documents(docs)
-
-    
-    def index_pdfs_(self,pdf_files:list[str]):
-        for pdf in pdf_files:
-            try:
-                print(f"Indexing {pdf}")
-                index_pdf_paper(pdf,self.text_splitter,self.vector_store)
-            except Exception as e:
-                print(f"Failed to index {pdf}: {e}")
-
-def index_pdf_paper(pdf_path:str,text_splitter:TextSplitter,vector_store:VectorStore):
-    text = pdf_handler.read_pdf(pdf_path)
-    abstract = pdf_handler.extract_absract(text)
-    intro = pdf_handler.extract_introduction(text)
-
-    page_content = abstract+ " " + intro
-
-    doc = Document(
-        page_content=page_content,
-        metadata={
-            "sections":["abstract","introduction"],
-            "input_file":pdf_path
+        for paper_metadata in supervisor_metadata["available_pdfs"]:
+            doc_metadata = {
+                "supervisor_name":supervisor_name,
+                "path":paper_metadata["path"]
             }
-        )
 
-    docs = [doc]
+            self.index_paper_(paper_metadata["path"],supervisor_name,paper_metadata,**doc_metadata)
+            
+       
+    def index_supervisor_brief_(self,supervisor_metadata:dict,doc_metadata:dict={}):
+        name = supervisor_metadata.get("supervisor_name")
+        author = supervisor_metadata.get("author")
+        affilations = author.get("affiliations")
+        interests = [interest.get("title") for interest in author.get("interests")]
+        website = author.get("website")
 
-    all_splits = text_splitter.split_documents(docs)
-    vector_store.add_documents(documents=all_splits)
+        brief = get_supervisor_brief(name,affilations,interests,website)
+        self.vector_store.add_documents([Document(page_content=brief,**doc_metadata)])
 
-def index_text_file(file_path:str,text_splitter:TextSplitter, vector_store:VectorStore):
-    loader = TextLoader(file_path)
-    docs = loader.load()
-    all_splits = text_splitter.split_documents(docs)
-    _ = vector_store.add_documents(documents=all_splits)
-  
+    def index_paper_(self,path:str,supervisor_name:str,paper_metadata:dict,doc_metadata:dict={}):
+        overview_text = get_paper_overview(supervisor_name,paper_metadata.get("title"),
+                                                paper_metadata.get("publication"), paper_metadata.get("year"),
+                                                paper_metadata.get("authors"),paper_metadata.get("cited_by").get("value"))
+        paper_text = pdf_handler.read_pdf(path)
+        abstract_text = pdf_handler.extract_absract(paper_text)
+
+        page_content = (
+            f"{overview_text} The abstract below summarizes the paper’s main contributions and findings.\n\n"
+            f"{abstract_text}"
+        ) 
+        
+        self.vector_store.add_documents([Document(page_content=page_content,**doc_metadata)])
+
+
