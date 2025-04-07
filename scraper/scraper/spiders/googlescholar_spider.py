@@ -65,8 +65,12 @@ class GoogleScholarArticlesSpider(scrapy.Spider):
     def parse(self,response):
         try:
             pdf_url = response.css("div.gsc_oci_title_ggi a").attrib["href"]
-            self.pdf_url_to_google_url[pdf_url] = response.url
-            yield scrapy.Request(url=pdf_url, callback=self.save_pdf,errback=self.errback_httpbin)
+
+            if not pdf_url:
+                self.audit_failure_(response.url,"Did not find a url for the PDF")
+            else:
+                self.pdf_url_to_google_url[pdf_url] = response.url
+                yield scrapy.Request(url=pdf_url, callback=self.save_pdf,errback=self.errback_httpbin)
         except KeyError as e:
             self.audit_failure_(response.url,str(e))
         except Exception as e2:

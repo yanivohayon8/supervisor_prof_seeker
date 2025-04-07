@@ -101,3 +101,22 @@ class ScraperDownloaderMiddleware:
 
     def spider_opened(self, spider):
         spider.logger.info("Spider opened: %s" % spider.name)
+
+
+import pandas as pd
+import random
+
+class ArticleScraperDownloaderMiddleware:
+
+    def __init__(self):
+        self.user_agents = pd.read_csv("user-agents.csv")
+        self.user_agents = self.user_agents["useragent"].tolist()
+    
+    @classmethod
+    def from_crawler(cls, crawler):
+        s = cls()
+        crawler.signals.connect(s.spider_opened,signal=signals.spider_opened)
+        return s
+
+    def process_request(self,request, spider):
+        request.headers["user-agent"] = random.choice(self.user_agents)
