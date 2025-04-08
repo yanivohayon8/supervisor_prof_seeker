@@ -10,7 +10,7 @@ import os
 from src.vector_store_loaders.faiss_loader import load_vector_store,init_faiss
 import json
 from glob import glob
-
+from tqdm import tqdm
 
 class PapersMetadataRetriever():
 
@@ -106,6 +106,9 @@ class IndexingPipeline():
         self.embeddings = init_embeddings(embedding_type,self.embeddings_settings)
 
         self.init_vector_store_()
+
+        self.failed_papers_erros = []
+        self.succeed_papers = []
  
     def init_text_splitter_(self):
         supported_splitters = {
@@ -146,16 +149,20 @@ class IndexingPipeline():
                 self.vector_store.save_local(save_folder)
 
     def run(self):
+        if self.metadata_retriever is None:
+            raise ValueError("Please set self.metadata_retriever in the constructor")
+
         for supervisor_metadata in self.metadata_retriever.get_supervisors_metadata():
             self.index_supervisor(supervisor_metadata)
 
         self.save_indxing_()
 
     def index_supervisor(self,supervisor_metadata:dict):
-        self.index_supervisor_brief_(supervisor_metadata)
         supervisor_name = supervisor_metadata.get("supervisor_name")
+        print(f"Indexing the papers of {supervisor_name} (supervisor)")
+        self.index_supervisor_brief_(supervisor_metadata)
 
-        for paper_metadata in supervisor_metadata["available_pdfs"]:
+        for paper_metadata in tqdm(supervisor_metadata["available_pdfs"]):
             doc_metadata = {
                 "supervisor_name":supervisor_name,
                 "path":paper_metadata["path"]
@@ -167,8 +174,8 @@ class IndexingPipeline():
     def index_supervisor_brief_(self,supervisor_metadata:dict,doc_metadata:dict={}):
         name = supervisor_metadata.get("supervisor_name")
         author = supervisor_metadata.get("author")
-        affilations = author.get("affiliations")
-        interests = [interest.get("title") for interest in author.get("interests")]
+        affilations = author.get("affiliations","Unknown affilations")
+        interests = [interest.get("title") for interest in author.get("interests")] if author.get("interests") else list()
         website = author.get("website")
 
         brief = get_supervisor_brief(name,affilations,interests,website)
@@ -178,14 +185,34 @@ class IndexingPipeline():
         overview_text = get_paper_overview(supervisor_name,paper_metadata.get("title"),
                                                 paper_metadata.get("publication"), paper_metadata.get("year"),
                                                 paper_metadata.get("authors"),paper_metadata.get("cited_by").get("value"))
-        paper_text = pdf_handler.read_pdf(path)
-        abstract_text = pdf_handler.extract_absract(paper_text)
-
-        page_content = (
-            f"{overview_text} The abstract below summarizes the paper’s main contributions and findings.\n\n"
-            f"{abstract_text}"
-        ) 
         
-        self.vector_store.add_documents([Document(page_content=page_content,**doc_metadata)])
+        try:
+            paper_text = pdf_handler.read_pdf(path)
+            abstract_text = pdf_handler.extract_absract(paper_text)
+
+            page_content = (
+                f"{overview_text} The abstract below summarizes the paper’s main contributions and findings.\n\n"
+                f"{abstract_text}"
+            ) 
+            
+            self.vector_store.add_documents([Document(page_content=page_content,**doc_metadata)])
+            self.succeed_papers.append(
+                {
+                    "path":path,
+                }
+            )
+        except Exception as e:
+            self.failed_papers_erros.append(
+                {
+                    "path":path,
+                    "exception": e,
+                }
+            )
+
+    def print_summary(self):
+        num_suc = len(self.succeed_papers)
+        num_failed = len(self.failed_papers_erros)
+        num_total = num_suc+num_failed
+        print(f"Succeed to index {(100*num_suc/num_total):.2f} ({num_suc}/{num_total}) of the papers")
 
 

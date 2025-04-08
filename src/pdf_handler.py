@@ -41,8 +41,8 @@ def extract_absract(text:str,max_num_characters=1500):
         abstract = re.search("(Abstract|ABSTRACT|A B S T R A C T|a b s t r a c t)(.+)(Introduction|INTRODUCTION)",text,flags=re.DOTALL).group()
         abstract = abstract[:len(abstract)-len("Introduction")]
     except AttributeError as e:
-        abstract = re.search("(Abstract|ABSTRACT|A B S T R A C T|a b s t r a c t)(.+)(\.1\. )",text,flags=re.DOTALL).group()
-        abstract = abstract[:len(abstract)]
+        # Heuristics for the variablity: TODO: make it more accurate
+        abstract = re.search("(Abstract|ABSTRACT|A B S T R A C T|a b s t r a c t)(.+)",text,flags=re.DOTALL).group()
         abstract = abstract[:max_num_characters]
 
     return abstract

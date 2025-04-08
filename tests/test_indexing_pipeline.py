@@ -11,8 +11,9 @@ import shutil
 import os
 from src import pdf_handler
 from glob import glob
+from src.consts import PAPERS_FOLDER
 
-tests_root_folder = "tests/data/google_scholar"
+tests_root_folder = os.path.join("tests","data","google_scholar")
 
 
 class TestPOC(unittest.TestCase):
@@ -92,15 +93,14 @@ class TestPapersMetadataRetriever(unittest.TestCase):
         self.assertEqual(expected_num_supervisors,count_supervisors)
     
     def test_get_metadata(self):
-        current_root_dir = "data/google_scholar"
-        metadata_retriever = indexing_pipeline.PapersMetadataRetriever(current_root_dir)
+        metadata_retriever = indexing_pipeline.PapersMetadataRetriever(PAPERS_FOLDER)
         count_supervisors = 0
 
         for supervisor_metadata in metadata_retriever.get_supervisors_metadata():
             count_supervisors+=1
             self.assertIn("available_pdfs",supervisor_metadata.keys())
 
-        expected_num_supervisors = len(glob(os.path.join(current_root_dir,"*","author_details.json")))
+        expected_num_supervisors = len(glob(os.path.join(PAPERS_FOLDER,"*","author_details.json")))
         self.assertEqual(expected_num_supervisors,count_supervisors)
 
 class TestPipeline(unittest.TestCase):
@@ -255,7 +255,7 @@ class TestPipeline(unittest.TestCase):
                 "save_folder": save_folder
             }
         }
-        # root_folder = "tests/data/google_scholar"
+        
         metadata_retriever = indexing_pipeline.PapersMetadataRetriever(tests_root_folder)
         pipeline = indexing_pipeline.IndexingPipeline(override_settings=settings,metadata_retriever=metadata_retriever)
         pipeline.run()
@@ -316,6 +316,62 @@ class TestPromptsTemplates(unittest.TestCase):
         text = indexing_pipeline.get_paper_overview(supervisor_name,title,publication,year,authors,num_cites)
 
         print(text)
+
+class TestExtractingAbstract(unittest.TestCase):
+
+    def load_paper_tester(self,root_folder):
+        metadata_retriever = indexing_pipeline.PapersMetadataRetriever(root_folder)
+        print()
+        abstract_errors = []
+        read_errors = []
+
+        for supervisor_metadata in metadata_retriever.get_supervisors_metadata():
+            print(f"supervisor: {supervisor_metadata["supervisor_name"]}.")
+            for paper in supervisor_metadata["available_pdfs"]:
+                print(f"\t{paper["path"]}")
+                try:
+                    text = pdf_handler.read_pdf(paper["path"])
+                except Exception as e:
+                    read_errors.append({
+                        "path":paper["path"],
+                        "error":e
+                    })
+                    continue
+                try:
+                    abstract_text = pdf_handler.extract_absract(text)
+                except Exception as e:
+                    abstract_errors.append({
+                        "path":paper["path"],
+                        "error":e
+                    })
+
+        '''Raise intentionally the error'''
+        num_failed = len(abstract_errors)+len(read_errors)
+        print(f"Number of failed paper to extract their abstract is {num_failed}:")
+        
+        print(f"********** abstract_errors ({len(abstract_errors)})**********")
+        print(abstract_errors)
+        
+        print(f"********** read_errors ({len(read_errors)})**********")
+        print(read_errors)
+
+        for paper in abstract_errors:
+            try:
+                print(paper)
+                text = pdf_handler.read_pdf(paper["path"])
+                abstract_text = pdf_handler.extract_absract(text)
+            except Exception as e:
+                # re run the error to put conviently breakpoint
+                text = pdf_handler.read_pdf(paper["path"])
+                abstract_text = pdf_handler.extract_absract(text)
+
+    def test_no_exception_tests_data(self):
+        self.load_paper_tester(tests_root_folder)
+    
+    def test_no_exception_prod_data(self):
+        self.load_paper_tester(PAPERS_FOLDER)
+
+
 
 if __name__ == "__main__":
     unittest.main()
