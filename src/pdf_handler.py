@@ -32,9 +32,18 @@ def read_pdf(input_path):
 
     return text
 
-def extract_absract(text:str):
-    abstract = re.search("(Abstract|ABSTRACT|A B S T R A C T)(.+)(Introduction|INTRODUCTION)",text,flags=re.DOTALL).group()
-    abstract = abstract[:len(abstract)-len("Introduction")]
+def extract_absract(text:str,max_num_characters=1500):
+    '''
+        expected number of character is between 150 to 250
+        250 words × 6 characters/word = ~1,500 characters
+    '''
+    try:
+        abstract = re.search("(Abstract|ABSTRACT|A B S T R A C T)(.+)(Introduction|INTRODUCTION)",text,flags=re.DOTALL).group()
+        abstract = abstract[:len(abstract)-len("Introduction")]
+    except AttributeError as e:
+        abstract = re.search("(Abstract|ABSTRACT|A B S T R A C T)(.+)(\.1\. )",text,flags=re.DOTALL).group()
+        abstract = abstract[:len(abstract)]
+        abstract = abstract[:max_num_characters]
 
     return abstract
 

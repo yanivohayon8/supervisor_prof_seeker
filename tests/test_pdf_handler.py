@@ -1,5 +1,7 @@
 import unittest
 from src import pdf_handler
+import os
+from glob import glob
 
 class TestCleaning(unittest.TestCase):
 
@@ -170,6 +172,51 @@ class TestCleaning(unittest.TestCase):
         self.assertNotEqual(len(abstract),0)
         intro = pdf_handler.extract_introduction(text)
         self.assertNotEqual(len(intro),0)
+
+from src.indexing_pipeline.indexing_pipeline import PapersMetadataRetriever
+
+class TestExtractingAbstract(unittest.TestCase):
+
+    tests_root_folder = "tests/data/google_scholar"
+
+    def test_no_exception_tests_data(self):
+        metadata_retriever = PapersMetadataRetriever(self.tests_root_folder)
+        print()
+        for supervisor_metadata in metadata_retriever.get_supervisors_metadata():
+            print(f"supervisor: {supervisor_metadata["supervisor_name"]}.")
+            for paper in supervisor_metadata["available_pdfs"]:
+                print(f"\t{paper["path"]}")
+                try:
+                    text = pdf_handler.read_pdf(paper["path"])
+                    abstract_text = pdf_handler.extract_absract(text)
+                except Exception as e:
+                    '''Re-run to put a breakpoint'''
+                    text = pdf_handler.read_pdf(paper["path"])
+                    abstract_text = pdf_handler.extract_absract(text)
+                    raise Exception(e)
+    
+    def test_problematic_1(self):
+        file_name = "34_On the perceptual organization of texture and shading flows From a geometrical model to coherence computation.pdf"
+        path = os.path.join(self.tests_root_folder,"6_Ohad Ben-shahar","papers",file_name)
+        text = pdf_handler.read_pdf(path)
+        abstract_text = pdf_handler.extract_absract(text)
+
+        expected_num_ch = 1500 # 250 words × 6 characters/word = ~1,500 characters
+        self.assertLessEqual(len(abstract_text),expected_num_ch)
+
+        print(abstract_text)
+        print(abstract_text[:expected_num_ch])
+
+    
+    def test_no_exception_prod_data(self):
+        metadata_retriever = PapersMetadataRetriever("data/google_scholar")
+
+        for supervisor_metadata in metadata_retriever.get_supervisors_metadata():
+            for paper in supervisor_metadata["available_pdfs"]:
+                text = pdf_handler.read_pdf(paper["path"])
+                abstract_text = pdf_handler.extract_absract(text)
+
+
 
 if __name__ == "__main__":
     unittest.main()

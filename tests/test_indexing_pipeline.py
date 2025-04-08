@@ -12,7 +12,7 @@ import os
 from src import pdf_handler
 from glob import glob
 
-root_folder = "tests/data/google_scholar"
+tests_root_folder = "tests/data/google_scholar"
 
 
 class TestPOC(unittest.TestCase):
@@ -80,7 +80,7 @@ class TestPOC(unittest.TestCase):
 class TestPapersMetadataRetriever(unittest.TestCase):
 
     def test_get_metadata_on_test_data(self):
-        metadata_retriever = indexing_pipeline.PapersMetadataRetriever(root_folder)
+        metadata_retriever = indexing_pipeline.PapersMetadataRetriever(tests_root_folder)
         count_supervisors = 0
 
         for supervisor_metadata in metadata_retriever.get_supervisors_metadata():
@@ -88,7 +88,7 @@ class TestPapersMetadataRetriever(unittest.TestCase):
             self.assertIn("available_pdfs",supervisor_metadata.keys())
             self.assertGreater(len(supervisor_metadata["available_pdfs"]),0)
 
-        expected_num_supervisors = len(glob(os.path.join(root_folder,"*")))
+        expected_num_supervisors = len(glob(os.path.join(tests_root_folder,"*")))
         self.assertEqual(expected_num_supervisors,count_supervisors)
     
     def test_get_metadata(self):
@@ -230,12 +230,12 @@ class TestPipeline(unittest.TestCase):
             }
         }
 
-        metadata_retriever = indexing_pipeline.PapersMetadataRetriever(root_folder)
+        metadata_retriever = indexing_pipeline.PapersMetadataRetriever(tests_root_folder)
         pipeline = indexing_pipeline.IndexingPipeline(override_settings=settings,metadata_retriever=metadata_retriever)
         pipeline.run()
 
-        num_brief_docs = len(glob(os.path.join(root_folder,"*")))
-        num_paper_docs = len(glob(os.path.join(root_folder,"*","papers","*.pdf")))
+        num_brief_docs = len(glob(os.path.join(tests_root_folder,"*")))
+        num_paper_docs = len(glob(os.path.join(tests_root_folder,"*","papers","*.pdf")))
         docs = pipeline.vector_store.store.items()
         self.assertEqual(len(docs),num_brief_docs+num_paper_docs)
 
@@ -256,12 +256,12 @@ class TestPipeline(unittest.TestCase):
             }
         }
         # root_folder = "tests/data/google_scholar"
-        metadata_retriever = indexing_pipeline.PapersMetadataRetriever(root_folder)
+        metadata_retriever = indexing_pipeline.PapersMetadataRetriever(tests_root_folder)
         pipeline = indexing_pipeline.IndexingPipeline(override_settings=settings,metadata_retriever=metadata_retriever)
         pipeline.run()
 
-        num_brief_docs = len(glob(os.path.join(root_folder,"*")))
-        num_paper_docs = len(glob(os.path.join(root_folder,"*","papers","*.pdf")))
+        num_brief_docs = len(glob(os.path.join(tests_root_folder,"*")))
+        num_paper_docs = len(glob(os.path.join(tests_root_folder,"*","papers","*.pdf")))
         docs = pipeline.vector_store.store.items()
         self.assertEqual(len(docs),num_brief_docs+num_paper_docs)
 
