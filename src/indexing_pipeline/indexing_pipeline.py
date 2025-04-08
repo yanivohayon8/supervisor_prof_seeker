@@ -21,16 +21,23 @@ class PapersMetadataRetriever():
 
     def get_supervisors_metadata(self):
         for supervisor_folder in glob(os.path.join(self.root_dir,"*")):
-            yield self.get_metadata(supervisor_folder)
+            supervisor_metadata = self.get_metadata_(supervisor_folder)
 
-    def get_metadata(self,supervisor_folder:str):
-        with open(os.path.join(supervisor_folder,"author_details.json"),"r") as f:
-            supervisor_metadata = json.load(f)
+            if supervisor_metadata:
+                yield self.process_metadata_(supervisor_folder,supervisor_metadata)
+    
+    def get_metadata_(self,supervisor_folder:str):
+        try:
+            with open(os.path.join(supervisor_folder,"author_details.json"),"r") as f:
+                return json.load(f)
+        except FileNotFoundError:
+            return None
 
+    def process_metadata_(self,supervisor_folder:str,supervisor_metadata:dict):
         supervisor_metadata["supervisor_name"] = supervisor_metadata.get("author").get("name")
         available_pdfs = list()
 
-        for paper_path in glob(os.path.join(supervisor_folder,"paper","*.pdf")):
+        for paper_path in glob(os.path.join(supervisor_folder,"papers","*.pdf")):
             file_name = os.path.basename(paper_path)
             article_index = int(file_name.split("_")[0])
 
@@ -154,7 +161,7 @@ class IndexingPipeline():
                 "path":paper_metadata["path"]
             }
 
-            self.index_paper_(paper_metadata["path"],supervisor_name,paper_metadata,**doc_metadata)
+            self.index_paper_(paper_metadata["path"],supervisor_name,paper_metadata,doc_metadata=doc_metadata)
             
        
     def index_supervisor_brief_(self,supervisor_metadata:dict,doc_metadata:dict={}):

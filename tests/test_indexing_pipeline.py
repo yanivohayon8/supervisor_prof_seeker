@@ -10,6 +10,9 @@ from langchain_community.docstore import InMemoryDocstore
 import shutil
 import os
 from src import pdf_handler
+from glob import glob
+
+root_folder = "tests/data/google_scholar"
 
 
 class TestPOC(unittest.TestCase):
@@ -74,6 +77,32 @@ class TestPOC(unittest.TestCase):
         print(similar_docs)
 
 
+class TestPapersMetadataRetriever(unittest.TestCase):
+
+    def test_get_metadata_on_test_data(self):
+        metadata_retriever = indexing_pipeline.PapersMetadataRetriever(root_folder)
+        count_supervisors = 0
+
+        for supervisor_metadata in metadata_retriever.get_supervisors_metadata():
+            count_supervisors+=1
+            self.assertIn("available_pdfs",supervisor_metadata.keys())
+            self.assertGreater(len(supervisor_metadata["available_pdfs"]),0)
+
+        expected_num_supervisors = len(glob(os.path.join(root_folder,"*")))
+        self.assertEqual(expected_num_supervisors,count_supervisors)
+    
+    def test_get_metadata(self):
+        current_root_dir = "data/google_scholar"
+        metadata_retriever = indexing_pipeline.PapersMetadataRetriever(current_root_dir)
+        count_supervisors = 0
+
+        for supervisor_metadata in metadata_retriever.get_supervisors_metadata():
+            count_supervisors+=1
+            self.assertIn("available_pdfs",supervisor_metadata.keys())
+
+        expected_num_supervisors = len(glob(os.path.join(current_root_dir,"*","author_details.json")))
+        self.assertEqual(expected_num_supervisors,count_supervisors)
+
 class TestPipeline(unittest.TestCase):
 
     paper_metadata = {
@@ -89,6 +118,7 @@ class TestPipeline(unittest.TestCase):
                 "cites_id": "4021788807958281406"
             },
             "year": "2024",
+            "path": "tests/data/Ohad Ben-shahar/Harel_et_al-2024-International_Journal_of_Computer_Vision.pdf"
     }
 
     supervisor_metadata = {
@@ -137,6 +167,17 @@ class TestPipeline(unittest.TestCase):
         path = "tests/data/Ohad Ben-shahar/Harel_et_al-2024-International_Journal_of_Computer_Vision.pdf"
         pipeline.index_paper_(path,self.supervisor_metadata["supervisor_name"],self.paper_metadata)
 
+        docs = pipeline.vector_store.store.items()
+        self.assertEqual(len(docs),1)
+
+        top_n = 10
+        for index, (id, doc) in enumerate(pipeline.vector_store.store.items()):
+            if index < top_n:
+                # docs have keys 'id', 'vector', 'text', 'metadata'
+                print(f"{id}: {doc['text']}")
+            else:
+                break
+
     def test_index_supervisor_brief(self):
         settings = {
             "vector_store":{
@@ -146,6 +187,17 @@ class TestPipeline(unittest.TestCase):
 
         pipeline = indexing_pipeline.IndexingPipeline(override_settings=settings)
         pipeline.index_supervisor_brief_(self.supervisor_metadata)
+
+        docs = pipeline.vector_store.store.items()
+        self.assertEqual(len(docs),1)
+
+        top_n = 10
+        for index, (id, doc) in enumerate(pipeline.vector_store.store.items()):
+            if index < top_n:
+                # docs have keys 'id', 'vector', 'text', 'metadata'
+                print(f"{id}: {doc['text']}")
+            else:
+                break
 
 
     def test_index_supervisor(self):
@@ -158,6 +210,19 @@ class TestPipeline(unittest.TestCase):
         pipeline = indexing_pipeline.IndexingPipeline(override_settings=settings)
         pipeline.index_supervisor(self.supervisor_metadata)
 
+        docs = pipeline.vector_store.store.items()
+        num_brief_docs = 1
+        num_paper_docs = 1
+        self.assertEqual(len(docs),num_brief_docs+num_paper_docs)
+
+        top_n = 10
+        for index, (id, doc) in enumerate(pipeline.vector_store.store.items()):
+            if index < top_n:
+                # docs have keys 'id', 'vector', 'text', 'metadata'
+                print(f"{id}: {doc['text']}")
+            else:
+                break
+
     def test_run(self):
         settings = {
             "vector_store":{
@@ -165,23 +230,40 @@ class TestPipeline(unittest.TestCase):
             }
         }
 
-        metadata_retriever = indexing_pipeline.PapersMetadataRetriever("tests/data/google_scholar")
+        metadata_retriever = indexing_pipeline.PapersMetadataRetriever(root_folder)
         pipeline = indexing_pipeline.IndexingPipeline(override_settings=settings,metadata_retriever=metadata_retriever)
         pipeline.run()
+
+        num_brief_docs = len(glob(os.path.join(root_folder,"*")))
+        num_paper_docs = len(glob(os.path.join(root_folder,"*","papers","*.pdf")))
+        docs = pipeline.vector_store.store.items()
+        self.assertEqual(len(docs),num_brief_docs+num_paper_docs)
+
+        top_n = 3
+        for index, (id, doc) in enumerate(pipeline.vector_store.store.items()):
+            if index < top_n:
+                # docs have keys 'id', 'vector', 'text', 'metadata'
+                print(f"{id}: {doc['text']}")
+            else:
+                break
     
     def test_run_faiss_save_db(self):
         save_folder = "tests/tmp/faiss_vector_db"
-
         settings = {
             "vector_store":{
                 "type":"FAISS",
                 "save_folder": save_folder
             }
         }
-
-        metadata_retriever = indexing_pipeline.PapersMetadataRetriever("tests/data/google_scholar")
+        # root_folder = "tests/data/google_scholar"
+        metadata_retriever = indexing_pipeline.PapersMetadataRetriever(root_folder)
         pipeline = indexing_pipeline.IndexingPipeline(override_settings=settings,metadata_retriever=metadata_retriever)
         pipeline.run()
+
+        num_brief_docs = len(glob(os.path.join(root_folder,"*")))
+        num_paper_docs = len(glob(os.path.join(root_folder,"*","papers","*.pdf")))
+        docs = pipeline.vector_store.store.items()
+        self.assertEqual(len(docs),num_brief_docs+num_paper_docs)
 
         if os.path.exists(save_folder):
             shutil.rmtree(save_folder)
