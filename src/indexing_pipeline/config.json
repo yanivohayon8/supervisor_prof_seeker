@@ -10,7 +10,7 @@
     },
     "vector_store":{
         "type":"FAISS",
-        "input_folder": "./latest_faiss_openai_text-embedding-3-small",
-        "save_folder": "./latest_faiss_openai_text-embedding-3-small"
+        "input_folder": "./DB/latest_faiss_openai_text-embedding-3-small",
+        "save_folder": "./DB/latest_faiss_openai_text-embedding-3-small"
     }
 }
