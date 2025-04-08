@@ -19,6 +19,8 @@ class PapersMetadataRetriever():
         self.authors_details_paths = [path for path in glob(os.path.join(self.root_dir,"**","author_details.json"))]
         # if you find any other useful source add it here....(profile.json does not seem to be useful now...) 
 
+        
+
     def get_supervisors_metadata(self):
         for supervisor_folder in glob(os.path.join(self.root_dir,"*")):
             supervisor_metadata = self.get_metadata_(supervisor_folder)
@@ -26,6 +28,9 @@ class PapersMetadataRetriever():
             if supervisor_metadata:
                 yield self.process_metadata_(supervisor_folder,supervisor_metadata)
     
+    def get_supervisors_folders_(self):
+        return glob(os.path.join(self.root_dir,"*"))
+
     def get_metadata_(self,supervisor_folder:str):
         try:
             with open(os.path.join(supervisor_folder,"author_details.json"),"r") as f:
@@ -50,6 +55,15 @@ class PapersMetadataRetriever():
         supervisor_metadata["available_pdfs"] = available_pdfs
 
         return supervisor_metadata
+    
+    def get_total_papers_path_(self):
+        return glob(os.path.join(self.root_dir,"*","papers","*.pdf"))
+
+    def get_num_total_papers(self):
+        return len(self.get_total_papers_path_())
+    
+    def get_num_total_supervisors(self):
+        return len(self.get_supervisors_folders_())
 
 
 

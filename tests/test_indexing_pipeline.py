@@ -234,8 +234,8 @@ class TestPipeline(unittest.TestCase):
         pipeline = indexing_pipeline.IndexingPipeline(override_settings=settings,metadata_retriever=metadata_retriever)
         pipeline.run()
 
-        num_brief_docs = len(glob(os.path.join(tests_root_folder,"*")))
-        num_paper_docs = len(glob(os.path.join(tests_root_folder,"*","papers","*.pdf")))
+        num_brief_docs = metadata_retriever.get_num_total_supervisors()
+        num_paper_docs = metadata_retriever.get_num_total_papers()
         docs = pipeline.vector_store.store.items()
         self.assertEqual(len(docs),num_brief_docs+num_paper_docs)
 
@@ -260,8 +260,8 @@ class TestPipeline(unittest.TestCase):
         pipeline = indexing_pipeline.IndexingPipeline(override_settings=settings,metadata_retriever=metadata_retriever)
         pipeline.run()
 
-        num_brief_docs = len(glob(os.path.join(tests_root_folder,"*")))
-        num_paper_docs = len(glob(os.path.join(tests_root_folder,"*","papers","*.pdf")))
+        num_brief_docs = metadata_retriever.get_num_total_supervisors()
+        num_paper_docs = metadata_retriever.get_num_total_papers()
         docs = pipeline.vector_store.store.items()
         self.assertEqual(len(docs),num_brief_docs+num_paper_docs)
 
