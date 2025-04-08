@@ -201,13 +201,25 @@ class TestExtractingAbstract(unittest.TestCase):
         text = pdf_handler.read_pdf(path)
         abstract_text = pdf_handler.extract_absract(text)
 
+        self.assertNotIn("What is texture ﬂow",abstract_text)
+
         expected_num_ch = 1500 # 250 words × 6 characters/word = ~1,500 characters
         self.assertLessEqual(len(abstract_text),expected_num_ch)
 
         print(abstract_text)
         print(abstract_text[:expected_num_ch])
 
-    
+    def test_problematic_2(self):
+        file_name = "37_Measuring and tracking eye movements of a behaving archer fish by real-time stereo vision.pdf"
+        path = os.path.join(self.tests_root_folder,"6_Ohad Ben-shahar","papers",file_name)
+        text = pdf_handler.read_pdf(path)
+        abstract_text = pdf_handler.extract_absract(text)
+
+        print(abstract_text)
+        
+        expected_num_ch = 1650 
+        self.assertLessEqual(len(abstract_text),expected_num_ch)
+
     def test_no_exception_prod_data(self):
         metadata_retriever = PapersMetadataRetriever("data/google_scholar")
 

@@ -38,10 +38,10 @@ def extract_absract(text:str,max_num_characters=1500):
         250 words × 6 characters/word = ~1,500 characters
     '''
     try:
-        abstract = re.search("(Abstract|ABSTRACT|A B S T R A C T)(.+)(Introduction|INTRODUCTION)",text,flags=re.DOTALL).group()
+        abstract = re.search("(Abstract|ABSTRACT|A B S T R A C T|a b s t r a c t)(.+)(Introduction|INTRODUCTION)",text,flags=re.DOTALL).group()
         abstract = abstract[:len(abstract)-len("Introduction")]
     except AttributeError as e:
-        abstract = re.search("(Abstract|ABSTRACT|A B S T R A C T)(.+)(\.1\. )",text,flags=re.DOTALL).group()
+        abstract = re.search("(Abstract|ABSTRACT|A B S T R A C T|a b s t r a c t)(.+)(\.1\. )",text,flags=re.DOTALL).group()
         abstract = abstract[:len(abstract)]
         abstract = abstract[:max_num_characters]
 
