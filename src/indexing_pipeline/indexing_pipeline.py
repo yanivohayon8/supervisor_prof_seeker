@@ -19,10 +19,9 @@ class PapersMetadataRetriever():
         self.authors_details_paths = [path for path in glob(os.path.join(self.root_dir,"**","author_details.json"))]
         # if you find any other useful source add it here....(profile.json does not seem to be useful now...) 
 
-        
 
     def get_supervisors_metadata(self):
-        for supervisor_folder in glob(os.path.join(self.root_dir,"*")):
+        for supervisor_folder in self.get_supervisors_folders_():
             supervisor_metadata = self.get_metadata_(supervisor_folder)
 
             if supervisor_metadata:
