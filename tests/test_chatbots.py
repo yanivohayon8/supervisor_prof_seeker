@@ -25,25 +25,27 @@ class TestSimpleRAGChatbot(unittest.TestCase):
             Document(page_content="Snark is an informal word that refers to an attitude or expression of mocking irreverence and sarcasm."),
             Document(page_content="Someone or something described as effusive is expressing or showing a lot of emotion or enthusiasm."),
             Document(page_content="Penchant refers to a strong liking for something, or a strong tendency to behave in a certain way. It is usually used with for."),
-            Document(page_content="Untoward is a formal word that describes something that is improper or inappropriate, or that is adverse or unfavorable.")
+            # Document(page_content="Untoward is a formal word that describes something that is improper or inappropriate, or that is adverse or unfavorable."),
+            Document(page_content="Yaniv is an AI expert.")
         ]
         vector_store.add_documents(docs)
 
-        bot = SimpleRAGChatbot(vector_store)
-        bot.run()
+        queries = ["I want to do a research on deep learning. Do you recommend on a supervisor?","Who is Bob?"]
+        bot = SimpleRAGChatbot(vector_store,user_input=queries)
+        bot.run_mock_client()
 
 
     def test_run_indexed_faiss(self):
         vector_store = load_faiss_indexed()
 
         bot = SimpleRAGChatbot(vector_store)
-        bot.run()
+        bot.run_mock_client()
     
     def test_run_fixed_queries_1(self):
         vector_store = load_faiss_indexed()
         queries = ["I want to do a research on deep learning. Do you recommend on a supervisor?"]
         bot = SimpleRAGChatbot(vector_store,user_input=queries)
-        bot.run()
+        bot.run_mock_client()
 
 if __name__ == "__main__":
     unittest.main()

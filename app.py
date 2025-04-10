@@ -1,10 +1,22 @@
 import streamlit as st
-import random
-import time
+from src.chatbots.simple import SimpleRAGChatbot
+from src.vector_store_loaders.faiss_loader import load_faiss_indexed
 
-st.write("Streamlit loves LLMs! 🤖 [Build your own chat app](https://docs.streamlit.io/develop/tutorials/llms/build-conversational-apps) in minutes, then make it powerful by adding images, dataframes, or even input widgets to the chat.")
 
-st.caption("Note that this demo app isn't actually connected to any LLMs. Those are expensive ;)")
+vector_store = load_faiss_indexed()
+chat_bot = SimpleRAGChatbot(vector_store)
+config = chat_bot.get_config()
+
+st.write("Supervisor Seeker")
+
+cap = (
+    "This chatbot is designed to help MS.c and Phd students at the Computer Science department to look for a supervisor in Ben-Gurion University. "
+    "The chatbot relies on indexing the abstracts of the supervisors papers. \n"
+    "Be sure to check for more information at the department website and personal websites of the supervisors. \n" 
+    "AI CAN HALLUCINATE AND MAKE MISTAKES."
+)
+
+st.caption(cap)
 
 # Initialize chat history
 if "messages" not in st.session_state:
@@ -27,19 +39,11 @@ if prompt := st.chat_input("What is up?"):
     with st.chat_message("assistant"):
         message_placeholder = st.empty()
         full_response = ""
-        assistant_response = random.choice(
-            [
-                "Hello there! How can I assist you today?",
-                "Hi, human! Is there anything I can help you with?",
-                "Do you need help?",
-            ]
-        )
-        # Simulate stream of response with milliseconds delay
-        for chunk in assistant_response.split():
-            full_response += chunk + " "
-            time.sleep(0.05)
-            # Add a blinking cursor to simulate typing
+
+        for chunk in chat_bot.stream_answer(prompt,config):
+            full_response= full_response + chunk + " "
             message_placeholder.markdown(full_response + "▌")
+
         message_placeholder.markdown(full_response)
     # Add assistant response to chat history
     st.session_state.messages.append({"role": "assistant", "content": full_response})

@@ -115,15 +115,8 @@ class SimpleRAGChatbot():
         response = self.llm.invoke(prompt_value)
 
         return {"answer":response.content}
-    
-    def stream_graph_update(self, user_input,config):
-        print("AI output:",end=" ")
-        for step in self.graph.stream({"question":user_input},config=config):
-            if "generate_" in step.keys():
-                print(step["generate_"]["answer"])
-        print()
 
-    def run(self,thread_id="aaa"):
+    def run_mock_client(self,thread_id="aaa"):
         config = {"configurable":{"thread_id":thread_id}}
 
         while True:
@@ -134,11 +127,14 @@ class SimpleRAGChatbot():
                     print("Goodbye")
                     break
                 
-                self.stream_graph_update(user_input,config)
+                for word in self.stream_answer(user_input,config):
+                    print(word)
 
             except Exception as e:
                 user_input = "What is Bob?"
-                self.stream_graph_update(user_input,config)
+                # self.stream_graph_update_mock_client_(user_input,config)
+                for word in self.stream_answer(user_input,config):
+                    print(word)
                 print("Goodbye")
                 break
     
@@ -155,3 +151,13 @@ class SimpleRAGChatbot():
             self.user_input_iterator_index +=1
 
             return next_query
+        
+    def get_config(self):
+        thread_id = str(uuid.uuid4())
+        return {"configurable":{"thread_id":thread_id}}
+
+    def stream_answer(self,user_input:str,config):
+        for chunk, metadata in self.graph.stream({"question":user_input},
+                                                 config=config,stream_mode="messages"):
+            if isinstance(chunk,AIMessage):
+                yield chunk.content
