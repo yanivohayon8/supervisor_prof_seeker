@@ -1,0 +1,32 @@
+{
+    "name": "Ohad Ben-Shahar",
+    "link": "https://scholar.google.com/citations?hl=en&user=t77PmuQAAAAJ",
+    "serpapi_link": "https://serpapi.com/search.json?author_id=t77PmuQAAAAJ&engine=google_scholar_author&hl=en",
+    "author_id": "t77PmuQAAAAJ",
+    "affiliations": "Ben Gurion University of the Negev, Israel",
+    "email": "Verified email at cs.bgu.ac.il",
+    "cited_by": 4538,
+    "interests": [
+        {
+            "title": "Computational Vision",
+            "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Acomputational_vision",
+            "link": "https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:computational_vision"
+        },
+        {
+            "title": "Computer Vision",
+            "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Acomputer_vision",
+            "link": "https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:computer_vision"
+        },
+        {
+            "title": "Human Visual Perception",
+            "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Ahuman_visual_perception",
+            "link": "https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:human_visual_perception"
+        },
+        {
+            "title": "Visual Neuroscience",
+            "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Avisual_neuroscience",
+            "link": "https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=label:visual_neuroscience"
+        }
+    ],
+    "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=t77PmuQAAAAJ&citpid=8"
+}

@@ -1,0 +1,1722 @@
+{
+    "search_metadata": {
+        "id": "67f253c2728439ddb66b69e6",
+        "status": "Success",
+        "json_endpoint": "https://serpapi.com/searches/1035fb4bf061bb80/67f253c2728439ddb66b69e6.json",
+        "created_at": "2025-04-06 10:13:22 UTC",
+        "processed_at": "2025-04-06 10:13:22 UTC",
+        "google_scholar_author_url": "https://scholar.google.com/citations?user=t77PmuQAAAAJ&hl=en&pagesize=100",
+        "raw_html_file": "https://serpapi.com/searches/1035fb4bf061bb80/67f253c2728439ddb66b69e6.html",
+        "total_time_taken": 0.22
+    },
+    "search_parameters": {
+        "engine": "google_scholar_author",
+        "author_id": "t77PmuQAAAAJ",
+        "hl": "en",
+        "num": "100"
+    },
+    "author": {
+        "name": "Ohad Ben-Shahar",
+        "affiliations": "Ben Gurion University of the Negev, Israel",
+        "email": "Verified email at cs.bgu.ac.il",
+        "website": "http://www.cs.bgu.ac.il/~ben-shahar",
+        "interests": [
+            {
+                "title": "Computational Vision",
+                "link": "https://scholar.google.com/citations?view_op=search_authors&hl=en&mauthors=label:computational_vision",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Acomputational_vision"
+            },
+            {
+                "title": "Computer Vision",
+                "link": "https://scholar.google.com/citations?view_op=search_authors&hl=en&mauthors=label:computer_vision",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Acomputer_vision"
+            },
+            {
+                "title": "Human Visual Perception",
+                "link": "https://scholar.google.com/citations?view_op=search_authors&hl=en&mauthors=label:human_visual_perception",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Ahuman_visual_perception"
+            },
+            {
+                "title": "Visual Neuroscience",
+                "link": "https://scholar.google.com/citations?view_op=search_authors&hl=en&mauthors=label:visual_neuroscience",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Avisual_neuroscience"
+            }
+        ],
+        "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=view_photo&user=t77PmuQAAAAJ&citpid=8"
+    },
+    "articles": [
+        {
+            "title": "Sparse recovery of hyperspectral signal from natural RGB images",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:SP6oXDckpogC",
+            "citation_id": "t77PmuQAAAAJ:SP6oXDckpogC",
+            "authors": "B Arad, O Ben-Shahar",
+            "publication": "Computer Vision\u2013ECCV 2016: 14th European Conference, Amsterdam, the \u2026, 2016",
+            "cited_by": {
+                "value": 717,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5458248782255994070",
+                "serpapi_link": "https://serpapi.com/search.json?cites=5458248782255994070&engine=google_scholar&hl=en",
+                "cites_id": "5458248782255994070"
+            },
+            "year": "2016"
+        },
+        {
+            "title": "Development of a sweet pepper harvesting robot",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:1yQoGdGgb4wC",
+            "citation_id": "t77PmuQAAAAJ:1yQoGdGgb4wC",
+            "authors": "B Arad, J Balendonck, R Barth, O Ben\u2010Shahar, Y Edan, T Hellstr\u00f6m, ...",
+            "publication": "Journal of field robotics 37 (6), 1027-1039, 2020",
+            "cited_by": {
+                "value": 431,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12102612465301167579",
+                "serpapi_link": "https://serpapi.com/search.json?cites=12102612465301167579&engine=google_scholar&hl=en",
+                "cites_id": "12102612465301167579"
+            },
+            "year": "2020"
+        },
+        {
+            "title": "Computer vision for fruit harvesting robots\u2013state of the art and challenges ahead",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:M3NEmzRMIkIC",
+            "citation_id": "t77PmuQAAAAJ:M3NEmzRMIkIC",
+            "authors": "K Kapach, E Barnea, R Mairon, Y Edan, O Ben-Shahar",
+            "publication": "International Journal of Computational Vision and Robotics 3 (1-2), 4-34, 2012",
+            "cited_by": {
+                "value": 302,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=6830160624732671943",
+                "serpapi_link": "https://serpapi.com/search.json?cites=6830160624732671943&engine=google_scholar&hl=en",
+                "cites_id": "6830160624732671943"
+            },
+            "year": "2012"
+        },
+        {
+            "title": "Ntire 2020 challenge on spectral reconstruction from an rgb image",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:wbdj-CoPYUoC",
+            "citation_id": "t77PmuQAAAAJ:wbdj-CoPYUoC",
+            "authors": "B Arad, R Timofte, O Ben-Shahar, YT Lin, GD Finlayson",
+            "publication": "Proceedings of the IEEE/CVF conference on computer vision and pattern \u2026, 2020",
+            "cited_by": {
+                "value": 274,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1872934244836494127",
+                "serpapi_link": "https://serpapi.com/search.json?cites=1872934244836494127&engine=google_scholar&hl=en",
+                "cites_id": "1872934244836494127"
+            },
+            "year": "2020"
+        },
+        {
+            "title": "Grape clusters and foliage detection algorithms for autonomous selective vineyard sprayer",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:Mojj43d5GZwC",
+            "citation_id": "t77PmuQAAAAJ:Mojj43d5GZwC",
+            "authors": "R Berenstein, OB Shahar, A Shapiro, Y Edan",
+            "publication": "Intelligent Service Robotics 3, 233-243, 2010",
+            "cited_by": {
+                "value": 206,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2850243530658534023",
+                "serpapi_link": "https://serpapi.com/search.json?cites=2850243530658534023&engine=google_scholar&hl=en",
+                "cites_id": "2850243530658534023"
+            },
+            "year": "2010"
+        },
+        {
+            "title": "A fully automated greedy square jigsaw puzzle solver",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:TFP_iSt0sucC",
+            "citation_id": "t77PmuQAAAAJ:TFP_iSt0sucC",
+            "authors": "D Pomeranz, M Shemesh, O Ben-Shahar",
+            "publication": "CVPR 2011, 9-16, 2011",
+            "cited_by": {
+                "value": 169,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16987366463298859942",
+                "serpapi_link": "https://serpapi.com/search.json?cites=16987366463298859942&engine=google_scholar&hl=en",
+                "cites_id": "16987366463298859942"
+            },
+            "year": "2011"
+        },
+        {
+            "title": "Geometrical computations explain projection patterns of long-range horizontal connections in visual cortex",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:u5HHmVD_uO8C",
+            "citation_id": "t77PmuQAAAAJ:u5HHmVD_uO8C",
+            "authors": "O Ben-Shahar, S Zucker",
+            "publication": "Neural computation 16 (3), 445-476, 2004",
+            "cited_by": {
+                "value": 132,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8991395081045839849",
+                "serpapi_link": "https://serpapi.com/search.json?cites=8991395081045839849&engine=google_scholar&hl=en",
+                "cites_id": "8991395081045839849"
+            },
+            "year": "2004"
+        },
+        {
+            "title": "Colour-agnostic shape-based 3D fruit detection for crop harvesting robots",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:nb7KW1ujOQ8C",
+            "citation_id": "t77PmuQAAAAJ:nb7KW1ujOQ8C",
+            "authors": "E Barnea, R Mairon, O Ben-Shahar",
+            "publication": "Biosystems Engineering 146, 57-70, 2016",
+            "cited_by": {
+                "value": 121,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2125104316031342131",
+                "serpapi_link": "https://serpapi.com/search.json?cites=2125104316031342131&engine=google_scholar&hl=en",
+                "cites_id": "2125104316031342131"
+            },
+            "year": "2016"
+        },
+        {
+            "title": "Stochastic emergence of repeating cortical motifs in spontaneous membrane potential fluctuations in vivo",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:d1gkVwhDpl0C",
+            "citation_id": "t77PmuQAAAAJ:d1gkVwhDpl0C",
+            "authors": "A Mokeichev, M Okun, O Barak, Y Katz, O Ben-Shahar, I Lampl",
+            "publication": "Neuron 53 (3), 413-425, 2007",
+            "cited_by": {
+                "value": 113,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=18090928800597571469",
+                "serpapi_link": "https://serpapi.com/search.json?cites=18090928800597571469&engine=google_scholar&hl=en",
+                "cites_id": "18090928800597571469"
+            },
+            "year": "2007"
+        },
+        {
+            "title": "The perceptual organization of texture flow: A contextual inference approach",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:u-x6o8ySG0sC",
+            "citation_id": "t77PmuQAAAAJ:u-x6o8ySG0sC",
+            "authors": "O Ben-Shahar, SW Zucker",
+            "publication": "IEEE Transactions on Pattern Analysis and Machine Intelligence 25 (4), 401-417, 2003",
+            "cited_by": {
+                "value": 110,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12739328283781364285",
+                "serpapi_link": "https://serpapi.com/search.json?cites=12739328283781364285&engine=google_scholar&hl=en",
+                "cites_id": "12739328283781364285"
+            },
+            "year": "2003"
+        },
+        {
+            "title": "Practical pushing planning for rearrangement tasks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:2osOgNQ5qMEC",
+            "citation_id": "t77PmuQAAAAJ:2osOgNQ5qMEC",
+            "authors": "O Ben-Shahar, E Rivlin",
+            "publication": "IEEE Transactions on Robotics and Automation 14 (4), 549-565, 1998",
+            "cited_by": {
+                "value": 108,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=18333686515828300393",
+                "serpapi_link": "https://serpapi.com/search.json?cites=18333686515828300393&engine=google_scholar&hl=en",
+                "cites_id": "18333686515828300393"
+            },
+            "year": "1998"
+        },
+        {
+            "title": "Toward a theory of shape from specular flow",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:qjMakFHDy7sC",
+            "citation_id": "t77PmuQAAAAJ:qjMakFHDy7sC",
+            "authors": "Y Adato, Y Vasilyev, O Ben-Shahar, T Zickler",
+            "publication": "2007 IEEE 11th International Conference on Computer Vision, 1-8, 2007",
+            "cited_by": {
+                "value": 107,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12162418068686418655",
+                "serpapi_link": "https://serpapi.com/search.json?cites=12162418068686418655&engine=google_scholar&hl=en",
+                "cites_id": "12162418068686418655"
+            },
+            "year": "2007"
+        },
+        {
+            "title": "Representation of edges, head direction, and swimming kinematics in the brain of freely-navigating fish",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:uLbwQdceFCQC",
+            "citation_id": "t77PmuQAAAAJ:uLbwQdceFCQC",
+            "authors": "E Vinepinsky, L Cohen, S Perchik, O Ben-Shahar, O Donchin, R Segev",
+            "publication": "Scientific reports 10 (1), 14762, 2020",
+            "cited_by": {
+                "value": 77,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3306756617475808627",
+                "serpapi_link": "https://serpapi.com/search.json?cites=3306756617475808627&engine=google_scholar&hl=en",
+                "cites_id": "3306756617475808627"
+            },
+            "year": "2020"
+        },
+        {
+            "title": "A tangent bundle theory for visual curve completion",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:UebtZRa9Y70C",
+            "citation_id": "t77PmuQAAAAJ:UebtZRa9Y70C",
+            "authors": "G Ben-Yosef, O Ben-Shahar",
+            "publication": "Computer Vision and Pattern Recognition (CVPR), 2010 IEEE Conference on \u2026, 2010",
+            "cited_by": {
+                "value": 77,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2808774568544981474,15880153833020787160",
+                "serpapi_link": "https://serpapi.com/search.json?cites=2808774568544981474%2C15880153833020787160&engine=google_scholar&hl=en",
+                "cites_id": "2808774568544981474,15880153833020787160"
+            },
+            "year": "2010"
+        },
+        {
+            "title": "Pop-out in visual search of moving targets in the archer fish",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:cFHS6HbyZ2cC",
+            "citation_id": "t77PmuQAAAAJ:cFHS6HbyZ2cC",
+            "authors": "M Ben-Tov, O Donchin, O Ben-Shahar, R Segev",
+            "publication": "Nature communications 6 (1), 6476, 2015",
+            "cited_by": {
+                "value": 76,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8203062303216348895",
+                "serpapi_link": "https://serpapi.com/search.json?cites=8203062303216348895&engine=google_scholar&hl=en",
+                "cites_id": "8203062303216348895"
+            },
+            "year": "2015"
+        },
+        {
+            "title": "Controlled lighting and illumination-independent target detection for real-time cost-efficient applications. the case study of sweet pepper robotic harvesting",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:WA5NYHcadZ8C",
+            "citation_id": "t77PmuQAAAAJ:WA5NYHcadZ8C",
+            "authors": "B Arad, P Kurtser, E Barnea, B Harel, Y Edan, O Ben-Shahar",
+            "publication": "Sensors 19 (6), 1390, 2019",
+            "cited_by": {
+                "value": 69,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3300142890343443365",
+                "serpapi_link": "https://serpapi.com/search.json?cites=3300142890343443365&engine=google_scholar&hl=en",
+                "cites_id": "3300142890343443365"
+            },
+            "year": "2019"
+        },
+        {
+            "title": "Shape from specular flow",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:roLk4NBRz8UC",
+            "citation_id": "t77PmuQAAAAJ:roLk4NBRz8UC",
+            "authors": "Y Adato, Y Vasilyev, T Zickler, O Ben-Shahar",
+            "publication": "IEEE transactions on pattern analysis and machine intelligence 32 (11), 2054 \u2026, 2010",
+            "cited_by": {
+                "value": 65,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12459236678067902194",
+                "serpapi_link": "https://serpapi.com/search.json?cites=12459236678067902194&engine=google_scholar&hl=en",
+                "cites_id": "12459236678067902194"
+            },
+            "year": "2010"
+        },
+        {
+            "title": "Filter selection for hyperspectral estimation",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:738O_yMBCRsC",
+            "citation_id": "t77PmuQAAAAJ:738O_yMBCRsC",
+            "authors": "B Arad, O Ben-Shahar",
+            "publication": "Proceedings of the IEEE international conference on computer vision, 3153-3161, 2017",
+            "cited_by": {
+                "value": 59,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=18382203041540801850",
+                "serpapi_link": "https://serpapi.com/search.json?cites=18382203041540801850&engine=google_scholar&hl=en",
+                "cites_id": "18382203041540801850"
+            },
+            "year": "2017"
+        },
+        {
+            "title": "A perceptual paradigm and psychophysical evidence for hierarchy in scene gist processing",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:RYcK_YlVTxYC",
+            "citation_id": "t77PmuQAAAAJ:RYcK_YlVTxYC",
+            "authors": "I Kadar, O Ben-Shahar",
+            "publication": "Journal of vision 12 (13), 16-16, 2012",
+            "cited_by": {
+                "value": 54,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11242738800699603175",
+                "serpapi_link": "https://serpapi.com/search.json?cites=11242738800699603175&engine=google_scholar&hl=en",
+                "cites_id": "11242738800699603175"
+            },
+            "year": "2012"
+        },
+        {
+            "title": "Visual acuity in the archerfish: behavior, anatomy, and neurophysiology",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:J_g5lzvAfSwC",
+            "citation_id": "t77PmuQAAAAJ:J_g5lzvAfSwC",
+            "authors": "A Ben-Simon, O Ben-Shahar, G Vasserman, M Ben-Tov, R Segev",
+            "publication": "Journal of vision 12 (12), 18-18, 2012",
+            "cited_by": {
+                "value": 51,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4611170991079556884",
+                "serpapi_link": "https://serpapi.com/search.json?cites=4611170991079556884&engine=google_scholar&hl=en",
+                "cites_id": "4611170991079556884"
+            },
+            "year": "2012"
+        },
+        {
+            "title": "Toward elevated agrobotics: Development of a scaled\u2010down prototype for visually guided date palm tree sprayer",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:Se3iqnhoufwC",
+            "citation_id": "t77PmuQAAAAJ:Se3iqnhoufwC",
+            "authors": "A Shapiro, E Korkidi, A Demri, O Ben\u2010Shahar, R Riemer, Y Edan",
+            "publication": "Journal of Field Robotics 26 (6\u20107), 572-590, 2009",
+            "cited_by": {
+                "value": 47,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8824780500302816088,7919733409157383367",
+                "serpapi_link": "https://serpapi.com/search.json?cites=8824780500302816088%2C7919733409157383367&engine=google_scholar&hl=en",
+                "cites_id": "8824780500302816088,7919733409157383367"
+            },
+            "year": "2009"
+        },
+        {
+            "title": "Sensitivity to curvatures in orientation-based texture segmentation",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:UeHWp8X0CEIC",
+            "citation_id": "t77PmuQAAAAJ:UeHWp8X0CEIC",
+            "authors": "O Ben-Shahar, SW Zucker",
+            "publication": "Vision Research 44 (3), 257-277, 2004",
+            "cited_by": {
+                "value": 47,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=43763172742313047",
+                "serpapi_link": "https://serpapi.com/search.json?cites=43763172742313047&engine=google_scholar&hl=en",
+                "cites_id": "43763172742313047"
+            },
+            "year": "2004"
+        },
+        {
+            "title": "Toward domain-independent navigation: Dynamic vision and control",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:9yKSN-GCB0IC",
+            "citation_id": "t77PmuQAAAAJ:9yKSN-GCB0IC",
+            "authors": "GD Hager, DJ Kriegman, AS Georghiades, O Ben-Shahar",
+            "publication": "Proceedings of the 37th IEEE Conference on Decision and Control (Cat. No \u2026, 1998",
+            "cited_by": {
+                "value": 46,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14679076977022620247",
+                "serpapi_link": "https://serpapi.com/search.json?cites=14679076977022620247&engine=google_scholar&hl=en",
+                "cites_id": "14679076977022620247"
+            },
+            "year": "1998"
+        },
+        {
+            "title": "Hue geometry and horizontal connections",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:Y0pCki6q_DkC",
+            "citation_id": "t77PmuQAAAAJ:Y0pCki6q_DkC",
+            "authors": "O Ben-Shahar, SW Zucker",
+            "publication": "Neural Networks 17 (5), 753-771, 2004",
+            "cited_by": {
+                "value": 42,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=17416845834960141668,8265932339257517169",
+                "serpapi_link": "https://serpapi.com/search.json?cites=17416845834960141668%2C8265932339257517169&engine=google_scholar&hl=en",
+                "cites_id": "17416845834960141668,8265932339257517169"
+            },
+            "year": "2004"
+        },
+        {
+            "title": "A linear formulation of shape from specular flow",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:WF5omc3nYNoC",
+            "citation_id": "t77PmuQAAAAJ:WF5omc3nYNoC",
+            "authors": "GD Canas, Y Vasilyev, Y Adato, T Zickler, S Gortler, O Ben-Shahar",
+            "publication": "2009 IEEE 12th International Conference on Computer Vision, 191-198, 2009",
+            "cited_by": {
+                "value": 41,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14540236079180337819",
+                "serpapi_link": "https://serpapi.com/search.json?cites=14540236079180337819&engine=google_scholar&hl=en",
+                "cites_id": "14540236079180337819"
+            },
+            "year": "2009"
+        },
+        {
+            "title": "Exploring the bounds of the utility of context for object detection",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:dTyEYWd-f8wC",
+            "citation_id": "t77PmuQAAAAJ:dTyEYWd-f8wC",
+            "authors": "E Barnea, O Ben-Shahar",
+            "publication": "Proceedings of the IEEE/CVF conference on computer vision and pattern \u2026, 2019",
+            "cited_by": {
+                "value": 40,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15306951063755491631,3066319897361361944",
+                "serpapi_link": "https://serpapi.com/search.json?cites=15306951063755491631%2C3066319897361361944&engine=google_scholar&hl=en",
+                "cites_id": "15306951063755491631,3066319897361361944"
+            },
+            "year": "2019"
+        },
+        {
+            "title": "Attention, segregation, and textons: Bridging the gap between object-based attention and texton-based segregation",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:zYLM7Y9cAGgC",
+            "citation_id": "t77PmuQAAAAJ:zYLM7Y9cAGgC",
+            "authors": "O Ben-Shahar, BJ Scholl, SW Zucker",
+            "publication": "Vision Research 47 (6), 845-860, 2007",
+            "cited_by": {
+                "value": 39,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12425613915433372181",
+                "serpapi_link": "https://serpapi.com/search.json?cites=12425613915433372181&engine=google_scholar&hl=en",
+                "cites_id": "12425613915433372181"
+            },
+            "year": "2007"
+        },
+        {
+            "title": "Orientation saliency without visual cortex and target selection in archer fish",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:M3ejUd6NZC8C",
+            "citation_id": "t77PmuQAAAAJ:M3ejUd6NZC8C",
+            "authors": "A Mokeichev, R Segev, O Ben-Shahar",
+            "publication": "Proceedings of the National Academy of Sciences 107 (38), 16726-16731, 2010",
+            "cited_by": {
+                "value": 38,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=17865442437116033325",
+                "serpapi_link": "https://serpapi.com/search.json?cites=17865442437116033325&engine=google_scholar&hl=en",
+                "cites_id": "17865442437116033325"
+            },
+            "year": "2010"
+        },
+        {
+            "title": "To push or not to push: on the rearrangement of movable objects by a mobile robot",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:ufrVoPGSRksC",
+            "citation_id": "t77PmuQAAAAJ:ufrVoPGSRksC",
+            "authors": "O Ben-Shahar, E Rivlin",
+            "publication": "IEEE Transactions on Systems, Man, and Cybernetics, Part B (Cybernetics) 28 \u2026, 1998",
+            "cited_by": {
+                "value": 38,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10250600875353708,7871738040482659838",
+                "serpapi_link": "https://serpapi.com/search.json?cites=10250600875353708%2C7871738040482659838&engine=google_scholar&hl=en",
+                "cites_id": "10250600875353708,7871738040482659838"
+            },
+            "year": "1998"
+        },
+        {
+            "title": "Cortical connections and early visual function: intra-and inter-columnar processing",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:Tyk-4Ss8FVUC",
+            "citation_id": "t77PmuQAAAAJ:Tyk-4Ss8FVUC",
+            "authors": "O Ben-Shahar, PS Huggins, T Izo, SW Zucker",
+            "publication": "Journal of Physiology-Paris 97 (2-3), 191-208, 2003",
+            "cited_by": {
+                "value": 34,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16109189669082170975",
+                "serpapi_link": "https://serpapi.com/search.json?cites=16109189669082170975&engine=google_scholar&hl=en",
+                "cites_id": "16109189669082170975"
+            },
+            "year": "2003"
+        },
+        {
+            "title": "Shape from specular flow: Is one flow enough?",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:5nxA0vEk-isC",
+            "citation_id": "t77PmuQAAAAJ:5nxA0vEk-isC",
+            "authors": "Y Vasilyev, T Zickler, S Gortler, O Ben-Shahar",
+            "publication": "CVPR 2011, 2561-2568, 2011",
+            "cited_by": {
+                "value": 33,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=132494074675979904",
+                "serpapi_link": "https://serpapi.com/search.json?cites=132494074675979904&engine=google_scholar&hl=en",
+                "cites_id": "132494074675979904"
+            },
+            "year": "2011"
+        },
+        {
+            "title": "Dense specular shape from multiple specular flows",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:IjCSPb-OGe4C",
+            "citation_id": "t77PmuQAAAAJ:IjCSPb-OGe4C",
+            "authors": "Y Vasilyev, Y Adato, T Zickler, O Ben-Shahar",
+            "publication": "2008 IEEE Conference on Computer Vision and Pattern Recognition, 1-8, 2008",
+            "cited_by": {
+                "value": 31,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=18056996291307693781",
+                "serpapi_link": "https://serpapi.com/search.json?cites=18056996291307693781&engine=google_scholar&hl=en",
+                "cites_id": "18056996291307693781"
+            },
+            "year": "2008"
+        },
+        {
+            "title": "Visual saliency and texture segregation without feature gradient",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:W7OEmFMy1HYC",
+            "citation_id": "t77PmuQAAAAJ:W7OEmFMy1HYC",
+            "authors": "O Ben-Shahar",
+            "publication": "Proceedings of the National Academy of Sciences 103 (42), 15704-15709, 2006",
+            "cited_by": {
+                "value": 31,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15005753193971568805",
+                "serpapi_link": "https://serpapi.com/search.json?cites=15005753193971568805&engine=google_scholar&hl=en",
+                "cites_id": "15005753193971568805"
+            },
+            "year": "2006"
+        },
+        {
+            "title": "Direction election in flocking swarms",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:HoB7MX3m0LUC",
+            "citation_id": "t77PmuQAAAAJ:HoB7MX3m0LUC",
+            "authors": "O Ben-Shahar, S Dolev, A Dolgin, M Segal",
+            "publication": "Ad Hoc Networks 12, 250-258, 2014",
+            "cited_by": {
+                "value": 30,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10372460383236797271,18274976815862567292",
+                "serpapi_link": "https://serpapi.com/search.json?cites=10372460383236797271%2C18274976815862567292&engine=google_scholar&hl=en",
+                "cites_id": "10372460383236797271,18274976815862567292"
+            },
+            "year": "2014"
+        },
+        {
+            "title": "On the perceptual organization of texture and shading flows: From a geometrical model to coherence computation",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:YsMSGLbcyi4C",
+            "citation_id": "t77PmuQAAAAJ:YsMSGLbcyi4C",
+            "authors": "O Ben-Shahar, SW Zucker",
+            "publication": "Proceedings of the 2001 IEEE Computer Society Conference on Computer Vision \u2026, 2001",
+            "cited_by": {
+                "value": 29,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12125664081882825509",
+                "serpapi_link": "https://serpapi.com/search.json?cites=12125664081882825509&engine=google_scholar&hl=en",
+                "cites_id": "12125664081882825509"
+            },
+            "year": "2001"
+        },
+        {
+            "title": "A polar representation of motion and implications for optical flow",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:YOwf2qJgpHMC",
+            "citation_id": "t77PmuQAAAAJ:YOwf2qJgpHMC",
+            "authors": "Y Adato, T Zickler, O Ben-Shahar",
+            "publication": "CVPR 2011, 1145-1152, 2011",
+            "cited_by": {
+                "value": 28,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14333796980959495397",
+                "serpapi_link": "https://serpapi.com/search.json?cites=14333796980959495397&engine=google_scholar&hl=en",
+                "cites_id": "14333796980959495397"
+            },
+            "year": "2011"
+        },
+        {
+            "title": "Overt attention toward oriented objects in free-viewing barn owls",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:Zph67rFs4hoC",
+            "citation_id": "t77PmuQAAAAJ:Zph67rFs4hoC",
+            "authors": "WM Harmening, J Orlowski, O Ben-Shahar, H Wagner",
+            "publication": "Proceedings of the National Academy of Sciences 108 (20), 8461-8466, 2011",
+            "cited_by": {
+                "value": 28,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11281257385671638321",
+                "serpapi_link": "https://serpapi.com/search.json?cites=11281257385671638321&engine=google_scholar&hl=en",
+                "cites_id": "11281257385671638321"
+            },
+            "year": "2011"
+        },
+        {
+            "title": "Measuring and tracking eye movements of a behaving archer fish by real-time stereo vision",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:TQgYirikUcIC",
+            "citation_id": "t77PmuQAAAAJ:TQgYirikUcIC",
+            "authors": "A Ben-Simon, O Ben-Shahar, R Segev",
+            "publication": "Journal of neuroscience methods 184 (2), 235-243, 2009",
+            "cited_by": {
+                "value": 28,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=9511376442484681658",
+                "serpapi_link": "https://serpapi.com/search.json?cites=9511376442484681658&engine=google_scholar&hl=en",
+                "cites_id": "9511376442484681658"
+            },
+            "year": "2009"
+        },
+        {
+            "title": "From square pieces to brick walls: The next challenge in solving jigsaw puzzles",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:WbkHhVStYXYC",
+            "citation_id": "t77PmuQAAAAJ:WbkHhVStYXYC",
+            "authors": "S Gur, O Ben-Shahar",
+            "publication": "Proceedings of the IEEE international conference on computer vision, 4029-4037, 2017",
+            "cited_by": {
+                "value": 27,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5635506066132183482",
+                "serpapi_link": "https://serpapi.com/search.json?cites=5635506066132183482&engine=google_scholar&hl=en",
+                "cites_id": "5635506066132183482"
+            },
+            "year": "2017"
+        },
+        {
+            "title": "Predictive saccade in the absence of smooth pursuit: interception of moving targets in the archer fish",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:NaGl4SEjCO4C",
+            "citation_id": "t77PmuQAAAAJ:NaGl4SEjCO4C",
+            "authors": "A Ben-Simon, O Ben-Shahar, G Vasserman, R Segev",
+            "publication": "Journal of Experimental Biology 215 (24), 4248-4254, 2012",
+            "cited_by": {
+                "value": 25,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4824127355355131463",
+                "serpapi_link": "https://serpapi.com/search.json?cites=4824127355355131463&engine=google_scholar&hl=en",
+                "cites_id": "4824127355355131463"
+            },
+            "year": "2012"
+        },
+        {
+            "title": "Free boundary conditions active contours with applications for vision",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:j3f4tGmQtD8C",
+            "citation_id": "t77PmuQAAAAJ:j3f4tGmQtD8C",
+            "authors": "M Shemesh, O Ben-Shahar",
+            "publication": "International Symposium on Visual Computing, 180-191, 2011",
+            "cited_by": {
+                "value": 24,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15193854854230865064",
+                "serpapi_link": "https://serpapi.com/search.json?cites=15193854854230865064&engine=google_scholar&hl=en",
+                "cites_id": "15193854854230865064"
+            },
+            "year": "2011"
+        },
+        {
+            "title": "What a predator can teach us about visual processing: a lesson from the archerfish",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:J-pR_7NvFogC",
+            "citation_id": "t77PmuQAAAAJ:J-pR_7NvFogC",
+            "authors": "M Ben-Tov, O Ben-Shahar, R Segev",
+            "publication": "Current Opinion in Neurobiology 52, 80-87, 2018",
+            "cited_by": {
+                "value": 23,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11038573609226196879",
+                "serpapi_link": "https://serpapi.com/search.json?cites=11038573609226196879&engine=google_scholar&hl=en",
+                "cites_id": "11038573609226196879"
+            },
+            "year": "2018"
+        },
+        {
+            "title": "Evolution of a local boundary detector for natural images via genetic programming and texture cues",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:3fE2CSJIrl8C",
+            "citation_id": "t77PmuQAAAAJ:3fE2CSJIrl8C",
+            "authors": "I Kadar, O Ben-Shahar, M Sipper",
+            "publication": "Proceedings of the 11th annual conference on genetic and evolutionary \u2026, 2009",
+            "cited_by": {
+                "value": 23,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=7102365063606876790,14973304477880401804",
+                "serpapi_link": "https://serpapi.com/search.json?cites=7102365063606876790%2C14973304477880401804&engine=google_scholar&hl=en",
+                "cites_id": "7102365063606876790,14973304477880401804"
+            },
+            "year": "2009"
+        },
+        {
+            "title": "Visual pop-out in barn owls: Human-like behavior in the avian brain",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:abG-DnoFyZgC",
+            "citation_id": "t77PmuQAAAAJ:abG-DnoFyZgC",
+            "authors": "J Orlowski, C Beissel, F Rohn, Y Adato, H Wagner, O Ben-Shahar",
+            "publication": "Journal of Vision 15 (14), 4-4, 2015",
+            "cited_by": {
+                "value": 22,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=13547376444769754671",
+                "serpapi_link": "https://serpapi.com/search.json?cites=13547376444769754671&engine=google_scholar&hl=en",
+                "cites_id": "13547376444769754671"
+            },
+            "year": "2015"
+        },
+        {
+            "title": "A closer look at context: From coxels to the contextual emergence of object saliency",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:u_35RYKgDlwC",
+            "citation_id": "t77PmuQAAAAJ:u_35RYKgDlwC",
+            "authors": "R Mairon, O Ben-Shahar",
+            "publication": "Computer Vision\u2013ECCV 2014: 13th European Conference, Zurich, Switzerland \u2026, 2014",
+            "cited_by": {
+                "value": 22,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14485240205196940454",
+                "serpapi_link": "https://serpapi.com/search.json?cites=14485240205196940454&engine=google_scholar&hl=en",
+                "cites_id": "14485240205196940454"
+            },
+            "year": "2014"
+        },
+        {
+            "title": "Visual receptive field properties of cells in the optic tectum of the archer fish",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:ZHo1McVdvXMC",
+            "citation_id": "t77PmuQAAAAJ:ZHo1McVdvXMC",
+            "authors": "M Ben-Tov, I Kopilevich, O Donchin, O Ben-Shahar, C Giladi, R Segev",
+            "publication": "Journal of Neurophysiology 110 (3), 748-759, 2013",
+            "cited_by": {
+                "value": 21,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16456875640042088736",
+                "serpapi_link": "https://serpapi.com/search.json?cites=16456875640042088736&engine=google_scholar&hl=en",
+                "cites_id": "16456875640042088736"
+            },
+            "year": "2013"
+        },
+        {
+            "title": "From fish out of water to new insights on navigation mechanisms in animals",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:evX43VCCuoAC",
+            "citation_id": "t77PmuQAAAAJ:evX43VCCuoAC",
+            "authors": "S Givon, M Samina, O Ben-Shahar, R Segev",
+            "publication": "Behavioural Brain Research 419, 113711, 2022",
+            "cited_by": {
+                "value": 17,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2036967693042820841",
+                "serpapi_link": "https://serpapi.com/search.json?cites=2036967693042820841&engine=google_scholar&hl=en",
+                "cites_id": "2036967693042820841"
+            },
+            "year": "2022"
+        },
+        {
+            "title": "Specular motion and 3D shape estimation",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:XiSMed-E-HIC",
+            "citation_id": "t77PmuQAAAAJ:XiSMed-E-HIC",
+            "authors": "DN D\u00f6vencio\u011flu, O Ben-Shahar, P Barla, K Doerschner",
+            "publication": "Journal of Vision 17 (6), 3-3, 2017",
+            "cited_by": {
+                "value": 17,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8063992198759969268",
+                "serpapi_link": "https://serpapi.com/search.json?cites=8063992198759969268&engine=google_scholar&hl=en",
+                "cites_id": "8063992198759969268"
+            },
+            "year": "2017"
+        },
+        {
+            "title": "Tangent bundle elastica and computer vision",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:zA6iFVUQeVQC",
+            "citation_id": "t77PmuQAAAAJ:zA6iFVUQeVQC",
+            "authors": "O Ben-Shahar, G Ben-Yosef",
+            "publication": "IEEE Transactions on Pattern Analysis and Machine Intelligence 37 (1), 161-174, 2014",
+            "cited_by": {
+                "value": 15,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8565781246396733141",
+                "serpapi_link": "https://serpapi.com/search.json?cites=8565781246396733141&engine=google_scholar&hl=en",
+                "cites_id": "8565781246396733141"
+            },
+            "year": "2014"
+        },
+        {
+            "title": "Vision, cognition, and walking stability in young adults",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:35r97b3x0nAC",
+            "citation_id": "t77PmuQAAAAJ:35r97b3x0nAC",
+            "authors": "Y Koren, R Mairon, I Sofer, Y Parmet, O Ben-Shahar, S Bar-Haim",
+            "publication": "Scientific reports 12 (1), 513, 2022",
+            "cited_by": {
+                "value": 14,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=13856940164624208628",
+                "serpapi_link": "https://serpapi.com/search.json?cites=13856940164624208628&engine=google_scholar&hl=en",
+                "cites_id": "13856940164624208628"
+            },
+            "year": "2022"
+        },
+        {
+            "title": "What pops out for you pops out for fish: Four common visual features",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:XiVPGOgt02cC",
+            "citation_id": "t77PmuQAAAAJ:XiVPGOgt02cC",
+            "authors": "A Reichenthal, M Ben-Tov, O Ben-Shahar, R Segev",
+            "publication": "Journal of vision 19 (1), 1-1, 2019",
+            "cited_by": {
+                "value": 13,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=6059491616598989830",
+                "serpapi_link": "https://serpapi.com/search.json?cites=6059491616598989830&engine=google_scholar&hl=en",
+                "cites_id": "6059491616598989830"
+            },
+            "year": "2019"
+        },
+        {
+            "title": "Effects of surface reflectance on local second order shape estimation in dynamic scenes",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:_xSYboBqXhAC",
+            "citation_id": "t77PmuQAAAAJ:_xSYboBqXhAC",
+            "authors": "DN D\u00f6vencio\u011flu, MWA Wijntjes, O Ben-Shahar, K Doerschner",
+            "publication": "Vision research 115, 218-230, 2015",
+            "cited_by": {
+                "value": 13,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10434447212566316607",
+                "serpapi_link": "https://serpapi.com/search.json?cites=10434447212566316607&engine=google_scholar&hl=en",
+                "cites_id": "10434447212566316607"
+            },
+            "year": "2015"
+        },
+        {
+            "title": "Toward robust estimation of specular flow.",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:hqOjcs7Dif8C",
+            "citation_id": "t77PmuQAAAAJ:hqOjcs7Dif8C",
+            "authors": "Y Adato, TE Zickler, O Ben-Shahar",
+            "publication": "BMVC, 1-11, 2010",
+            "cited_by": {
+                "value": 13,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=7264104675386071970",
+                "serpapi_link": "https://serpapi.com/search.json?cites=7264104675386071970&engine=google_scholar&hl=en",
+                "cites_id": "7264104675386071970"
+            },
+            "year": "2010"
+        },
+        {
+            "title": "Tangent bundle curve completion with locally connected parallel networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:ns9cj8rnVeAC",
+            "citation_id": "t77PmuQAAAAJ:ns9cj8rnVeAC",
+            "authors": "G Ben-Yosef, O Ben-Shahar",
+            "publication": "Neural computation 24 (12), 3277-3316, 2012",
+            "cited_by": {
+                "value": 12,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=43431736621345397",
+                "serpapi_link": "https://serpapi.com/search.json?cites=43431736621345397&engine=google_scholar&hl=en",
+                "cites_id": "43431736621345397"
+            },
+            "year": "2012"
+        },
+        {
+            "title": "Visual search in barn owls: Task difficulty and saccadic behavior",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:vRqMK49ujn8C",
+            "citation_id": "t77PmuQAAAAJ:vRqMK49ujn8C",
+            "authors": "J Orlowski, O Ben-Shahar, H Wagner",
+            "publication": "Journal of Vision 18 (1), 4-4, 2018",
+            "cited_by": {
+                "value": 11,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1249516465627738498",
+                "serpapi_link": "https://serpapi.com/search.json?cites=1249516465627738498&engine=google_scholar&hl=en",
+                "cites_id": "1249516465627738498"
+            },
+            "year": "2018"
+        },
+        {
+            "title": "Boundaries, shading, and border ownership: A cusp at their interaction",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:dhFuZR0502QC",
+            "citation_id": "t77PmuQAAAAJ:dhFuZR0502QC",
+            "authors": "M Lawlor, D Holtmann-Rice, P Huggins, O Ben-Shahar, SW Zucker",
+            "publication": "Journal of Physiology-Paris 103 (1-2), 18-36, 2009",
+            "cited_by": {
+                "value": 11,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3071994948524419177",
+                "serpapi_link": "https://serpapi.com/search.json?cites=3071994948524419177&engine=google_scholar&hl=en",
+                "cites_id": "3071994948524419177"
+            },
+            "year": "2009"
+        },
+        {
+            "title": "On computing visual flows with boundaries: The case of shading and edges",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:_FxGoFyzp5QC",
+            "citation_id": "t77PmuQAAAAJ:_FxGoFyzp5QC",
+            "authors": "O Ben-Shahar, PS Huggins, SW Zucker",
+            "publication": "International Workshop on Biologically Motivated Computer Vision, 189-198, 2002",
+            "cited_by": {
+                "value": 11,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1639756873480662445",
+                "serpapi_link": "https://serpapi.com/search.json?cites=1639756873480662445&engine=google_scholar&hl=en",
+                "cites_id": "1639756873480662445"
+            },
+            "year": "2002"
+        },
+        {
+            "title": "Computer Vision\u2013ECCV 2016",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:4MWp96NkSFoC",
+            "citation_id": "t77PmuQAAAAJ:4MWp96NkSFoC",
+            "authors": "B Arad, O Ben-Shahar",
+            "publication": "Lecture Notes in Computer Science 9911, 2016",
+            "cited_by": {
+                "value": 10,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12837011757882827635",
+                "serpapi_link": "https://serpapi.com/search.json?cites=12837011757882827635&engine=google_scholar&hl=en",
+                "cites_id": "12837011757882827635"
+            },
+            "year": "2016"
+        },
+        {
+            "title": "Distance-dependent multimodal image registration for agriculture tasks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:EUQCXRtRnyEC",
+            "citation_id": "t77PmuQAAAAJ:EUQCXRtRnyEC",
+            "authors": "R Berenstein, M Ho\u010devar, T Gode\u0161a, Y Edan, O Ben-Shahar",
+            "publication": "Sensors 15 (8), 20845-20862, 2015",
+            "cited_by": {
+                "value": 10,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8069754304162997459",
+                "serpapi_link": "https://serpapi.com/search.json?cites=8069754304162997459&engine=google_scholar&hl=en",
+                "cites_id": "8069754304162997459"
+            },
+            "year": "2015"
+        },
+        {
+            "title": "Grape clusters and foliage detection algorithms for autonomous selective vineyard sprayer. Intelligent Service Robotics 3, 233\u2013243. methodology on rgb images taken under field \u2026",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:-_dYPAW6P2MC",
+            "citation_id": "t77PmuQAAAAJ:-_dYPAW6P2MC",
+            "authors": "R Berenstein, OB Shahar, A Shapiro, Y Edan",
+            "publication": "Sensors 12, 16988-17006, 2010",
+            "cited_by": {
+                "value": 10,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14827663187710143066",
+                "serpapi_link": "https://serpapi.com/search.json?cites=14827663187710143066&engine=google_scholar&hl=en",
+                "cites_id": "14827663187710143066"
+            },
+            "year": "2010"
+        },
+        {
+            "title": "Toward naturalistic neuroscience of navigation: opportunities in coral reef fish",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:fEOibwPWpKIC",
+            "citation_id": "t77PmuQAAAAJ:fEOibwPWpKIC",
+            "authors": "S Givon, R Pickholtz, EY Pickholtz, O Ben-Shahar, M Kiflawi, R Segev",
+            "publication": "Frontiers in Neural Circuits 16, 895381, 2022",
+            "cited_by": {
+                "value": 9,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=18082754492392466813",
+                "serpapi_link": "https://serpapi.com/search.json?cites=18082754492392466813&engine=google_scholar&hl=en",
+                "cites_id": "18082754492392466813"
+            },
+            "year": "2022"
+        },
+        {
+            "title": "Recovery of hyperspectral data from image",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:eq2jaN3J8jMC",
+            "citation_id": "t77PmuQAAAAJ:eq2jaN3J8jMC",
+            "authors": "BENS Ohad, A Boaz",
+            "publication": "US Patent 11,085,823, 2021",
+            "cited_by": {
+                "value": 9,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=7470764188594291144",
+                "serpapi_link": "https://serpapi.com/search.json?cites=7470764188594291144&engine=google_scholar&hl=en",
+                "cites_id": "7470764188594291144"
+            },
+            "year": "2021"
+        },
+        {
+            "title": "Scenenet: A perceptual ontology for scene understanding",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:D03iK_w7-QYC",
+            "citation_id": "t77PmuQAAAAJ:D03iK_w7-QYC",
+            "authors": "I Kadar, O Ben-Shahar",
+            "publication": "Computer Vision-ECCV 2014 Workshops: Zurich, Switzerland, September 6-7 and \u2026, 2015",
+            "cited_by": {
+                "value": 9,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16058632087039554353",
+                "serpapi_link": "https://serpapi.com/search.json?cites=16058632087039554353&engine=google_scholar&hl=en",
+                "cites_id": "16058632087039554353"
+            },
+            "year": "2015"
+        },
+        {
+            "title": "Recognition of natural objects in the archerfish",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:tKAzc9rXhukC",
+            "citation_id": "t77PmuQAAAAJ:tKAzc9rXhukC",
+            "authors": "S Volotsky, O Ben-Shahar, O Donchin, R Segev",
+            "publication": "Journal of Experimental Biology 225 (3), 2022",
+            "cited_by": {
+                "value": 8,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=965053562888394069",
+                "serpapi_link": "https://serpapi.com/search.json?cites=965053562888394069&engine=google_scholar&hl=en",
+                "cites_id": "965053562888394069"
+            },
+            "year": "2022"
+        },
+        {
+            "title": "Gazing down increases standing and walking postural steadiness",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:kzcrU_BdoSEC",
+            "citation_id": "t77PmuQAAAAJ:kzcrU_BdoSEC",
+            "authors": "Y Koren, R Mairon, I Sofer, Y Parmet, O Ben-Shahar, S Bar-Haim",
+            "publication": "Royal Society open science 8 (3), 201556, 2021",
+            "cited_by": {
+                "value": 8,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15929154274656548615",
+                "serpapi_link": "https://serpapi.com/search.json?cites=15929154274656548615&engine=google_scholar&hl=en",
+                "cites_id": "15929154274656548615"
+            },
+            "year": "2021"
+        },
+        {
+            "title": "Feature integration theory in non-humans: Spotlight on the archerfish",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:ye4kPcJQO24C",
+            "citation_id": "t77PmuQAAAAJ:ye4kPcJQO24C",
+            "authors": "A Reichenthal, R Segev, O Ben-Shahar",
+            "publication": "Attention, Perception, & Psychophysics 82 (2), 752-774, 2020",
+            "cited_by": {
+                "value": 8,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5157011652688603830",
+                "serpapi_link": "https://serpapi.com/search.json?cites=5157011652688603830&engine=google_scholar&hl=en",
+                "cites_id": "5157011652688603830"
+            },
+            "year": "2020"
+        },
+        {
+            "title": "Robotic data acquisition of sweet pepper images for research and development",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:PR6Y55bgFSsC",
+            "citation_id": "t77PmuQAAAAJ:PR6Y55bgFSsC",
+            "authors": "P Kurtser, B Arad, O Ben-Shahar, M van Bree, J Moonen, B van Tujil, ...",
+            "publication": "The 5th Israeli Conference on Robotics 2016, Air Force Conference Center \u2026, 2016",
+            "cited_by": {
+                "value": 8,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16736341147449091246",
+                "serpapi_link": "https://serpapi.com/search.json?cites=16736341147449091246&engine=google_scholar&hl=en",
+                "cites_id": "16736341147449091246"
+            },
+            "year": "2016"
+        },
+        {
+            "title": "Small sample scene categorization from perceptual relations",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:JV2RwH3_ST0C",
+            "citation_id": "t77PmuQAAAAJ:JV2RwH3_ST0C",
+            "authors": "I Kadar, O Ben-Shahar",
+            "publication": "2012 IEEE Conference on Computer Vision and Pattern Recognition, 2711-2718, 2012",
+            "cited_by": {
+                "value": 8,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=13621694303480748334",
+                "serpapi_link": "https://serpapi.com/search.json?cites=13621694303480748334&engine=google_scholar&hl=en",
+                "cites_id": "13621694303480748334"
+            },
+            "year": "2012"
+        },
+        {
+            "title": "Jigsaw puzzle solving as a consistent labeling problem",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:_Re3VWB3Y0AC",
+            "citation_id": "t77PmuQAAAAJ:_Re3VWB3Y0AC",
+            "authors": "M Khoroshiltseva, B Vardi, A Torcinovich, A Traviglia, O Ben-Shahar, ...",
+            "publication": "Computer Analysis of Images and Patterns: 19th International Conference \u2026, 2021",
+            "cited_by": {
+                "value": 7,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11676629953580442650",
+                "serpapi_link": "https://serpapi.com/search.json?cites=11676629953580442650&engine=google_scholar&hl=en",
+                "cites_id": "11676629953580442650"
+            },
+            "year": "2021"
+        },
+        {
+            "title": "Contextual object detection with a few relevant neighbors",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:08ZZubdj9fEC",
+            "citation_id": "t77PmuQAAAAJ:08ZZubdj9fEC",
+            "authors": "E Barnea, O Ben-Shahar",
+            "publication": "Computer Vision\u2013ACCV 2018: 14th Asian Conference on Computer Vision, Perth \u2026, 2019",
+            "cited_by": {
+                "value": 7,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3579053912763730757",
+                "serpapi_link": "https://serpapi.com/search.json?cites=3579053912763730757&engine=google_scholar&hl=en",
+                "cites_id": "3579053912763730757"
+            },
+            "year": "2019"
+        },
+        {
+            "title": "Dictionary based hyperspectral image reconstruction captured with CS-MUSI",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:9vf0nzSNQJEC",
+            "citation_id": "t77PmuQAAAAJ:9vf0nzSNQJEC",
+            "authors": "Y Oiknine, B Arad, I August, O Ben-Shahar, A Stern",
+            "publication": "2018 9th Workshop on Hyperspectral Image and Signal Processing: Evolution in \u2026, 2018",
+            "cited_by": {
+                "value": 7,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1724574902091819334",
+                "serpapi_link": "https://serpapi.com/search.json?cites=1724574902091819334&engine=google_scholar&hl=en",
+                "cites_id": "1724574902091819334"
+            },
+            "year": "2018"
+        },
+        {
+            "title": "Depth based object detection from partial pose estimation of symmetric objects",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:fPk4N6BV_jEC",
+            "citation_id": "t77PmuQAAAAJ:fPk4N6BV_jEC",
+            "authors": "E Barnea, O Ben-Shahar",
+            "publication": "Computer Vision\u2013ECCV 2014: 13th European Conference, Zurich, Switzerland \u2026, 2014",
+            "cited_by": {
+                "value": 7,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16482320965892288383",
+                "serpapi_link": "https://serpapi.com/search.json?cites=16482320965892288383&engine=google_scholar&hl=en",
+                "cites_id": "16482320965892288383"
+            },
+            "year": "2014"
+        },
+        {
+            "title": "Specular Flow and Shape in One Shot:.",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:L8Ckcad2t8MC",
+            "citation_id": "t77PmuQAAAAJ:L8Ckcad2t8MC",
+            "authors": "Y Adato, O Ben-Shahar",
+            "publication": "BMVC, 1-11, 2011",
+            "cited_by": {
+                "value": 7,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10659071499619246490",
+                "serpapi_link": "https://serpapi.com/search.json?cites=10659071499619246490&engine=google_scholar&hl=en",
+                "cites_id": "10659071499619246490"
+            },
+            "year": "2011"
+        },
+        {
+            "title": "General geometric good continuation: from Taylor to Laplace via level sets",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:R3hNpaxXUhUC",
+            "citation_id": "t77PmuQAAAAJ:R3hNpaxXUhUC",
+            "authors": "O Ben-Shahar, S Zucker",
+            "publication": "International journal of computer vision 86, 48-71, 2010",
+            "cited_by": {
+                "value": 7,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=9880104506219966849",
+                "serpapi_link": "https://serpapi.com/search.json?cites=9880104506219966849&engine=google_scholar&hl=en",
+                "cites_id": "9880104506219966849"
+            },
+            "year": "2010"
+        },
+        {
+            "title": "Curvature-based perceptual singularities and texture saliency with early vision mechanisms",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:7PzlFSSx8tAC",
+            "citation_id": "t77PmuQAAAAJ:7PzlFSSx8tAC",
+            "authors": "G Ben-Yosef, O Ben-Shahar",
+            "publication": "Journal of the Optical Society of America A 25 (8), 1974-1993, 2008",
+            "cited_by": {
+                "value": 7,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3518288494477573394",
+                "serpapi_link": "https://serpapi.com/search.json?cites=3518288494477573394&engine=google_scholar&hl=en",
+                "cites_id": "3518288494477573394"
+            },
+            "year": "2008"
+        },
+        {
+            "title": "A computationally efficient tracker with direct appearance-kinematic measure and adaptive Kalman filter",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:lSLTfruPkqcC",
+            "citation_id": "t77PmuQAAAAJ:lSLTfruPkqcC",
+            "authors": "R Ben-Ari, O Ben-Shahar",
+            "publication": "Journal of Real-Time Image Processing 11, 271-285, 2016",
+            "cited_by": {
+                "value": 6,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14691434950057726727",
+                "serpapi_link": "https://serpapi.com/search.json?cites=14691434950057726727&engine=google_scholar&hl=en",
+                "cites_id": "14691434950057726727"
+            },
+            "year": "2016"
+        },
+        {
+            "title": "Image Synthesis for Solar Flare Prediction",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:ipzZ9siozwsC",
+            "citation_id": "t77PmuQAAAAJ:ipzZ9siozwsC",
+            "authors": "E Amar, O Ben-Shahar",
+            "publication": "The Astrophysical Journal Supplement Series 271 (1), 29, 2024",
+            "cited_by": {
+                "value": 5,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4668548857150980001",
+                "serpapi_link": "https://serpapi.com/search.json?cites=4668548857150980001&engine=google_scholar&hl=en",
+                "cites_id": "4668548857150980001"
+            },
+            "year": "2024"
+        },
+        {
+            "title": "Representation of border, velocity and speed in the goldfish brain",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:q3oQSFYPqjQC",
+            "citation_id": "t77PmuQAAAAJ:q3oQSFYPqjQC",
+            "authors": "E Vinepinsky, S Perchik, O Ben-Shahar, O Donchin, R Segev",
+            "publication": "BioRxiv 291013, 2018",
+            "cited_by": {
+                "value": 5,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=862726262739801454",
+                "serpapi_link": "https://serpapi.com/search.json?cites=862726262739801454&engine=google_scholar&hl=en",
+                "cites_id": "862726262739801454"
+            },
+            "year": "2018"
+        },
+        {
+            "title": "Boundary Gestalt limits flow Gestalt: The geometry of good continuation",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:HDshCWvjkbEC",
+            "citation_id": "t77PmuQAAAAJ:HDshCWvjkbEC",
+            "authors": "SW Zucker, O Ben-Shahar",
+            "publication": "Visual Thought: The depictive space of perception, 115-131, 2008",
+            "cited_by": {
+                "value": 5,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3834964577726433727",
+                "serpapi_link": "https://serpapi.com/search.json?cites=3834964577726433727&engine=google_scholar&hl=en",
+                "cites_id": "3834964577726433727"
+            },
+            "year": "2008"
+        },
+        {
+            "title": "Where objects come from: Attention, segmentation, and textons",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:LkGwnXOMwfcC",
+            "citation_id": "t77PmuQAAAAJ:LkGwnXOMwfcC",
+            "authors": "O Ben-Shahar, BJ Scholl, SW Zucker",
+            "publication": "Journal of Vision 3 (9), 474-474, 2003",
+            "cited_by": {
+                "value": 5,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10368568878211205337",
+                "serpapi_link": "https://serpapi.com/search.json?cites=10368568878211205337&engine=google_scholar&hl=en",
+                "cites_id": "10368568878211205337"
+            },
+            "year": "2003"
+        },
+        {
+            "title": "Crossing cuts polygonal puzzles: Models and Solvers",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:7T2F9Uy0os0C",
+            "citation_id": "t77PmuQAAAAJ:7T2F9Uy0os0C",
+            "authors": "P Harel, O Ben-Shahar",
+            "publication": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern \u2026, 2021",
+            "cited_by": {
+                "value": 4,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=6133474323901711929",
+                "serpapi_link": "https://serpapi.com/search.json?cites=6133474323901711929&engine=google_scholar&hl=en",
+                "cites_id": "6133474323901711929"
+            },
+            "year": "2021"
+        },
+        {
+            "title": "Representation of borders and swimming kinematics in the brain of freely-navigating fish",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:5awf1xo2G04C",
+            "citation_id": "t77PmuQAAAAJ:5awf1xo2G04C",
+            "authors": "E Vinepinsky, L Cohen, S Perchik, O Ben-Shahar, O Donchin, R Segev",
+            "publication": "bioRxiv, 291013, 2018",
+            "cited_by": {
+                "value": 4,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16226340751610053691",
+                "serpapi_link": "https://serpapi.com/search.json?cites=16226340751610053691&engine=google_scholar&hl=en",
+                "cites_id": "16226340751610053691"
+            },
+            "year": "2018"
+        },
+        {
+            "title": "How do multiple inducers group in perceptual completion stimuli-psychophysics and modeling",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:PELIpwtuRlgC",
+            "citation_id": "t77PmuQAAAAJ:PELIpwtuRlgC",
+            "authors": "G Nir, OB Shahar",
+            "publication": "Journal of Vision 15 (12), 843-843, 2015",
+            "cited_by": {
+                "value": 4,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=18288829677048901796",
+                "serpapi_link": "https://serpapi.com/search.json?cites=18288829677048901796&engine=google_scholar&hl=en",
+                "cites_id": "18288829677048901796"
+            },
+            "year": "2015"
+        },
+        {
+            "title": "The perceptual organization of visual flows",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:0EnyYjriUFMC",
+            "citation_id": "t77PmuQAAAAJ:0EnyYjriUFMC",
+            "authors": "O Ben-Shahar",
+            "publication": "Yale University, 2003",
+            "cited_by": {
+                "value": 4,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12104926500396389044",
+                "serpapi_link": "https://serpapi.com/search.json?cites=12104926500396389044&engine=google_scholar&hl=en",
+                "cites_id": "12104926500396389044"
+            },
+            "year": "2003"
+        },
+        {
+            "title": "Pictorial and apictorial polygonal jigsaw puzzles from arbitrary number of crossing cuts",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:EkHepimYqZsC",
+            "citation_id": "t77PmuQAAAAJ:EkHepimYqZsC",
+            "authors": "P Harel, OI Shahar, O Ben-Shahar",
+            "publication": "International Journal of Computer Vision 132 (9), 3428-3462, 2024",
+            "cited_by": {
+                "value": 3,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4021788807958281406",
+                "serpapi_link": "https://serpapi.com/search.json?cites=4021788807958281406&engine=google_scholar&hl=en",
+                "cites_id": "4021788807958281406"
+            },
+            "year": "2024"
+        },
+        {
+            "title": "Self-motion trajectories can facilitate orientation-based figure-ground segregation",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:ZuybSZzF8UAC",
+            "citation_id": "t77PmuQAAAAJ:ZuybSZzF8UAC",
+            "authors": "A Dutta, T Lev-Ari, O Barzilay, R Mairon, A Wolf, O Ben-Shahar, ...",
+            "publication": "Journal of Neurophysiology 123 (3), 912-926, 2020",
+            "cited_by": {
+                "value": 3,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12657311400652489464",
+                "serpapi_link": "https://serpapi.com/search.json?cites=12657311400652489464&engine=google_scholar&hl=en",
+                "cites_id": "12657311400652489464"
+            },
+            "year": "2020"
+        },
+        {
+            "title": "Gradient surfing: A new deterministic approach for low-dimensional global optimization",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:bnK-pcrLprsC",
+            "citation_id": "t77PmuQAAAAJ:bnK-pcrLprsC",
+            "authors": "E Taig, O Ben-Shahar",
+            "publication": "Journal of Optimization Theory and Applications 180, 855-878, 2019",
+            "cited_by": {
+                "value": 3,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15449522003519128703",
+                "serpapi_link": "https://serpapi.com/search.json?cites=15449522003519128703&engine=google_scholar&hl=en",
+                "cites_id": "15449522003519128703"
+            },
+            "year": "2019"
+        },
+        {
+            "title": "A biologically-inspired theory for non-axiomatic parametric curve completion",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:BwyfMAYsbu0C",
+            "citation_id": "t77PmuQAAAAJ:BwyfMAYsbu0C",
+            "authors": "G Ben-Yosef, O Ben-Shahar",
+            "publication": "Asian Conference on Computer Vision, 346-359, 2010",
+            "cited_by": {
+                "value": 3,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1928999432505184146",
+                "serpapi_link": "https://serpapi.com/search.json?cites=1928999432505184146&engine=google_scholar&hl=en",
+                "cites_id": "1928999432505184146"
+            },
+            "year": "2010"
+        },
+        {
+            "title": "Unique specular shape from two specular flows",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:8k81kl-MbHgC",
+            "citation_id": "t77PmuQAAAAJ:8k81kl-MbHgC",
+            "authors": "GD Canas, Y Vasilyev, Y Adato, T Zickler, SJ Gortler, O Ben-Shahar",
+            "cited_by": {
+                "value": 3,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3098286481904906094",
+                "serpapi_link": "https://serpapi.com/search.json?cites=3098286481904906094&engine=google_scholar&hl=en",
+                "cites_id": "3098286481904906094"
+            },
+            "year": "2009"
+        },
+        {
+            "title": "\u2018Computational jigsaw puzzle solving",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:AXPGKjj_ei8C",
+            "citation_id": "t77PmuQAAAAJ:AXPGKjj_ei8C",
+            "authors": "D Pomeranz, M Shemesh, O Ben-Shahar",
+            "cited_by": {
+                "value": 3,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12703861039471039803",
+                "serpapi_link": "https://serpapi.com/search.json?cites=12703861039471039803&engine=google_scholar&hl=en",
+                "cites_id": "12703861039471039803"
+            },
+            "year": ""
+        },
+        {
+            "title": "Lazy caterer jigsaw puzzles: Models, properties, and a mechanical system-based solver",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:UHK10RUVsp4C",
+            "citation_id": "t77PmuQAAAAJ:UHK10RUVsp4C",
+            "authors": "P Harel, O Ben-Shahar",
+            "cited_by": {
+                "value": 2,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=6236182109603849206",
+                "serpapi_link": "https://serpapi.com/search.json?cites=6236182109603849206&engine=google_scholar&hl=en",
+                "cites_id": "6236182109603849206"
+            },
+            "year": "2020"
+        },
+        {
+            "title": "Curve reconstruction via the global statistics of natural curves",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:l7t_Zn2s7bgC",
+            "citation_id": "t77PmuQAAAAJ:l7t_Zn2s7bgC",
+            "authors": "E Barnea, O Ben-Shahar",
+            "publication": "Proceedings of the IEEE conference on computer vision and pattern \u2026, 2018",
+            "cited_by": {
+                "value": 2,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11892391789145244491",
+                "serpapi_link": "https://serpapi.com/search.json?cites=11892391789145244491&engine=google_scholar&hl=en",
+                "cites_id": "11892391789145244491"
+            },
+            "year": "2018"
+        },
+        {
+            "title": "The contribution of motion to shape-from-specularities",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:xtRiw3GOFMkC",
+            "citation_id": "t77PmuQAAAAJ:xtRiw3GOFMkC",
+            "authors": "RM Vota, ND D\u00f6vencio\u011flu, O Ben-Shahar, K Dorschner, M Wijntjes",
+            "cited_by": {
+                "value": 2,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15877013266952190980",
+                "serpapi_link": "https://serpapi.com/search.json?cites=15877013266952190980&engine=google_scholar&hl=en",
+                "cites_id": "15877013266952190980"
+            },
+            "year": "2015"
+        },
+        {
+            "title": "Toward shape from a single specular flow",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:KlAtU1dfN6UC",
+            "citation_id": "t77PmuQAAAAJ:KlAtU1dfN6UC",
+            "authors": "Y Vasilyev, T Zickler, SJ Gortler, O Ben-Shahar",
+            "cited_by": {
+                "value": 2,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12062742829130415143",
+                "serpapi_link": "https://serpapi.com/search.json?cites=12062742829130415143&engine=google_scholar&hl=en",
+                "cites_id": "12062742829130415143"
+            },
+            "year": "2011"
+        },
+        {
+            "title": "Curve completion as minimum action in the primary visual cortex",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:mVmsd5A6BfQC",
+            "citation_id": "t77PmuQAAAAJ:mVmsd5A6BfQC",
+            "authors": "G Ben-Yosef, O Ben-Shahar",
+            "publication": "Journal of Vision 10 (7), 1165-1165, 2010",
+            "cited_by": {
+                "value": 2,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1357700684164132660",
+                "serpapi_link": "https://serpapi.com/search.json?cites=1357700684164132660&engine=google_scholar&hl=en",
+                "cites_id": "1357700684164132660"
+            },
+            "year": "2010"
+        },
+        {
+            "title": "Saliency and segregation without feature gradient: New insights for segmentation from orientation-defined textures",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:_kc_bZDykSQC",
+            "citation_id": "t77PmuQAAAAJ:_kc_bZDykSQC",
+            "authors": "O Ben-Shahar",
+            "publication": "2006 Conference on Computer Vision and Pattern Recognition Workshop (CVPRW \u2026, 2006",
+            "cited_by": {
+                "value": 2,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14953615591544084410",
+                "serpapi_link": "https://serpapi.com/search.json?cites=14953615591544084410&engine=google_scholar&hl=en",
+                "cites_id": "14953615591544084410"
+            },
+            "year": "2006"
+        },
+        {
+            "title": "Good Continuation in Layers: Shading flows, color flows, surfaces and shadows",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:kNdYIx-mwKoC",
+            "citation_id": "t77PmuQAAAAJ:kNdYIx-mwKoC",
+            "authors": "O Ben-Shahar, A Glaser, SW Zucker",
+            "publication": "2006 Conference on Computer Vision and Pattern Recognition Workshop (CVPRW \u2026, 2006",
+            "cited_by": {
+                "value": 2,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8235153402123784019",
+                "serpapi_link": "https://serpapi.com/search.json?cites=8235153402123784019&engine=google_scholar&hl=en",
+                "cites_id": "8235153402123784019"
+            },
+            "year": "2006"
+        },
+        {
+            "title": "Good continuation of general 2D visual features: Dual harmonic models and computational inference",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:MXK_kJrjxJIC",
+            "citation_id": "t77PmuQAAAAJ:MXK_kJrjxJIC",
+            "authors": "O Ben-Shahar, SW Zucker",
+            "publication": "Tenth IEEE International Conference on Computer Vision (ICCV'05) Volume 1 2 \u2026, 2005",
+            "cited_by": {
+                "value": 2,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5521132294561359196",
+                "serpapi_link": "https://serpapi.com/search.json?cites=5521132294561359196&engine=google_scholar&hl=en",
+                "cites_id": "5521132294561359196"
+            },
+            "year": "2005"
+        },
+        {
+            "title": "Special section on perceptual organization in computer vision",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:ULOm3_A8WrAC",
+            "citation_id": "t77PmuQAAAAJ:ULOm3_A8WrAC",
+            "authors": "DW Jacobs, M Lindenbaum, J August, SW Zucker, O Ben-Shahar, ...",
+            "publication": "IEEE Trans. Pattern Anal. and Machine Intell 25 (4), 2003",
+            "cited_by": {
+                "value": 2,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=13733808851720921410",
+                "serpapi_link": "https://serpapi.com/search.json?cites=13733808851720921410&engine=google_scholar&hl=en",
+                "cites_id": "13733808851720921410"
+            },
+            "year": "2003"
+        },
+        {
+            "title": "Second Order Statistics of Stationary Complex Valued Time Series and of Real-Complex Valued Mixtures",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t77PmuQAAAAJ&pagesize=100&citation_for_view=t77PmuQAAAAJ:g5m5HwL7SMYC",
+            "citation_id": "t77PmuQAAAAJ:g5m5HwL7SMYC",
+            "authors": "A Mokeichev, O Ben-Shahar",
+            "publication": "Department of Computer Science and the Zlotowski Center for Neuroscience \u2026, 0",
+            "cited_by": {
+                "value": 2,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8084357653120731878",
+                "serpapi_link": "https://serpapi.com/search.json?cites=8084357653120731878&engine=google_scholar&hl=en",
+                "cites_id": "8084357653120731878"
+            },
+            "year": ""
+        }
+    ],
+    "cited_by": {
+        "table": [
+            {
+                "citations": {
+                    "all": 4538,
+                    "since_2020": 2528
+                }
+            },
+            {
+                "h_index": {
+                    "all": 31,
+                    "since_2020": 17
+                }
+            },
+            {
+                "i10_index": {
+                    "all": 60,
+                    "since_2020": 29
+                }
+            }
+        ],
+        "graph": [
+            {
+                "year": 2003,
+                "citations": 12
+            },
+            {
+                "year": 2004,
+                "citations": 19
+            },
+            {
+                "year": 2005,
+                "citations": 25
+            },
+            {
+                "year": 2006,
+                "citations": 59
+            },
+            {
+                "year": 2007,
+                "citations": 52
+            },
+            {
+                "year": 2008,
+                "citations": 70
+            },
+            {
+                "year": 2009,
+                "citations": 69
+            },
+            {
+                "year": 2010,
+                "citations": 79
+            },
+            {
+                "year": 2011,
+                "citations": 107
+            },
+            {
+                "year": 2012,
+                "citations": 121
+            },
+            {
+                "year": 2013,
+                "citations": 150
+            },
+            {
+                "year": 2014,
+                "citations": 140
+            },
+            {
+                "year": 2015,
+                "citations": 150
+            },
+            {
+                "year": 2016,
+                "citations": 180
+            },
+            {
+                "year": 2017,
+                "citations": 198
+            },
+            {
+                "year": 2018,
+                "citations": 243
+            },
+            {
+                "year": 2019,
+                "citations": 254
+            },
+            {
+                "year": 2020,
+                "citations": 384
+            },
+            {
+                "year": 2021,
+                "citations": 425
+            },
+            {
+                "year": 2022,
+                "citations": 486
+            },
+            {
+                "year": 2023,
+                "citations": 542
+            },
+            {
+                "year": 2024,
+                "citations": 544
+            },
+            {
+                "year": 2025,
+                "citations": 144
+            }
+        ]
+    },
+    "public_access": {
+        "link": "https://scholar.google.com/citations?view_op=list_mandates&hl=en&user=t77PmuQAAAAJ",
+        "available": 22,
+        "not_available": 3
+    },
+    "co_authors": [
+        {
+            "name": "Boaz Arad",
+            "link": "https://scholar.google.com/citations?user=CBnzwl8AAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=CBnzwl8AAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "CBnzwl8AAAAJ",
+            "affiliations": "Ben-Gurion University of the Negev",
+            "email": "Verified email at bgu.ac.il",
+            "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=CBnzwl8AAAAJ&citpid=1"
+        },
+        {
+            "name": "Steven W Zucker",
+            "link": "https://scholar.google.com/citations?user=rNTIQXYAAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=rNTIQXYAAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "rNTIQXYAAAAJ",
+            "affiliations": "Yale University",
+            "email": "Verified email at yale.edu",
+            "thumbnail": "https://scholar.google.com/citations/images/avatar_scholar_56.png"
+        },
+        {
+            "name": "Ronen Segev",
+            "link": "https://scholar.google.com/citations?user=CY2rJNQAAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=CY2rJNQAAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "CY2rJNQAAAAJ",
+            "affiliations": "Ben Gurion University",
+            "email": "Verified email at bgu.ac.il",
+            "thumbnail": "https://scholar.google.com/citations/images/avatar_scholar_56.png"
+        },
+        {
+            "name": "Yael Edan",
+            "link": "https://scholar.google.com/citations?user=khpePLwAAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=khpePLwAAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "khpePLwAAAAJ",
+            "affiliations": "Professor of Industrial Engineering, Ben-Gurion University of the Negev",
+            "email": "Verified email at bgu.ac.il",
+            "thumbnail": "https://scholar.google.com/citations/images/avatar_scholar_56.png"
+        },
+        {
+            "name": "Rotem Mairon",
+            "link": "https://scholar.google.com/citations?user=Sd7J1W0AAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=Sd7J1W0AAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "Sd7J1W0AAAAJ",
+            "affiliations": "Computer Science, Ben-Gurion University",
+            "email": "Verified email at cs.bgu.ac.il",
+            "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=Sd7J1W0AAAAJ&citpid=2"
+        },
+        {
+            "name": "Ehud Barnea",
+            "link": "https://scholar.google.com/citations?user=dB3Zf5sAAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=dB3Zf5sAAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "dB3Zf5sAAAAJ",
+            "affiliations": "Ben-Gurion University",
+            "email": "Verified email at cs.bgu.ac.il",
+            "thumbnail": "https://scholar.google.com/citations/images/avatar_scholar_56.png"
+        },
+        {
+            "name": "Todd Zickler",
+            "link": "https://scholar.google.com/citations?user=oizZKrsAAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=oizZKrsAAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "oizZKrsAAAAJ",
+            "affiliations": "Professor of Electrical Engineering and Computer Science, Harvard University",
+            "email": "Verified email at seas.harvard.edu",
+            "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=oizZKrsAAAAJ&citpid=2"
+        },
+        {
+            "name": "Polina Kurtser",
+            "link": "https://scholar.google.com/citations?user=g7o4DyAAAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=g7o4DyAAAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "g7o4DyAAAAAJ",
+            "affiliations": "Associate Professor, Department of Computing Science, Ume\u00e5 University",
+            "email": "Verified email at umu.se",
+            "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=g7o4DyAAAAAJ&citpid=3"
+        },
+        {
+            "name": "Opher Donchin",
+            "link": "https://scholar.google.com/citations?user=iQhjW5MAAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=iQhjW5MAAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "iQhjW5MAAAAJ",
+            "affiliations": "Ben-Gurion University of the Negev",
+            "email": "Verified email at bgu.ac.il",
+            "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=iQhjW5MAAAAJ&citpid=1"
+        },
+        {
+            "name": "Mor Ben-Tov Kuperberg",
+            "link": "https://scholar.google.com/citations?user=_Ap1-2gAAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=_Ap1-2gAAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "_Ap1-2gAAAAJ",
+            "affiliations": "Novocure",
+            "email": "Verified email at novocure.com",
+            "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=_Ap1-2gAAAAJ&citpid=1"
+        },
+        {
+            "name": "Guy Ben-Yosef",
+            "link": "https://scholar.google.com/citations?user=R9JBrOIAAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=R9JBrOIAAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "R9JBrOIAAAAJ",
+            "affiliations": "Principal Scientist at GE Research",
+            "email": "Verified email at ge.com",
+            "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=R9JBrOIAAAAJ&citpid=3"
+        },
+        {
+            "name": "Ilan Kadar",
+            "link": "https://scholar.google.com/citations?user=5lQJN6QAAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=5lQJN6QAAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "5lQJN6QAAAAJ",
+            "affiliations": "Ben-Gurion University of the Negev",
+            "email": "Verified email at cs.bgu.ac.il",
+            "thumbnail": "https://scholar.google.com/citations/images/avatar_scholar_56.png"
+        },
+        {
+            "name": "Amir Shapiro",
+            "link": "https://scholar.google.com/citations?user=Cb7dj-UAAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=Cb7dj-UAAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "Cb7dj-UAAAAJ",
+            "affiliations": "Mechanical Engineering, Ben Gurion University of the Negev",
+            "email": "Verified email at bgu.ac.il",
+            "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=Cb7dj-UAAAAJ&citpid=2"
+        },
+        {
+            "name": "Ron Berenstein",
+            "link": "https://scholar.google.com/citations?user=d1WOhpwAAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=d1WOhpwAAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "d1WOhpwAAAAJ",
+            "affiliations": "Postdoctoral researcher at UC Berkeley",
+            "email": "Verified email at berkeley.edu",
+            "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=d1WOhpwAAAAJ&citpid=2"
+        },
+        {
+            "name": "Katja Doerschner",
+            "link": "https://scholar.google.com/citations?user=qQ27a0UAAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=qQ27a0UAAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "qQ27a0UAAAAJ",
+            "affiliations": "Professor of Psychology, Giessen University",
+            "email": "Verified email at psychol.uni-giessen.de",
+            "thumbnail": "https://scholar.google.com/citations/images/avatar_scholar_56.png"
+        },
+        {
+            "name": "Alon WOlf",
+            "link": "https://scholar.google.com/citations?user=FosoiK8AAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=FosoiK8AAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "FosoiK8AAAAJ",
+            "affiliations": "technion biorobotics and biomechanics lab",
+            "email": "Verified email at Technion.ac.il",
+            "thumbnail": "https://scholar.google.com/citations/images/avatar_scholar_56.png"
+        },
+        {
+            "name": "Yoram Gutfreund",
+            "link": "https://scholar.google.com/citations?user=AT2dVbQAAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=AT2dVbQAAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "AT2dVbQAAAAJ",
+            "affiliations": "TECHNION",
+            "thumbnail": "https://scholar.google.com/citations/images/avatar_scholar_56.png"
+        }
+    ],
+    "serpapi_pagination": {
+        "next": "https://serpapi.com/search.json?author_id=t77PmuQAAAAJ&engine=google_scholar_author&hl=en&num=100&start=100"
+    }
+}

@@ -1,0 +1,1152 @@
+{
+    "search_metadata": {
+        "id": "67f253c43caa7abecc37a237",
+        "status": "Success",
+        "json_endpoint": "https://serpapi.com/searches/0edeba6f7b4ba347/67f253c43caa7abecc37a237.json",
+        "created_at": "2025-04-06 10:13:24 UTC",
+        "processed_at": "2025-04-06 10:13:24 UTC",
+        "google_scholar_author_url": "https://scholar.google.com/citations?user=fxzlm6IAAAAJ&hl=en&pagesize=100",
+        "raw_html_file": "https://serpapi.com/searches/0edeba6f7b4ba347/67f253c43caa7abecc37a237.html",
+        "total_time_taken": 0.81
+    },
+    "search_parameters": {
+        "engine": "google_scholar_author",
+        "author_id": "fxzlm6IAAAAJ",
+        "hl": "en",
+        "num": "100"
+    },
+    "author": {
+        "name": "Oren Freifeld",
+        "affiliations": "Ben-Gurion University of the Negev",
+        "email": "Verified email at cs.bgu.ac.il",
+        "website": "https://www.cs.bgu.ac.il/~orenfr/",
+        "interests": [
+            {
+                "title": "Computer vision",
+                "link": "https://scholar.google.com/citations?view_op=search_authors&hl=en&mauthors=label:computer_vision",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Acomputer_vision"
+            },
+            {
+                "title": "Machine Learning",
+                "link": "https://scholar.google.com/citations?view_op=search_authors&hl=en&mauthors=label:machine_learning",
+                "serpapi_link": "https://serpapi.com/search.json?engine=google_scholar_profiles&hl=en&mauthors=label%3Amachine_learning"
+            }
+        ],
+        "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=view_photo&user=fxzlm6IAAAAJ&citpid=1"
+    },
+    "articles": [
+        {
+            "title": "Dreaming More Data: Class-dependent Distributions over Diffeomorphisms for Learned Data Augmentation",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:YOwf2qJgpHMC",
+            "citation_id": "fxzlm6IAAAAJ:YOwf2qJgpHMC",
+            "authors": "S Hauberg, O Freifeld, ABL Larsen, JW Fisher III, LK Hansen",
+            "publication": "The 19th International Conference on Artificial Intelligence and Statistics \u2026, 2016",
+            "cited_by": {
+                "value": 190,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5130835452991726326",
+                "serpapi_link": "https://serpapi.com/search.json?cites=5130835452991726326&engine=google_scholar&hl=en",
+                "cites_id": "5130835452991726326"
+            },
+            "year": "2016"
+        },
+        {
+            "title": "Lie Bodies: A Manifold Representation of 3D Human Shape",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:WF5omc3nYNoC",
+            "citation_id": "fxzlm6IAAAAJ:WF5omc3nYNoC",
+            "authors": "O Freifeld, MJ Black",
+            "publication": "European Conf. on Computer Vision (ECCV), Part I, LNCS 7572, 1-14, 2012",
+            "cited_by": {
+                "value": 122,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=13344778328444548531",
+                "serpapi_link": "https://serpapi.com/search.json?cites=13344778328444548531&engine=google_scholar&hl=en",
+                "cites_id": "13344778328444548531"
+            },
+            "year": "2012"
+        },
+        {
+            "title": "A Geometric take on Metric Learning",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:W7OEmFMy1HYC",
+            "citation_id": "fxzlm6IAAAAJ:W7OEmFMy1HYC",
+            "authors": "S Hauberg, O Freifeld, MJ Black",
+            "publication": "Neural Information Processing Systems (NIPS), 2012",
+            "cited_by": {
+                "value": 98,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8378354246660382202",
+                "serpapi_link": "https://serpapi.com/search.json?cites=8378354246660382202&engine=google_scholar&hl=en",
+                "cites_id": "8378354246660382202"
+            },
+            "year": "2012"
+        },
+        {
+            "title": "DeepDPM: Deep Clustering With an Unknown Number of Clusters",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:TFP_iSt0sucC",
+            "citation_id": "fxzlm6IAAAAJ:TFP_iSt0sucC",
+            "authors": "M Ronen, SE Finder, O Freifeld",
+            "publication": "Computer Vision and Pattern Recognition (CVPR), 2022",
+            "cited_by": {
+                "value": 97,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=7335598410750852147,15744110972415060678",
+                "serpapi_link": "https://serpapi.com/search.json?cites=7335598410750852147%2C15744110972415060678&engine=google_scholar&hl=en",
+                "cites_id": "7335598410750852147,15744110972415060678"
+            },
+            "year": "2022"
+        },
+        {
+            "title": "A Mixture of Manhattan Frames: Beyond the Manhattan World",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:5nxA0vEk-isC",
+            "citation_id": "fxzlm6IAAAAJ:5nxA0vEk-isC",
+            "authors": "J Straub, G Rosman, O Freifeld, J Leonard, JW Fisher III",
+            "publication": "Computer Vision and Pattern Recognition (CVPR), IEEE Conference on, 2014",
+            "cited_by": {
+                "value": 90,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1012973851383969929",
+                "serpapi_link": "https://serpapi.com/search.json?cites=1012973851383969929&engine=google_scholar&hl=en",
+                "cites_id": "1012973851383969929"
+            },
+            "year": "2014"
+        },
+        {
+            "title": "From Pictorial Structures to Deformable Structures",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:IjCSPb-OGe4C",
+            "citation_id": "fxzlm6IAAAAJ:IjCSPb-OGe4C",
+            "authors": "S Zuffi, O Freifeld, MJ Black",
+            "publication": "Computer Vision and Pattern Recognition (CVPR), IEEE Conference on, 2012",
+            "cited_by": {
+                "value": 84,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4692016675591924709",
+                "serpapi_link": "https://serpapi.com/search.json?cites=4692016675591924709&engine=google_scholar&hl=en",
+                "cites_id": "4692016675591924709"
+            },
+            "year": "2012"
+        },
+        {
+            "title": "Contour people: A parameterized model of 2D articulated human shape",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:9yKSN-GCB0IC",
+            "citation_id": "fxzlm6IAAAAJ:9yKSN-GCB0IC",
+            "authors": "O Freifeld, A Weiss, S Zuffi, MJ Black",
+            "publication": "2010 IEEE Computer Society Conference on Computer Vision and Pattern \u2026, 2010",
+            "cited_by": {
+                "value": 81,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12521156880418000497",
+                "serpapi_link": "https://serpapi.com/search.json?cites=12521156880418000497&engine=google_scholar&hl=en",
+                "cites_id": "12521156880418000497"
+            },
+            "year": "2010"
+        },
+        {
+            "title": "A freely-moving monkey treadmill model",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:MXK_kJrjxJIC",
+            "citation_id": "fxzlm6IAAAAJ:MXK_kJrjxJIC",
+            "authors": "JD Foster, P Nuyujukian, O Freifeld, H Gao, R Walker, SI Ryu, TH Meng, ...",
+            "publication": "Journal of Neural Engineering, 2014",
+            "cited_by": {
+                "value": 77,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5696175917610642581",
+                "serpapi_link": "https://serpapi.com/search.json?cites=5696175917610642581&engine=google_scholar&hl=en",
+                "cites_id": "5696175917610642581"
+            },
+            "year": "2014"
+        },
+        {
+            "title": "A 2d human body model dressed in eigen clothing",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:d1gkVwhDpl0C",
+            "citation_id": "fxzlm6IAAAAJ:d1gkVwhDpl0C",
+            "authors": "P Guan, O Freifeld, M Black",
+            "publication": "European Conference on Computer Vision (ECCV), 285-298, 2010",
+            "cited_by": {
+                "value": 75,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4107665469897534465",
+                "serpapi_link": "https://serpapi.com/search.json?cites=4107665469897534465&engine=google_scholar&hl=en",
+                "cites_id": "4107665469897534465"
+            },
+            "year": "2010"
+        },
+        {
+            "title": "The Manhattan frame model\u2014Manhattan world inference in the space of surface normals",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:4DMP91E08xMC",
+            "citation_id": "fxzlm6IAAAAJ:4DMP91E08xMC",
+            "authors": "J Straub, O Freifeld, G Rosman, JJ Leonard, JW Fisher",
+            "publication": "IEEE transactions on pattern analysis and machine intelligence 40 (1), 235-249, 2018",
+            "cited_by": {
+                "value": 68,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=6651847234955173082",
+                "serpapi_link": "https://serpapi.com/search.json?cites=6651847234955173082&engine=google_scholar&hl=en",
+                "cites_id": "6651847234955173082"
+            },
+            "year": "2018"
+        },
+        {
+            "title": "A Dirichlet Process Mixture Model for Spherical Data",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:3fE2CSJIrl8C",
+            "citation_id": "fxzlm6IAAAAJ:3fE2CSJIrl8C",
+            "authors": "J Straub, J Chang, O Freifeld, JW Fisher III",
+            "publication": "The 18th International Conference on Artificial Intelligence and Statistics \u2026, 2015",
+            "cited_by": {
+                "value": 68,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4535126466030788043",
+                "serpapi_link": "https://serpapi.com/search.json?cites=4535126466030788043&engine=google_scholar&hl=en",
+                "cites_id": "4535126466030788043"
+            },
+            "year": "2015"
+        },
+        {
+            "title": "Multiple sclerosis lesion detection using constrained GMM and curve evolution",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:u-x6o8ySG0sC",
+            "citation_id": "fxzlm6IAAAAJ:u-x6o8ySG0sC",
+            "authors": "O Freifeld, H Greenspan, J Goldberger",
+            "publication": "International Journal of Biomedical Imaging 2009, 14, 2009",
+            "cited_by": {
+                "value": 68,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11639832619091456832",
+                "serpapi_link": "https://serpapi.com/search.json?cites=11639832619091456832&engine=google_scholar&hl=en",
+                "cites_id": "11639832619091456832"
+            },
+            "year": "2009"
+        },
+        {
+            "title": "Deep Diffeomorphic Transformer Networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:QIV2ME_5wuYC",
+            "citation_id": "fxzlm6IAAAAJ:QIV2ME_5wuYC",
+            "authors": "N Skafte Detlefsen, O Freifeld, S Hauberg",
+            "publication": "Computer Vision and Pattern Recognition (CVPR), 4403-4412, 2018",
+            "cited_by": {
+                "value": 61,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10889902313214190390",
+                "serpapi_link": "https://serpapi.com/search.json?cites=10889902313214190390&engine=google_scholar&hl=en",
+                "cites_id": "10889902313214190390"
+            },
+            "year": "2018"
+        },
+        {
+            "title": "Bayesian Adaptive Superpixel Segmentation",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:ZeXyd9-uunAC",
+            "citation_id": "fxzlm6IAAAAJ:ZeXyd9-uunAC",
+            "authors": "R Uziel, M Ronen, O Freifeld",
+            "publication": "International Conference on Computer Vision (ICCV), 2019",
+            "cited_by": {
+                "value": 58,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=214768449268961218",
+                "serpapi_link": "https://serpapi.com/search.json?cites=214768449268961218&engine=google_scholar&hl=en",
+                "cites_id": "214768449268961218"
+            },
+            "year": "2019"
+        },
+        {
+            "title": "Wavelet convolutions for large receptive fields",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:pqnbT2bcN3wC",
+            "citation_id": "fxzlm6IAAAAJ:pqnbT2bcN3wC",
+            "authors": "SE Finder, R Amoyal, E Treister, O Freifeld",
+            "publication": "European Conference on Computer Vision, 363-380, 2024",
+            "cited_by": {
+                "value": 55,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4897956206288867759",
+                "serpapi_link": "https://serpapi.com/search.json?cites=4897956206288867759&engine=google_scholar&hl=en",
+                "cites_id": "4897956206288867759"
+            },
+            "year": "2024"
+        },
+        {
+            "title": "Transformations based on continuous piecewise-affine velocity fields",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:aqlVkmm33-oC",
+            "citation_id": "fxzlm6IAAAAJ:aqlVkmm33-oC",
+            "authors": "O Freifeld, S Hauberg, K Batmanghelich, JW Fisher",
+            "publication": "IEEE transactions on pattern analysis and machine intelligence 39 (12), 2496 \u2026, 2017",
+            "cited_by": {
+                "value": 51,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8603307958648388947",
+                "serpapi_link": "https://serpapi.com/search.json?cites=8603307958648388947&engine=google_scholar&hl=en",
+                "cites_id": "8603307958648388947"
+            },
+            "year": "2017"
+        },
+        {
+            "title": "Diffeomorphic Temporal Alignment Nets",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:_Qo2XoVZTnwC",
+            "citation_id": "fxzlm6IAAAAJ:_Qo2XoVZTnwC",
+            "authors": "RAS Weber, M Eyal, N Skafte, O Shriki, O Freifeld",
+            "publication": "Advances in Neural Information Processing Systems (NeurIPS), 6574-6585, 2019",
+            "cited_by": {
+                "value": 49,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=7364466321504417673",
+                "serpapi_link": "https://serpapi.com/search.json?cites=7364466321504417673&engine=google_scholar&hl=en",
+                "cites_id": "7364466321504417673"
+            },
+            "year": "2019"
+        },
+        {
+            "title": "Lesion detection in noisy MR brain images using constrained GMM and active contours",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:u5HHmVD_uO8C",
+            "citation_id": "fxzlm6IAAAAJ:u5HHmVD_uO8C",
+            "authors": "O Freifeld, H Greenspan, J Goldberger",
+            "publication": "International Symposium on Biomedical Imaging (ISBI), 596-599, 2007",
+            "cited_by": {
+                "value": 45,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2805411153146403822",
+                "serpapi_link": "https://serpapi.com/search.json?cites=2805411153146403822&engine=google_scholar&hl=en",
+                "cites_id": "2805411153146403822"
+            },
+            "year": "2007"
+        },
+        {
+            "title": "Parameterized model of 2D articulated human shape",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:YsMSGLbcyi4C",
+            "citation_id": "fxzlm6IAAAAJ:YsMSGLbcyi4C",
+            "authors": "MJ Black, O Freifeld, AW Weiss, MM Loper, P Guan",
+            "publication": "US Patent 9,292,967, 2016",
+            "cited_by": {
+                "value": 43,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3143581003261495846,8448895236020885633,15599583938708467574,13152190723898882520,224827189874661155",
+                "serpapi_link": "https://serpapi.com/search.json?cites=3143581003261495846%2C8448895236020885633%2C15599583938708467574%2C13152190723898882520%2C224827189874661155&engine=google_scholar&hl=en",
+                "cites_id": "3143581003261495846,8448895236020885633,15599583938708467574,13152190723898882520,224827189874661155"
+            },
+            "year": "2016"
+        },
+        {
+            "title": "Highly-Expressive Spaces of Well-Behaved Transformations: Keeping It Simple",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:KlAtU1dfN6UC",
+            "citation_id": "fxzlm6IAAAAJ:KlAtU1dfN6UC",
+            "authors": "O Freifeld, S Hauberg, K Batmanghelich, JW Fisher III",
+            "publication": "International Conference on Computer Vision (ICCV), 2911-2919, 2015",
+            "cited_by": {
+                "value": 40,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4394205371554505779",
+                "serpapi_link": "https://serpapi.com/search.json?cites=4394205371554505779&engine=google_scholar&hl=en",
+                "cites_id": "4394205371554505779"
+            },
+            "year": "2015"
+        },
+        {
+            "title": "Model Transport: Towards Scalable Transfer Learning on Manifolds",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:hqOjcs7Dif8C",
+            "citation_id": "fxzlm6IAAAAJ:hqOjcs7Dif8C",
+            "authors": "O Freifeld, S Hauberg, MJ Black",
+            "publication": "Computer Vision and Pattern Recognition (CVPR), IEEE Conference on, 2014",
+            "cited_by": {
+                "value": 35,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10403178299009702476",
+                "serpapi_link": "https://serpapi.com/search.json?cites=10403178299009702476&engine=google_scholar&hl=en",
+                "cites_id": "10403178299009702476"
+            },
+            "year": "2014"
+        },
+        {
+            "title": "System And Method For Extracting Dominant Orientations From A Scene",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:ULOm3_A8WrAC",
+            "citation_id": "fxzlm6IAAAAJ:ULOm3_A8WrAC",
+            "authors": "J Straub, G Rosman, O Freifeld, JJ Leonard, JW Fisher III",
+            "publication": "US Patent 20,150,286,893, 2015",
+            "cited_by": {
+                "value": 25,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=9386794553775834369",
+                "serpapi_link": "https://serpapi.com/search.json?cites=9386794553775834369&engine=google_scholar&hl=en",
+                "cites_id": "9386794553775834369"
+            },
+            "year": "2015"
+        },
+        {
+            "title": "Distributed MCMC Inference in Dirichlet Process Mixture Models Using Julia",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:7PzlFSSx8tAC",
+            "citation_id": "fxzlm6IAAAAJ:7PzlFSSx8tAC",
+            "authors": "O Dinari, A Yu, O Freifeld, JW Fisher III",
+            "publication": "CCGrid High Performance Machine Learning (HPML) Workshop, 2019",
+            "cited_by": {
+                "value": 20,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16071713246684314204",
+                "serpapi_link": "https://serpapi.com/search.json?cites=16071713246684314204&engine=google_scholar&hl=en",
+                "cites_id": "16071713246684314204"
+            },
+            "year": "2019"
+        },
+        {
+            "title": "A Fast Method for Inferring High-Quality Simply-Connected Superpixels",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:kNdYIx-mwKoC",
+            "citation_id": "fxzlm6IAAAAJ:kNdYIx-mwKoC",
+            "authors": "O Freifeld, Y Li, JW Fisher III",
+            "publication": "International Conference on Image Processing (ICIP), 2015",
+            "cited_by": {
+                "value": 14,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3081096685833546364",
+                "serpapi_link": "https://serpapi.com/search.json?cites=3081096685833546364&engine=google_scholar&hl=en",
+                "cites_id": "3081096685833546364"
+            },
+            "year": "2015"
+        },
+        {
+            "title": "Combining wireless neural recording and video capture for the analysis of natural gait",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:2osOgNQ5qMEC",
+            "citation_id": "fxzlm6IAAAAJ:2osOgNQ5qMEC",
+            "authors": "JD Foster, O Freifeld, P Nuyujukian, SI Ryu, MJ Black, KV Shenoy",
+            "publication": "2011 5th International IEEE/EMBS Conference on Neural Engineering, 613-616, 2011",
+            "cited_by": {
+                "value": 14,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=7561995482368442770",
+                "serpapi_link": "https://serpapi.com/search.json?cites=7561995482368442770&engine=google_scholar&hl=en",
+                "cites_id": "7561995482368442770"
+            },
+            "year": "2011"
+        },
+        {
+            "title": "Revisiting DP-Means: Fast Scalable Algorithms via Parallelism and Delayed Cluster Creation",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:k_IJM867U9cC",
+            "citation_id": "fxzlm6IAAAAJ:k_IJM867U9cC",
+            "authors": "O Dinari, O Freifeld",
+            "publication": "The 38th Conference on Uncertainty in Artificial Intelligence (UAI), 2022",
+            "cited_by": {
+                "value": 11,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=548820713812530408",
+                "serpapi_link": "https://serpapi.com/search.json?cites=548820713812530408&engine=google_scholar&hl=en",
+                "cites_id": "548820713812530408"
+            },
+            "year": "2022"
+        },
+        {
+            "title": "Aerial Reconstructions via Probabilistic Data Fusion",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:0EnyYjriUFMC",
+            "citation_id": "fxzlm6IAAAAJ:0EnyYjriUFMC",
+            "authors": "R Cabezas, O Freifeld, R Guy, JW Fisher III",
+            "publication": "Computer Vision and Pattern Recognition (CVPR), IEEE Conference on, 2014",
+            "cited_by": {
+                "value": 11,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=573504379216000533",
+                "serpapi_link": "https://serpapi.com/search.json?cites=573504379216000533&engine=google_scholar&hl=en",
+                "cites_id": "573504379216000533"
+            },
+            "year": "2014"
+        },
+        {
+            "title": "Variational-and Metric-based Deep Latent Space for Out-of-Distribution Detection",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:maZDTaKrznsC",
+            "citation_id": "fxzlm6IAAAAJ:maZDTaKrznsC",
+            "authors": "O Dinari, O Freifeld",
+            "publication": "The 38th Conference on Uncertainty in Artificial Intelligence (UAI), 2022",
+            "cited_by": {
+                "value": 10,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1535505342674558650",
+                "serpapi_link": "https://serpapi.com/search.json?cites=1535505342674558650&engine=google_scholar&hl=en",
+                "cites_id": "1535505342674558650"
+            },
+            "year": "2022"
+        },
+        {
+            "title": "A framework for relating neural activity to freely moving behavior",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:Y0pCki6q_DkC",
+            "citation_id": "fxzlm6IAAAAJ:Y0pCki6q_DkC",
+            "authors": "JD Foster, P Nuyujukian, O Freifeld, S Ryu, MJ Black, KV Shenoy",
+            "publication": "4th Annual International Conference of the IEEE Engineering in Medicine and \u2026, 2012",
+            "cited_by": {
+                "value": 10,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3012407679040105365",
+                "serpapi_link": "https://serpapi.com/search.json?cites=3012407679040105365&engine=google_scholar&hl=en",
+                "cites_id": "3012407679040105365"
+            },
+            "year": "2012"
+        },
+        {
+            "title": "Sampling in Dirichlet Process Mixture Models for Clustering Streaming Data",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:iH-uZ7U-co4C",
+            "citation_id": "fxzlm6IAAAAJ:iH-uZ7U-co4C",
+            "authors": "O Dinari, O Freifeld",
+            "publication": "The International Conference on Artificial Intelligence and Statistics (AISTATS), 2022",
+            "cited_by": {
+                "value": 9,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3243458011006322850",
+                "serpapi_link": "https://serpapi.com/search.json?cites=3243458011006322850&engine=google_scholar&hl=en",
+                "cites_id": "3243458011006322850"
+            },
+            "year": "2022"
+        },
+        {
+            "title": "Deriving the CPAB derivative",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:RGFaLdJalmkC",
+            "citation_id": "fxzlm6IAAAAJ:RGFaLdJalmkC",
+            "authors": "O Freifeld",
+            "publication": "Rn 1 (11), 1, 2018",
+            "cited_by": {
+                "value": 9,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3798387864246554288",
+                "serpapi_link": "https://serpapi.com/search.json?cites=3798387864246554288&engine=google_scholar&hl=en",
+                "cites_id": "3798387864246554288"
+            },
+            "year": "2018"
+        },
+        {
+            "title": "Cyclic Diffeomorphic Transformer Nets For Contour Alignment",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:RHpTSmoSYBkC",
+            "citation_id": "fxzlm6IAAAAJ:RHpTSmoSYBkC",
+            "authors": "I Kaufman, RS Weber, O Freifeld",
+            "publication": "2021 IEEE International Conference on Image Processing (ICIP), 349-353, 2021",
+            "cited_by": {
+                "value": 7,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16790647816012378004",
+                "serpapi_link": "https://serpapi.com/search.json?cites=16790647816012378004&engine=google_scholar&hl=en",
+                "cites_id": "16790647816012378004"
+            },
+            "year": "2021"
+        },
+        {
+            "title": "Statistics on Manifolds with Applications to Modeling Shape Deformations",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:LkGwnXOMwfcC",
+            "citation_id": "fxzlm6IAAAAJ:LkGwnXOMwfcC",
+            "authors": "O Freifeld",
+            "publication": "Brown University, 2013",
+            "cited_by": {
+                "value": 7,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11372437651951719754",
+                "serpapi_link": "https://serpapi.com/search.json?cites=11372437651951719754&engine=google_scholar&hl=en",
+                "cites_id": "11372437651951719754"
+            },
+            "year": "2013"
+        },
+        {
+            "title": "Black. From pictorial structures to deformable structures",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:NaGl4SEjCO4C",
+            "citation_id": "fxzlm6IAAAAJ:NaGl4SEjCO4C",
+            "authors": "S Zuffi, O Freifeld, J Michael",
+            "publication": "2012 IEEE Conference on Computer Vision and Pattern Recognition, 3546-3553, 0",
+            "cited_by": {
+                "value": 6,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=6636927227846710845",
+                "serpapi_link": "https://serpapi.com/search.json?cites=6636927227846710845&engine=google_scholar&hl=en",
+                "cites_id": "6636927227846710845"
+            },
+            "year": ""
+        },
+        {
+            "title": "Regularization-free Diffeomorphic Temporal Alignment Nets",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:blknAaTinKkC",
+            "citation_id": "fxzlm6IAAAAJ:blknAaTinKkC",
+            "authors": "RS Weber, O Freifeld",
+            "publication": "ICML 2023, 2023",
+            "cited_by": {
+                "value": 5,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10889304270345648699",
+                "serpapi_link": "https://serpapi.com/search.json?cites=10889304270345648699&engine=google_scholar&hl=en",
+                "cites_id": "10889304270345648699"
+            },
+            "year": "2023"
+        },
+        {
+            "title": "A Deep Moving-Camera Background Model",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:M3NEmzRMIkIC",
+            "citation_id": "fxzlm6IAAAAJ:M3NEmzRMIkIC",
+            "authors": "G Erez, RS Weber, O Freifeld",
+            "publication": "European Conference on Computer Vision, 177-194, 2022",
+            "cited_by": {
+                "value": 5,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14745114131372795526",
+                "serpapi_link": "https://serpapi.com/search.json?cites=14745114131372795526&engine=google_scholar&hl=en",
+                "cites_id": "14745114131372795526"
+            },
+            "year": "2022"
+        },
+        {
+            "title": "Trainable Highly-expressive Activation Functions",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:YFjsv_pBGBYC",
+            "citation_id": "fxzlm6IAAAAJ:YFjsv_pBGBYC",
+            "authors": "I Chelly, SE Finder, S Ifergane, O Freifeld",
+            "publication": "ECCV 2024, 2024",
+            "cited_by": {
+                "value": 4,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10678023305492137197",
+                "serpapi_link": "https://serpapi.com/search.json?cites=10678023305492137197&engine=google_scholar&hl=en",
+                "cites_id": "10678023305492137197"
+            },
+            "year": "2024"
+        },
+        {
+            "title": "JA-POLS: a Moving-camera Background Model via Joint Alignment and Partially-overlapping Local Subspaces",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:-f6ydRqryjwC",
+            "citation_id": "fxzlm6IAAAAJ:-f6ydRqryjwC",
+            "authors": "I Chelly, V Winter, D Litvak, D Rosen, O Freifeld",
+            "publication": "Computer Vision and Pattern Recognition (CVPR), 2020",
+            "cited_by": {
+                "value": 4,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=9131716502132904159",
+                "serpapi_link": "https://serpapi.com/search.json?cites=9131716502132904159&engine=google_scholar&hl=en",
+                "cites_id": "9131716502132904159"
+            },
+            "year": "2020"
+        },
+        {
+            "title": "Effective Learning of a GMRF Mixture Model",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:hFOr9nPyWt4C",
+            "citation_id": "fxzlm6IAAAAJ:hFOr9nPyWt4C",
+            "authors": "SE Finder, E Treister, O Freifeld",
+            "publication": "IEEE Access 10, 7289-7299, 2022",
+            "cited_by": {
+                "value": 3,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12980605297117535352",
+                "serpapi_link": "https://serpapi.com/search.json?cites=12980605297117535352&engine=google_scholar&hl=en",
+                "cites_id": "12980605297117535352"
+            },
+            "year": "2022"
+        },
+        {
+            "title": "From ViT Features to Training-free Video Object Segmentation via Streaming-data Mixture Models",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:hMod-77fHWUC",
+            "citation_id": "fxzlm6IAAAAJ:hMod-77fHWUC",
+            "authors": "R Uziel, O Dinari, O Freifeld",
+            "publication": "Neural Information Processing Systems, 2023",
+            "cited_by": {
+                "value": 2,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1541722178820770378",
+                "serpapi_link": "https://serpapi.com/search.json?cites=1541722178820770378&engine=google_scholar&hl=en",
+                "cites_id": "1541722178820770378"
+            },
+            "year": "2023"
+        },
+        {
+            "title": "Parameterized model of 2D articulated human shape",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:r0BpntZqJG4C",
+            "citation_id": "fxzlm6IAAAAJ:r0BpntZqJG4C",
+            "authors": "MJ Black, O Freifeld, AW Weiss, MM Loper, P Guan",
+            "publication": "US Patent 11,501,508, 2022",
+            "cited_by": {
+                "value": 2,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10788312654136409305",
+                "serpapi_link": "https://serpapi.com/search.json?cites=10788312654136409305&engine=google_scholar&hl=en",
+                "cites_id": "10788312654136409305"
+            },
+            "year": "2022"
+        },
+        {
+            "title": "Scalable and Flexible Clustering of Grouped Data via Parallel and Distributed Sampling in Versatile Hierarchical Dirichlet Processes",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:TQgYirikUcIC",
+            "citation_id": "fxzlm6IAAAAJ:TQgYirikUcIC",
+            "authors": "O Dinari, O Freifeld",
+            "publication": "Uncertainty in Artificial Intelligence (UAI), 2020",
+            "cited_by": {
+                "value": 2,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=13326962539045669988",
+                "serpapi_link": "https://serpapi.com/search.json?cites=13326962539045669988&engine=google_scholar&hl=en",
+                "cites_id": "13326962539045669988"
+            },
+            "year": "2020"
+        },
+        {
+            "title": "Wavelet Convolutions for Large Receptive Fields. arXiv 2024",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:g5m5HwL7SMYC",
+            "citation_id": "fxzlm6IAAAAJ:g5m5HwL7SMYC",
+            "authors": "SE Finder, R Amoyal, E Treister, O Freifeld",
+            "publication": "arXiv preprint arXiv:2407.05848, 0",
+            "cited_by": {
+                "value": 2,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5029540232968929764",
+                "serpapi_link": "https://serpapi.com/search.json?cites=5029540232968929764&engine=google_scholar&hl=en",
+                "cites_id": "5029540232968929764"
+            },
+            "year": ""
+        },
+        {
+            "title": "Black (2014).\u201cModel Transport: Towards Scalable Transfer Learning on Manifolds\u201d",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:vV6vV6tmYwMC",
+            "citation_id": "fxzlm6IAAAAJ:vV6vV6tmYwMC",
+            "authors": "O Freifeld, S Hauberg, J Michael",
+            "publication": "Proceedings IEEE Conf. on Computer Vision and Pattern Recognition (CVPR \u2026, 0",
+            "cited_by": {
+                "value": 2,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1294095546333950934",
+                "serpapi_link": "https://serpapi.com/search.json?cites=1294095546333950934&engine=google_scholar&hl=en",
+                "cites_id": "1294095546333950934"
+            },
+            "year": ""
+        },
+        {
+            "title": "Transformations Based on Continuous Piecewise-Affine Velocity Fields",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:RYcK_YlVTxYC",
+            "citation_id": "fxzlm6IAAAAJ:RYcK_YlVTxYC",
+            "authors": "F Oren, H Soren, B Kayhan",
+            "cited_by": {
+                "value": 2,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=13395468917714752873",
+                "serpapi_link": "https://serpapi.com/search.json?cites=13395468917714752873&engine=google_scholar&hl=en",
+                "cites_id": "13395468917714752873"
+            },
+            "year": ""
+        },
+        {
+            "title": "Diffeomorphic Temporal Alignment Nets",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:ns9cj8rnVeAC",
+            "citation_id": "fxzlm6IAAAAJ:ns9cj8rnVeAC",
+            "authors": "WR Shapira, E Matan, DN Skafte, S Oren, F Oren",
+            "cited_by": {
+                "value": 2,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2966877454739565354",
+                "serpapi_link": "https://serpapi.com/search.json?cites=2966877454739565354&engine=google_scholar&hl=en",
+                "cites_id": "2966877454739565354"
+            },
+            "year": ""
+        },
+        {
+            "title": "Gaussian Splashing: Direct Volumetric Rendering Underwater",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:ldfaerwXgEUC",
+            "citation_id": "fxzlm6IAAAAJ:ldfaerwXgEUC",
+            "authors": "N Mualem, R Amoyal, O Freifeld, D Akkaynak",
+            "publication": "arXiv preprint arXiv:2411.19588, 2024",
+            "cited_by": {
+                "value": 1,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10757990338224288777",
+                "serpapi_link": "https://serpapi.com/search.json?cites=10757990338224288777&engine=google_scholar&hl=en",
+                "cites_id": "10757990338224288777"
+            },
+            "year": "2024"
+        },
+        {
+            "title": "SpaceJAM: a Lightweight and Regularization-free Method for Fast Joint Alignment of Images",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:BqipwSGYUEgC",
+            "citation_id": "fxzlm6IAAAAJ:BqipwSGYUEgC",
+            "authors": "N Barel, RS Weber, N Mualem, SE Finder, O Freifeld",
+            "publication": "ECCV 2024, 2024",
+            "cited_by": {
+                "value": 1,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15300479583297003234",
+                "serpapi_link": "https://serpapi.com/search.json?cites=15300479583297003234&engine=google_scholar&hl=en",
+                "cites_id": "15300479583297003234"
+            },
+            "year": "2024"
+        },
+        {
+            "title": "CPU-and GPU-based Distributed Sampling in Dirichlet Process Mixtures for Large-scale Analysis",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:isC4tDSrTZIC",
+            "citation_id": "fxzlm6IAAAAJ:isC4tDSrTZIC",
+            "authors": "O Dinari, R Zamir, JW Fisher III, O Freifeld",
+            "publication": "arXiv preprint arXiv:2204.08988, 2022",
+            "cited_by": {
+                "value": 1,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=17977510308154723607",
+                "serpapi_link": "https://serpapi.com/search.json?cites=17977510308154723607&engine=google_scholar&hl=en",
+                "cites_id": "17977510308154723607"
+            },
+            "year": "2022"
+        },
+        {
+            "title": "Common Failure Modes of Subcluster-based Sampling in Dirichlet Process Gaussian Mixture Models and a Deep-learning Solution.",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:bEWYMUwI8FkC",
+            "citation_id": "fxzlm6IAAAAJ:bEWYMUwI8FkC",
+            "authors": "V Winter, O Dinari, O Freifeld",
+            "publication": "The International Conference on Artificial Intelligence and Statistics (AISTATS), 2022",
+            "cited_by": {
+                "value": 1,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15980348403826479622",
+                "serpapi_link": "https://serpapi.com/search.json?cites=15980348403826479622&engine=google_scholar&hl=en",
+                "cites_id": "15980348403826479622"
+            },
+            "year": "2022"
+        },
+        {
+            "title": "Model Transport: Towards Scalable Transfer Learning on Manifolds\u2013Supplemental material",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:e5wmG9Sq2KIC",
+            "citation_id": "fxzlm6IAAAAJ:e5wmG9Sq2KIC",
+            "authors": "O Freifeld, S Hauberg, M Black",
+            "publication": "MPI-IS-TR-009, 2014. 3, 4, 6, 7, 0",
+            "cited_by": {
+                "value": 1,
+                "link": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15238227295005161694",
+                "serpapi_link": "https://serpapi.com/search.json?cites=15238227295005161694&engine=google_scholar&hl=en",
+                "cites_id": "15238227295005161694"
+            },
+            "year": ""
+        },
+        {
+            "title": "Diffeomorphic Temporal Alignment Nets for Time-series Joint Alignment and Averaging",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:rO6llkc54NcC",
+            "citation_id": "fxzlm6IAAAAJ:rO6llkc54NcC",
+            "authors": "R Shapira Weber, O Freifeld",
+            "publication": "arXiv e-prints, arXiv: 2502.06591, 2025",
+            "cited_by": {
+                "value": null
+            },
+            "year": "2025"
+        },
+        {
+            "title": "Consistent Amortized Clustering via Generative Flow Networks",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:3s1wT3WcHBgC",
+            "citation_id": "fxzlm6IAAAAJ:3s1wT3WcHBgC",
+            "authors": "I Chelly, R Uziel, O Freifeld, A Pakman",
+            "publication": "28th International Conference on Artificial Intelligence and Statistics \u2026, 2025",
+            "cited_by": {
+                "value": null
+            },
+            "year": "2025"
+        },
+        {
+            "title": "Leveraging Computational Pathology AI for Noninvasive Optical Imaging Analysis Without Retraining",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:2P1L_qKh6hAC",
+            "citation_id": "fxzlm6IAAAAJ:2P1L_qKh6hAC",
+            "authors": "D Barash, E Manning, A Van Vleck, O Hirsch, KL Aye, J Li, PO Scumpia, ...",
+            "publication": "arXiv preprint arXiv:2411.11613, 2024",
+            "cited_by": {
+                "value": null
+            },
+            "year": "2024"
+        },
+        {
+            "title": "Technical Report: Deriving the CPAB derivative",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:dhFuZR0502QC",
+            "citation_id": "fxzlm6IAAAAJ:dhFuZR0502QC",
+            "authors": "O Freifeld",
+            "publication": "https://www.cs.bgu.ac.il/~orenfr/papers/TR_cpab_derivative_2017.pdf, 2017",
+            "cited_by": {
+                "value": null
+            },
+            "year": "2017"
+        },
+        {
+            "title": "Parameterized model of 2d articulated human shape",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:j3f4tGmQtD8C",
+            "citation_id": "fxzlm6IAAAAJ:j3f4tGmQtD8C",
+            "authors": "MJ Black, O Freifeld, AW Weiss, MM Loper, P Guan",
+            "cited_by": {
+                "value": null
+            },
+            "year": "2017"
+        },
+        {
+            "title": "LIE BODIES: A MANIFOLD REPRESENTATION OF 3D HUMAN SHAPE SUPPLEMENTAL MATERIAL",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:O3NaXMp0MMsC",
+            "citation_id": "fxzlm6IAAAAJ:O3NaXMp0MMsC",
+            "authors": "O Freifeld, MJ Black",
+            "publication": "MPI f. Intelligente Systeme, 2012",
+            "cited_by": {
+                "value": null
+            },
+            "year": "2012"
+        },
+        {
+            "title": "MR Brain Image Analysis: Healthy Tissue Segmentation and Multiple Sclerosis Lesion Detection Using Constrained GMM and Curve Evolution",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:qjMakFHDy7sC",
+            "citation_id": "fxzlm6IAAAAJ:qjMakFHDy7sC",
+            "authors": "O Freifeld",
+            "publication": "Tel Aviv University, 2007",
+            "cited_by": {
+                "value": null
+            },
+            "year": "2007"
+        },
+        {
+            "title": "Supplemental Material for A Dirichlet Process Mixture Model for Spherical Data",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:lSLTfruPkqcC",
+            "citation_id": "fxzlm6IAAAAJ:lSLTfruPkqcC",
+            "authors": "J Straub, J Chang, O Freifeld, JW Fisher III",
+            "cited_by": {
+                "value": null
+            },
+            "year": ""
+        },
+        {
+            "title": "Supplemental Material for the CVPR 2020 Paper \u201cJA-POLS: a Moving-camera Background Model via Joint Alignment and Partially-overlapping Local Subspaces\u201d",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:J_g5lzvAfSwC",
+            "citation_id": "fxzlm6IAAAAJ:J_g5lzvAfSwC",
+            "authors": "I Chelly, V Winter, D Litvak, D Rosen, O Freifeld",
+            "cited_by": {
+                "value": null
+            },
+            "year": ""
+        },
+        {
+            "title": "Trainable Highly-expressive Activation Functions Supplementary Material",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:GnPB-g6toBAC",
+            "citation_id": "fxzlm6IAAAAJ:GnPB-g6toBAC",
+            "authors": "I Chelly, SE Finder, S Ifergane, O Freifeld",
+            "cited_by": {
+                "value": null
+            },
+            "year": ""
+        },
+        {
+            "title": "Variational-and Metric-based Deep Latent Space for Out-of-Distribution Detection\u2013Supplementary Material",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:JV2RwH3_ST0C",
+            "citation_id": "fxzlm6IAAAAJ:JV2RwH3_ST0C",
+            "authors": "O Dinari, O Freifeld",
+            "cited_by": {
+                "value": null
+            },
+            "year": ""
+        },
+        {
+            "title": "A FAST METHOD FOR INFERRING HIGH-QUALITY SIMPLY-CONNECTED SUPERPIXELS (ADDITIONAL VISUAL-COMPARISON EXAMPLES)",
+            "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fxzlm6IAAAAJ&pagesize=100&citation_for_view=fxzlm6IAAAAJ:qxL8FJ1GzNcC",
+            "citation_id": "fxzlm6IAAAAJ:qxL8FJ1GzNcC",
+            "authors": "O Freifeld, Y Li, JW Fisher III",
+            "cited_by": {
+                "value": null
+            },
+            "year": ""
+        }
+    ],
+    "cited_by": {
+        "table": [
+            {
+                "citations": {
+                    "all": 1748,
+                    "since_2020": 976
+                }
+            },
+            {
+                "h_index": {
+                    "all": 22,
+                    "since_2020": 18
+                }
+            },
+            {
+                "i10_index": {
+                    "all": 29,
+                    "since_2020": 24
+                }
+            }
+        ],
+        "graph": [
+            {
+                "year": 2010,
+                "citations": 13
+            },
+            {
+                "year": 2011,
+                "citations": 27
+            },
+            {
+                "year": 2012,
+                "citations": 43
+            },
+            {
+                "year": 2013,
+                "citations": 32
+            },
+            {
+                "year": 2014,
+                "citations": 60
+            },
+            {
+                "year": 2015,
+                "citations": 87
+            },
+            {
+                "year": 2016,
+                "citations": 87
+            },
+            {
+                "year": 2017,
+                "citations": 99
+            },
+            {
+                "year": 2018,
+                "citations": 123
+            },
+            {
+                "year": 2019,
+                "citations": 168
+            },
+            {
+                "year": 2020,
+                "citations": 146
+            },
+            {
+                "year": 2021,
+                "citations": 144
+            },
+            {
+                "year": 2022,
+                "citations": 167
+            },
+            {
+                "year": 2023,
+                "citations": 192
+            },
+            {
+                "year": 2024,
+                "citations": 223
+            },
+            {
+                "year": 2025,
+                "citations": 104
+            }
+        ]
+    },
+    "public_access": {
+        "link": "https://scholar.google.com/citations?view_op=list_mandates&hl=en&user=fxzlm6IAAAAJ",
+        "available": 12,
+        "not_available": 2
+    },
+    "co_authors": [
+        {
+            "name": "Michael J. Black",
+            "link": "https://scholar.google.com/citations?user=6NjbexEAAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=6NjbexEAAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "6NjbexEAAAAJ",
+            "affiliations": "Max Planck Institute for Intelligent Systems",
+            "email": "Verified email at tuebingen.mpg.de",
+            "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=6NjbexEAAAAJ&citpid=8"
+        },
+        {
+            "name": "John W. Fisher III",
+            "link": "https://scholar.google.com/citations?user=izZZAegAAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=izZZAegAAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "izZZAegAAAAJ",
+            "affiliations": "Senior Research Scientist, Massachusetts Institute of Technology",
+            "email": "Verified email at csail.mit.edu",
+            "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=izZZAegAAAAJ&citpid=2"
+        },
+        {
+            "name": "S\u00f8ren Hauberg",
+            "link": "https://scholar.google.com/citations?user=M1fMGOMAAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=M1fMGOMAAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "M1fMGOMAAAAJ",
+            "affiliations": "Cognitive Systems, DTU Compute, Technical University of Denmark",
+            "email": "Verified email at dtu.dk",
+            "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=M1fMGOMAAAAJ&citpid=3"
+        },
+        {
+            "name": "Alexander Weiss",
+            "link": "https://scholar.google.com/citations?user=RL-mjvUAAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=RL-mjvUAAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "RL-mjvUAAAAJ",
+            "affiliations": "Brown University",
+            "email": "Verified email at cs.brown.edu",
+            "thumbnail": "https://scholar.google.com/citations/images/avatar_scholar_56.png"
+        },
+        {
+            "name": "Peng Guan",
+            "link": "https://scholar.google.com/citations?user=7hpk72MAAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=7hpk72MAAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "7hpk72MAAAAJ",
+            "affiliations": "Google Inc",
+            "email": "Verified email at cs.brown.edu",
+            "thumbnail": "https://scholar.google.com/citations/images/avatar_scholar_56.png"
+        },
+        {
+            "name": "Julian Straub",
+            "link": "https://scholar.google.com/citations?user=49_cCT8AAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=49_cCT8AAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "49_cCT8AAAAJ",
+            "affiliations": "Research Scientist, Reality Labs Research",
+            "email": "Verified email at csail.mit.edu",
+            "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=49_cCT8AAAAJ&citpid=3"
+        },
+        {
+            "name": "Shahaf E. Finder",
+            "link": "https://scholar.google.com/citations?user=yy2ehLQAAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=yy2ehLQAAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "yy2ehLQAAAAJ",
+            "affiliations": "Ben-Gurion University of the Negev",
+            "email": "Verified email at post.bgu.ac.il",
+            "thumbnail": "https://scholar.google.com/citations/images/avatar_scholar_56.png"
+        },
+        {
+            "name": "Or Dinari",
+            "link": "https://scholar.google.com/citations?user=D1zF9dwAAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=D1zF9dwAAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "D1zF9dwAAAAJ",
+            "affiliations": "Ben Gurion University",
+            "email": "Verified email at post.bgu.ac.il",
+            "thumbnail": "https://scholar.google.com/citations/images/avatar_scholar_56.png"
+        },
+        {
+            "name": "Guy Rosman",
+            "link": "https://scholar.google.com/citations?user=aQeTAr4AAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=aQeTAr4AAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "aQeTAr4AAAAJ",
+            "affiliations": "Toyota Research Institute; Massachusetts General Hospital; Duke Surgery",
+            "email": "Verified email at csail.mit.edu",
+            "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=aQeTAr4AAAAJ&citpid=2"
+        },
+        {
+            "name": "Ron Shapira Weber",
+            "link": "https://scholar.google.com/citations?user=vC0UNakAAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=vC0UNakAAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "vC0UNakAAAAJ",
+            "affiliations": "Ben Gurion University",
+            "email": "Verified email at post.bgu.ac.il",
+            "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=vC0UNakAAAAJ&citpid=2"
+        },
+        {
+            "name": "Matthew Loper",
+            "link": "https://scholar.google.com/citations?user=xokChDMAAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=xokChDMAAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "xokChDMAAAAJ",
+            "affiliations": "Max Planck Institute for Intelligent Systems",
+            "email": "Verified email at tuebingen.mpg.de",
+            "thumbnail": "https://scholar.google.com/citations/images/avatar_scholar_56.png"
+        },
+        {
+            "name": "John Leonard",
+            "link": "https://scholar.google.com/citations?user=WPe7vWwAAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=WPe7vWwAAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "WPe7vWwAAAAJ",
+            "affiliations": "Professor of Mechanical and Ocean Engineering, MIT",
+            "email": "Verified email at mit.edu",
+            "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=WPe7vWwAAAAJ&citpid=3"
+        },
+        {
+            "name": "Krishna V Shenoy",
+            "link": "https://scholar.google.com/citations?user=r1S7uvEAAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=r1S7uvEAAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "r1S7uvEAAAAJ",
+            "affiliations": "Stanford and Howard Hughes Medical Institute",
+            "email": "Verified email at stanford.edu",
+            "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=r1S7uvEAAAAJ&citpid=7"
+        },
+        {
+            "name": "Paul Nuyujukian",
+            "link": "https://scholar.google.com/citations?user=Y-u55cgAAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=Y-u55cgAAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "Y-u55cgAAAAJ",
+            "affiliations": "Stanford University",
+            "email": "Verified email at stanford.edu",
+            "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=Y-u55cgAAAAJ&citpid=4"
+        },
+        {
+            "name": "Stephen Ryu",
+            "link": "https://scholar.google.com/citations?user=F4N8FgIAAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=F4N8FgIAAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "F4N8FgIAAAAJ",
+            "affiliations": "Palo Alto Medical Foundation / Stanford University",
+            "email": "Verified email at stanford.edu",
+            "thumbnail": "https://scholar.google.com/citations/images/avatar_scholar_56.png"
+        },
+        {
+            "name": "Silvia Zuffi",
+            "link": "https://scholar.google.com/citations?user=-d7Ib5UAAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=-d7Ib5UAAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "-d7Ib5UAAAAJ",
+            "affiliations": "IMATI-CNR",
+            "email": "Verified email at mi.imati.cnr.it",
+            "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=-d7Ib5UAAAAJ&citpid=2"
+        },
+        {
+            "name": "Meitar Ronen",
+            "link": "https://scholar.google.com/citations?user=_yt0pqsAAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=_yt0pqsAAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "_yt0pqsAAAAJ",
+            "affiliations": "M.Sc. student, Ben-Gurin University",
+            "email": "Verified email at post.bgu.ac.il",
+            "thumbnail": "https://scholar.google.com/citations/images/avatar_scholar_56.png"
+        },
+        {
+            "name": "Jacob Goldberger",
+            "link": "https://scholar.google.com/citations?user=vgzrOK4AAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=vgzrOK4AAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "vgzrOK4AAAAJ",
+            "affiliations": "Prof. of Elec. Engineering, Bar-Ilan University, Israel",
+            "email": "Verified email at biu.ac.il",
+            "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=vgzrOK4AAAAJ&citpid=2"
+        },
+        {
+            "name": "Nicki Skafte Detlefsen",
+            "link": "https://scholar.google.com/citations?user=0v4MJq8AAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=0v4MJq8AAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "0v4MJq8AAAAJ",
+            "affiliations": "Postdoc, Section for Cognitive Systems, Technical University of Denmark (DTU)",
+            "email": "Verified email at dtu.dk",
+            "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=0v4MJq8AAAAJ&citpid=2"
+        },
+        {
+            "name": "Roy Uziel",
+            "link": "https://scholar.google.com/citations?user=WScNlk4AAAAJ&hl=en",
+            "serpapi_link": "https://serpapi.com/search.json?author_id=WScNlk4AAAAJ&engine=google_scholar_author&hl=en&num=100",
+            "author_id": "WScNlk4AAAAJ",
+            "affiliations": "Ben-Gurion University of the Negev",
+            "email": "Verified email at post.bgu.ac.il",
+            "thumbnail": "https://scholar.googleusercontent.com/citations?view_op=small_photo&user=WScNlk4AAAAJ&citpid=1"
+        }
+    ]
+}
