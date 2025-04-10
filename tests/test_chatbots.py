@@ -1,18 +1,10 @@
 import unittest
-from src.chatbots.simple import SimpleChatbot,SimpleRAGChatbot
+from src.chatbots.simple import SimpleRAGChatbot
 from langchain_community.vectorstores import InMemoryVectorStore
 from langchain_openai import OpenAIEmbeddings
 from src.api_utils import verify_openai_api_key
 from langchain_core.documents import Document
-
-
 from src.vector_store_loaders.faiss_loader import load_faiss_indexed
-
-class TestSimple(unittest.TestCase):
-
-    def test_run_single_user(self):
-        bot = SimpleChatbot()
-        bot.run()
 
 class TestSimpleRAGChatbot(unittest.TestCase):
     def test_run_single_user(self):
@@ -31,21 +23,20 @@ class TestSimpleRAGChatbot(unittest.TestCase):
         vector_store.add_documents(docs)
 
         queries = ["I want to do a research on deep learning. Do you recommend on a supervisor?","Who is Bob?"]
-        bot = SimpleRAGChatbot(vector_store,user_input=queries)
-        bot.run_mock_client()
-
-
-    def test_run_indexed_faiss(self):
-        vector_store = load_faiss_indexed()
-
         bot = SimpleRAGChatbot(vector_store)
-        bot.run_mock_client()
+
+        for ans in bot.run_mock_client(queries):
+            self.assertIsInstance(ans,str)
+            print(ans)
     
     def test_run_fixed_queries_1(self):
         vector_store = load_faiss_indexed()
         queries = ["I want to do a research on deep learning. Do you recommend on a supervisor?"]
-        bot = SimpleRAGChatbot(vector_store,user_input=queries)
-        bot.run_mock_client()
+        bot = SimpleRAGChatbot(vector_store)
+        
+        for ans in bot.run_mock_client(queries):
+            self.assertIsInstance(ans,str)
+            print(ans)
 
 if __name__ == "__main__":
     unittest.main()
