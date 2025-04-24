@@ -94,8 +94,24 @@ class TestLLMasJudge(unittest.TestCase):
         rag_helpfulness_result = openevals_wrapper.evaluate_rag_helpfulness(judge_model,user_input,answer)
         self.assertTrue(rag_helpfulness_result["score"])
 
-    # def test_list_supervisors_ai(self,model_name = "gpt-4o-mini")
-    
+    def test_list_supervisors_ai(self):
+        settings = load_chatbot_settings()
+        model_name = settings.get("model_name")
+        bot = self.build_bot_(model_name)
+
+        user_input = "I want to do a research on deep learning. Do you recommend on a supervisor?"
+        answer = bot.invoke_answer(user_input).get("answer")
+        reference_outputs = "The following is a partial list of the supervisors of AI: Jihad El sana, Oren Freifeld, Gera Weiss, Sivan Sabato, and Omri Azencot"
+
+        judge_model = f"openai:{model_name}"
+        
+        rag_helpfulness_result = openevals_wrapper.evaluate_rag_helpfulness(judge_model,user_input,answer)
+        self.assertTrue(rag_helpfulness_result["score"])
+
+        correctness_result = openevals_wrapper.evaluate_correctness(judge_model,user_input,answer,reference_outputs=reference_outputs)
+        self.assertTrue(correctness_result["score"])
+
+
     
     
 
