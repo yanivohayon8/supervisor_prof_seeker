@@ -7,6 +7,7 @@ from langchain_core.documents import Document
 from src.vector_store_loaders.faiss_loader import load_faiss_indexed
 from src.chatbots import openevals_wrapper
 from src.indexing_pipeline.indexing_pipeline import get_supervisor_brief
+from src.utils import load_chatbot_settings
 
 class TestChatbotFunctions(unittest.TestCase):
 
@@ -74,7 +75,9 @@ class TestLLMasJudge(unittest.TestCase):
 
         return bot 
     
-    def test_supervisor_brief_1(self,model_name = "gpt-4o-mini"):
+    def test_supervisor_brief_1(self):
+        settings = load_chatbot_settings()
+        model_name = settings.get("model_name")
         bot = self.build_bot_(model_name)    
 
         supervisor_name = "Ohad-Ben Shahar"
@@ -91,7 +94,7 @@ class TestLLMasJudge(unittest.TestCase):
         rag_helpfulness_result = openevals_wrapper.evaluate_rag_helpfulness(judge_model,user_input,answer)
         self.assertTrue(rag_helpfulness_result["score"])
 
-
+    # def test_list_supervisors_ai(self,model_name = "gpt-4o-mini")
     
     
     

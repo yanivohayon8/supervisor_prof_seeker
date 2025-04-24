@@ -2,10 +2,12 @@ import streamlit as st
 from src.chatbots.simple import SimpleRAGChatbot
 from src.vector_store_loaders.faiss_loader import load_faiss_indexed
 from src.api_utils import get_llm_openai
-
+from src.utils import load_chatbot_settings
 
 vector_store = load_faiss_indexed()
-llm = get_llm_openai("gpt-4o-mini")
+bot_settings = load_chatbot_settings()
+model_name = bot_settings.get("model_name")
+llm = get_llm_openai(model_name)
 bot = SimpleRAGChatbot(llm,vector_store)
 config = bot.get_config()
 
