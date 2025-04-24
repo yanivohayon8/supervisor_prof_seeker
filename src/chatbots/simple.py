@@ -1,17 +1,13 @@
 
-from typing import Annotated
 from typing_extensions import TypedDict
 from langgraph.graph import StateGraph,START,END
-from langgraph.graph.message import add_messages
-from src.api_utils import verify_openai_api_key
-from langchain.chat_models import init_chat_model
 from langgraph.checkpoint.memory import MemorySaver
 import uuid
 from langchain_core.messages import AIMessage
 from langchain_core.documents import Document
 from langchain_core.prompts import ChatPromptTemplate
-
-
+from langchain_core.language_models.base import BaseLanguageModel
+from langchain_core.vectorstores import VectorStore
 
 KEYWORD_TO_QUIT_CHATBOT = ["q", "exit", "quit"]
 
@@ -22,9 +18,8 @@ class SimpleRAGState(TypedDict):
 
 class SimpleRAGChatbot():
     
-    def __init__(self,vector_store):
-        verify_openai_api_key()
-        self.llm = init_chat_model("gpt-4o-mini", model_provider="openai")
+    def __init__(self,llm:BaseLanguageModel,vector_store:VectorStore,prompt=None):
+        self.llm = llm
         self.vector_store = vector_store
 
         self.graph_builder = StateGraph(SimpleRAGState)
@@ -35,15 +30,20 @@ class SimpleRAGChatbot():
         self.graph_builder.add_edge("generate_",END)
 
         self.graph = self.graph_builder.compile(checkpointer=MemorySaver())
-        self.prompt = ChatPromptTemplate([
-            ("system", 
-                "You are an expert assistant designed to help M.Sc. and Ph.D. students find a suitable research supervisor. "
-                "Use the provided context to answer questions accurately and concisely. "
-                "If the answer is not in the given context, say you do not know instead of making assumptions."
-                "\n\nContext:\n{docs_content}"
-            ),
-            ("human", "Question: {question}")
-        ])
+
+
+        if not prompt:
+            self.prompt = ChatPromptTemplate([
+                ("system", 
+                    "You are an expert assistant designed to help M.Sc. and Ph.D. students find a suitable research supervisor. "
+                    "Use the provided context to answer questions accurately and concisely. "
+                    "If the answer is not in the given context, say you do not know instead of making assumptions."
+                    "\n\nContext:\n{docs_content}"
+                ),
+                ("human", "Question: {question}")
+            ])
+        else:
+            self.prompt = prompt
 
     
     def retrieve_(self,state:SimpleRAGState):

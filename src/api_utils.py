@@ -3,6 +3,7 @@ import getpass
 
 from langchain_openai import OpenAIEmbeddings
 from langchain_huggingface import HuggingFaceEmbeddings
+from langchain.chat_models import init_chat_model
 
 
 def update_environment_variable_(name,val):
@@ -35,3 +36,12 @@ def init_embeddings(embedding_type,settings:dict):
         raise NotImplementedError(f"Currently, Pipeline do not support {embedding_type} embeddings")
     
     return supported_embeddings[embedding_type](**settings)
+
+# ="gpt-4o-mini"
+def get_llm_openai(name:str,provider_specified=True):
+    verify_openai_api_key()
+
+    if provider_specified:
+        return init_chat_model(name, model_provider="openai")
+    else:
+        return init_chat_model(name)

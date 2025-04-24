@@ -2,9 +2,11 @@ import unittest
 from src.chatbots.simple import SimpleRAGChatbot
 from langchain_community.vectorstores import InMemoryVectorStore
 from langchain_openai import OpenAIEmbeddings
-from src.api_utils import verify_openai_api_key
+from src.api_utils import verify_openai_api_key,get_llm_openai
 from langchain_core.documents import Document
 from src.vector_store_loaders.faiss_loader import load_faiss_indexed
+from src.chatbots import openevals_wrapper
+from src.indexing_pipeline.indexing_pipeline import get_supervisor_brief
 
 class TestChatbotFunctions(unittest.TestCase):
 
@@ -18,7 +20,8 @@ class TestChatbotFunctions(unittest.TestCase):
             ]
         )
 
-        bot = SimpleRAGChatbot(vector_store)
+        llm = get_llm_openai("gpt-4o-mini")
+        bot = SimpleRAGChatbot(llm,vector_store)
         res = bot.invoke_answer("For who does LangGraph is built?")
         
         # A naive string matching here is enough just to see that the function above works
@@ -41,8 +44,10 @@ class TestStringMatching(unittest.TestCase):
         ]
         vector_store.add_documents(docs)
 
+        llm = get_llm_openai("gpt-4o-mini")
+        bot = SimpleRAGChatbot(llm,vector_store)
+
         queries = ["I want to do a research on deep learning. Do you recommend on a supervisor?","Who is Bob?"]
-        bot = SimpleRAGChatbot(vector_store)
 
         for ans in bot.run_mock_client(queries):
             self.assertIsInstance(ans,str)
@@ -50,12 +55,39 @@ class TestStringMatching(unittest.TestCase):
     
     def test_run_fixed_queries_1(self):
         vector_store = load_faiss_indexed()
+        llm = get_llm_openai("gpt-4o-mini")
+        bot = SimpleRAGChatbot(llm,vector_store)
+
         queries = ["I want to do a research on deep learning. Do you recommend on a supervisor?"]
-        bot = SimpleRAGChatbot(vector_store)
         
         for ans in bot.run_mock_client(queries):
             self.assertIsInstance(ans,str)
             print(ans)
+
+
+class TestLLMasJudge(unittest.TestCase):
+
+    def test_correctness_1(self):
+        vector_store = load_faiss_indexed()
+        model_name = "gpt-4o-mini"
+        llm = get_llm_openai(model_name)
+        bot = SimpleRAGChatbot(llm,vector_store)
+
+        supervisor_name = "Ohad-Ben Shahar"
+        user_input = f"Who is {supervisor_name}?"
+        res = bot.invoke_answer(user_input)
+        answer = res["answer"]
+        reference_outputs = get_supervisor_brief(supervisor_name,"Ben-Gurion University",["Computer Science", "Computer Vision"])
+
+        judge_model = f"openai:{model_name}"
+        eval_result = openevals_wrapper.evaluate_correctness(judge_model,user_input,answer,reference_outputs=reference_outputs)
+
+        self.assertTrue(eval_result["score"])
+
+
+
+
+
 
 if __name__ == "__main__":
     unittest.main()

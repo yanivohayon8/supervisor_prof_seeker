@@ -1,11 +1,13 @@
 import streamlit as st
 from src.chatbots.simple import SimpleRAGChatbot
 from src.vector_store_loaders.faiss_loader import load_faiss_indexed
+from src.api_utils import get_llm_openai
 
 
 vector_store = load_faiss_indexed()
-chat_bot = SimpleRAGChatbot(vector_store)
-config = chat_bot.get_config()
+llm = get_llm_openai("gpt-4o-mini")
+bot = SimpleRAGChatbot(llm,vector_store)
+config = bot.get_config()
 
 st.write("Supervisor Seeker")
 
@@ -40,7 +42,7 @@ if prompt := st.chat_input("What is up?"):
         message_placeholder = st.empty()
         full_response = ""
 
-        for chunk in chat_bot.stream_answer(prompt,config):
+        for chunk in bot.stream_answer(prompt,config):
             full_response= full_response + chunk + " "
             message_placeholder.markdown(full_response + "▌")
 
