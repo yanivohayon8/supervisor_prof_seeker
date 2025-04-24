@@ -35,7 +35,19 @@ class TestOpenevalsWrapper(unittest.TestCase):
 
         # print(eval_result.get("comment"))
         self.assertTrue(eval_result["score"])
+    
+    def test_rag_retrieval_relevance_evaluator(self):
+        llm_model="openai:o3-mini"
+        question = "Where was the first president of FoobarLand born?"
+        context_documents =[
+            "FoobarLand is a new country located on the dark side of the moon",
+            "Space dolphins are native to FoobarLand",
+            "FoobarLand is a constitutional democracy whose first president was Bagatur Askaryan",
+            "The current weather in FoobarLand is 80 degrees and clear.",
+        ]
 
+        eval_result = openevals_wrapper.evaluate_rag_retrieval_relevance(llm_model,question,context_documents)
+        self.assertFalse(eval_result["score"])
 
 
 if __name__ == "__main__":

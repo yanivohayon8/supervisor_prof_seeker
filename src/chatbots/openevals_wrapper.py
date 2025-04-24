@@ -1,5 +1,5 @@
 from openevals.llm import create_llm_as_judge
-from openevals.prompts import CORRECTNESS_PROMPT,RAG_HELPFULNESS_PROMPT,RAG_GROUNDEDNESS_PROMPT
+from openevals.prompts import CORRECTNESS_PROMPT,RAG_HELPFULNESS_PROMPT,RAG_GROUNDEDNESS_PROMPT, RAG_RETRIEVAL_RELEVANCE_PROMPT
 
 CORRECTNESS_FEEDBACK_KEY="correctness"
 
@@ -92,5 +92,39 @@ def apply_rag_groundeness_evaluator_(evaluator,context_documents:list[str],answe
 def evaluate_rag_groundeness(llm_model:str, context_documents:list[str],answer:str):
     evaluator = rag_groundeness_evaluator_(llm_model)
     eval_result = apply_rag_groundeness_evaluator_(evaluator,context_documents,answer)
+
+    return eval_result
+
+
+RAG_RETRIEVAL_RELEVANCE_FEEDBACK_KEY = "rag_retrieval_relevance"
+
+def rag_retrieval_relevance_evaluator_(llm_model:str):
+    evaluator = create_llm_as_judge(
+        prompt=RAG_RETRIEVAL_RELEVANCE_PROMPT,
+        feedback_key=RAG_RETRIEVAL_RELEVANCE_FEEDBACK_KEY,
+        model=llm_model
+    )
+
+    return evaluator
+
+def apply_rag_retrieval_relevance_evaluator_(evaluator,question:str,context_documents:list[str]):
+    inputs = {
+        "question":question
+    }
+
+    context = {
+        "documents": context_documents,
+    }
+    
+    eval_result = evaluator(
+        inputs=inputs,
+        context=context,
+    )
+    
+    return eval_result
+
+def evaluate_rag_retrieval_relevance(llm_model:str, question:str,context_documents:list[str]):
+    evaluator = rag_retrieval_relevance_evaluator_(llm_model)
+    eval_result = apply_rag_retrieval_relevance_evaluator_(evaluator,question,context_documents)
 
     return eval_result
