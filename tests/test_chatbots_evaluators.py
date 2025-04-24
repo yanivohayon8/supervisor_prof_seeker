@@ -20,6 +20,21 @@ class TestOpenevalsWrapper(unittest.TestCase):
 
         eval_result = openevals_wrapper.evaluate_rag_helpfulness(llm_model,inputs,outputs)
         self.assertFalse(eval_result["score"])
+    
+    def test_rag_groundeness_evaluator(self):
+        llm_model="openai:o3-mini"
+        context_documents = [
+            "FoobarLand is a new country located on the dark side of the moon",
+            "Space dolphins are native to FoobarLand",
+            "FoobarLand is a constitutional democracy whose first president was Bagatur Askaryan",
+            "The current weather in FoobarLand is 80 degrees and clear."
+        ]
+        answer = "The first president of FoobarLand was Bagatur Askaryan."
+
+        eval_result = openevals_wrapper.evaluate_rag_groundeness(llm_model,context_documents,answer)
+
+        # print(eval_result.get("comment"))
+        self.assertTrue(eval_result["score"])
 
 
 
