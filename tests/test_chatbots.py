@@ -121,8 +121,7 @@ class TestLLMasJudge(unittest.TestCase):
         self.assertTrue(correctness_result["score"])
 
 
-    def test_conversation_mock(self):
-        print()
+    def test_conversation_mock_1(self):
         settings = load_chatbot_settings()
         model_name = settings.get("model_name")
         bot = self.build_bot_(model_name)
@@ -131,10 +130,11 @@ class TestLLMasJudge(unittest.TestCase):
         user_inputs = [
             "I want to do call things with AI, can you recommend me on relevent supervisors?",
             "list all the supervisors you know",
-            "What are the main difference between them?",
+            "What are the main difference between them?", # raises error
         ]
 
         for user_input in user_inputs:
+            print()
             print("********************** User **************************")
             print(user_input)
             invoke_result = bot.invoke_answer(user_input)
@@ -142,14 +142,40 @@ class TestLLMasJudge(unittest.TestCase):
             print("********************** answer **************************")
             print(answer)
             context = invoke_result.get("context")
-            # print("********************** context **************************")
-            # print(context)
 
             rag_helpfulness_result = openevals_wrapper.evaluate_rag_helpfulness(judge_model,user_input,answer)
-            # self.assertTrue(rag_helpfulness_result["score"])
+            self.assertTrue(rag_helpfulness_result["score"])
             
             rag_retrieval_relevance_result = openevals_wrapper.evaluate_rag_retrieval_relevance(judge_model,user_input,context)
-            # self.assertTrue(rag_retrieval_relevance_result["score"])
+            self.assertTrue(rag_retrieval_relevance_result["score"])
+    
+    def test_conversation_mock_2(self):
+        settings = load_chatbot_settings()
+        model_name = settings.get("model_name")
+        bot = self.build_bot_(model_name)
+        judge_model = f"openai:{model_name}"
+
+        user_inputs = [
+            "I want to do call things with AI, list some relevent supervisors?",
+            "Do you know others?",
+            "Who is specialized with Deep Learning?"
+        ]
+
+        for user_input in user_inputs:
+            print()
+            print("********************** User **************************")
+            print(user_input)
+            invoke_result = bot.invoke_answer(user_input)
+            answer = invoke_result.get("answer")
+            print("********************** answer **************************")
+            print(answer)
+            context = invoke_result.get("context")
+
+            rag_helpfulness_result = openevals_wrapper.evaluate_rag_helpfulness(judge_model,user_input,answer)
+            self.assertTrue(rag_helpfulness_result["score"])
+            
+            rag_retrieval_relevance_result = openevals_wrapper.evaluate_rag_retrieval_relevance(judge_model,user_input,context)
+            self.assertTrue(rag_retrieval_relevance_result["score"])
 
     
     
