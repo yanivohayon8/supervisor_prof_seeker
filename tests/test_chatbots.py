@@ -48,7 +48,7 @@ class TestStringMatching(unittest.TestCase):
         llm = get_llm_openai("gpt-4o-mini")
         bot = SimpleRAGChatbot(llm,vector_store)
 
-        queries = ["I want to do a research on deep learning. Do you recommend on a supervisor?","Who is Bob?"]
+        queries = ["Who is Bob?","I want to do a research on deep learning. Can you recommend on a supervisor?", "What was my first question?"]
 
         for ans in bot.run_mock_client(queries):
             self.assertIsInstance(ans,str)
