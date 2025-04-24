@@ -6,7 +6,26 @@ from src.api_utils import verify_openai_api_key
 from langchain_core.documents import Document
 from src.vector_store_loaders.faiss_loader import load_faiss_indexed
 
-class TestSimpleRAGChatbot(unittest.TestCase):
+class TestChatbotFunctions(unittest.TestCase):
+
+    def test_invoke_answer(self):
+        verify_openai_api_key()
+        embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+        vector_store = InMemoryVectorStore(embeddings)
+        vector_store.add_documents(
+            [
+                Document(page_content="LangGraph is built for developers who want to build powerful, adaptable AI agents.")
+            ]
+        )
+
+        bot = SimpleRAGChatbot(vector_store)
+        res = bot.invoke_answer("For who does LangGraph is built?")
+        
+        # A naive string matching here is enough just to see that the function above works
+        self.assertIn("developers",res["answer"])
+
+
+class TestStringMatching(unittest.TestCase):
     def test_run_single_user(self):
         verify_openai_api_key()
         embeddings = OpenAIEmbeddings(model="text-embedding-3-small")

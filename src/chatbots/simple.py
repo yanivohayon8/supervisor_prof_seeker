@@ -76,3 +76,9 @@ class SimpleRAGChatbot():
                                                  config=config,stream_mode="messages"):
             if isinstance(chunk,AIMessage):
                 yield chunk.content
+
+    def invoke_answer(self, user_input:str,config:dict=None,**kwargs):
+        if not config:
+            config = self.get_config()
+
+        return self.graph.invoke({"question":user_input},config=config,**kwargs)
