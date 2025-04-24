@@ -67,11 +67,15 @@ class TestStringMatching(unittest.TestCase):
 
 class TestLLMasJudge(unittest.TestCase):
 
-    def test_correctness_1(self):
+    def build_bot_(self,model_name):
         vector_store = load_faiss_indexed()
-        model_name = "gpt-4o-mini"
         llm = get_llm_openai(model_name)
         bot = SimpleRAGChatbot(llm,vector_store)
+
+        return bot 
+    
+    def test_supervisor_brief_1(self,model_name = "gpt-4o-mini"):
+        bot = self.build_bot_(model_name)    
 
         supervisor_name = "Ohad-Ben Shahar"
         user_input = f"Who is {supervisor_name}?"
@@ -80,9 +84,17 @@ class TestLLMasJudge(unittest.TestCase):
         reference_outputs = get_supervisor_brief(supervisor_name,"Ben-Gurion University",["Computer Science", "Computer Vision"])
 
         judge_model = f"openai:{model_name}"
-        eval_result = openevals_wrapper.evaluate_correctness(judge_model,user_input,answer,reference_outputs=reference_outputs)
 
-        self.assertTrue(eval_result["score"])
+        correctness_result = openevals_wrapper.evaluate_correctness(judge_model,user_input,answer,reference_outputs=reference_outputs)
+        self.assertTrue(correctness_result["score"])
+
+        rag_helpfulness_result = openevals_wrapper.evaluate_rag_helpfulness(judge_model,user_input,answer)
+        self.assertTrue(rag_helpfulness_result["score"])
+
+
+    
+    
+    
 
 
 
