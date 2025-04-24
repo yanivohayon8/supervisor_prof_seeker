@@ -62,7 +62,7 @@ def evaluate_rag_helpfulness(llm_model:str, inputs:str,outputs:str):
 
     return eval_result
 
-RAG_GROUNDEDNESS_FEEDBACK_KEY = "rag_groundness"
+RAG_GROUNDEDNESS_FEEDBACK_KEY = "rag_groundeness"
 
 def rag_groundeness_evaluator_(llm_model:str):
     evaluator = create_llm_as_judge(
