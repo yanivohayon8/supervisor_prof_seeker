@@ -74,7 +74,7 @@ class TestLLMasJudge(unittest.TestCase):
         bot = SimpleRAGChatbot(llm,vector_store)
 
         return bot 
-    
+
     def test_supervisor_brief_1(self):
         settings = load_chatbot_settings()
         model_name = settings.get("model_name")
@@ -100,14 +100,23 @@ class TestLLMasJudge(unittest.TestCase):
         bot = self.build_bot_(model_name)
 
         user_input = "I want to do a research on deep learning. Do you recommend on a supervisor?"
-        answer = bot.invoke_answer(user_input).get("answer")
-        reference_outputs = "The following is a partial list of the supervisors of AI: Jihad El sana, Oren Freifeld, Gera Weiss, Sivan Sabato, and Omri Azencot"
+        invoke_result = bot.invoke_answer(user_input)
 
         judge_model = f"openai:{model_name}"
         
+        answer = invoke_result.get("answer")
+        context = invoke_result.get("context")
+
         rag_helpfulness_result = openevals_wrapper.evaluate_rag_helpfulness(judge_model,user_input,answer)
         self.assertTrue(rag_helpfulness_result["score"])
 
+        rag_retrieval_relevance_result = openevals_wrapper.evaluate_rag_retrieval_relevance(judge_model,user_input,context)
+        self.assertTrue(rag_retrieval_relevance_result["score"])
+
+        rag_groundeness_result = openevals_wrapper.evaluate_rag_groundeness(judge_model,context,answer)
+        self.assertTrue(rag_groundeness_result["score"])
+
+        reference_outputs = "The following is a partial list of the supervisors of AI: Jihad El sana, Oren Freifeld, Gera Weiss, Sivan Sabato, and Omri Azencot"
         correctness_result = openevals_wrapper.evaluate_correctness(judge_model,user_input,answer,reference_outputs=reference_outputs)
         self.assertTrue(correctness_result["score"])
 
