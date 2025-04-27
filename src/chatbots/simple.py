@@ -20,9 +20,10 @@ class SimpleRAGState(TypedDict):
 
 class SimpleRAGChatbot():
 
-    def __init__(self, llm: BaseLanguageModel, vector_store: VectorStore, prompt: Optional[ChatPromptTemplate] = None):
+    def __init__(self, llm: BaseLanguageModel, vector_store: VectorStore, prompt: Optional[ChatPromptTemplate] = None, max_turns: int = 5):
         self.llm = llm
         self.vector_store = vector_store
+        self.max_turns = max_turns
 
         self.graph_builder = StateGraph(SimpleRAGState)
         self.graph_builder.add_node("retrieve_", self.retrieve_)
@@ -55,24 +56,41 @@ class SimpleRAGChatbot():
 
     def generate_(self, state: SimpleRAGState):
         docs_content = "\n\n".join([doc.page_content for doc in state["context"]])
-        # Format the chat history nicely
-        formatted_history = "\n".join([f"Q: {q}\nA: {a}" for q, a in state.get("chat_history", [])])
+
+        previous_history = state.get("chat_history", [])
+        trimmed_history = previous_history[-self.max_turns:]
+
+        formatted_history = "\n".join([f"Q: {q}\nA: {a}" for q, a in trimmed_history])
 
         prompt_value = self.prompt.invoke({
             "docs_content": docs_content,
             "chat_history": formatted_history,
             "question": state["question"]
         })
-        response = self.llm.invoke(prompt_value)
 
-        # Update history with the new QA pair
-        updated_chat_history = state.get("chat_history", []) + [(state["question"], response.content)]
+        try:
+            response = self.llm.invoke(prompt_value)
+            answer = response.content
+        except Exception as e:
+            if "context length" in str(e).lower():
+                # Handle token overflow specifically
+                answer = (
+                    "⚠️ Sorry, your conversation or documents became too long for the model to handle.\n"
+                    "Please try asking a shorter question or clear some history."
+                )
+            else:
+                # General error fallback
+                answer = (
+                    "⚠️ Sorry, an unexpected error occurred while generating a response."
+                )
+
+        updated_chat_history = trimmed_history + [(state["question"], answer)]
 
         return {
-            "answer": response.content,
+            "answer": answer,
             "chat_history": updated_chat_history
         }
-
+    
     def run_mock_client(self,queries:list[str],thread_id="aaa"):
         config = {"configurable":{"thread_id":thread_id}}
         
