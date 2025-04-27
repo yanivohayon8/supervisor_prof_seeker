@@ -8,54 +8,70 @@ from langchain_core.documents import Document
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.language_models.base import BaseLanguageModel
 from langchain_core.vectorstores import VectorStore
+from typing import TypedDict, List, Optional
 
 KEYWORD_TO_QUIT_CHATBOT = ["q", "exit", "quit"]
 
 class SimpleRAGState(TypedDict):
-    question:str
-    context:list[Document]
-    answer:str
+    question: str
+    context: List[Document]
+    answer: str
+    chat_history: List[tuple[str, str]]  # <-- NEW: history of (question, answer) pairs
 
 class SimpleRAGChatbot():
-    
-    def __init__(self,llm:BaseLanguageModel,vector_store:VectorStore,prompt=None):
+
+    def __init__(self, llm: BaseLanguageModel, vector_store: VectorStore, prompt: Optional[ChatPromptTemplate] = None):
         self.llm = llm
         self.vector_store = vector_store
 
         self.graph_builder = StateGraph(SimpleRAGState)
-        self.graph_builder.add_node("retrieve_",self.retrieve_)
-        self.graph_builder.add_node("generate_",self.generate_)
-        self.graph_builder.add_edge(START,"retrieve_")
-        self.graph_builder.add_edge("retrieve_","generate_")
-        self.graph_builder.add_edge("generate_",END)
+        self.graph_builder.add_node("retrieve_", self.retrieve_)
+        self.graph_builder.add_node("generate_", self.generate_)
+        self.graph_builder.add_edge(START, "retrieve_")
+        self.graph_builder.add_edge("retrieve_", "generate_")
+        self.graph_builder.add_edge("generate_", END)
 
         self.graph = self.graph_builder.compile(checkpointer=MemorySaver())
 
-
         if not prompt:
-            self.prompt = ChatPromptTemplate([
+            self.prompt = ChatPromptTemplate.from_messages([
                 ("system", 
                     "You are an expert assistant designed to help M.Sc. and Ph.D. students find a suitable research supervisor. "
                     "Use the provided context to answer questions accurately and concisely. "
-                    "If the answer is not in the given context, say you do not know instead of making assumptions."
                     "\n\nContext:\n{docs_content}"
                 ),
-                ("human", "Question: {question}")
+                ("human", "Previous conversation:\n{chat_history}\n\nNew Question: {question}")
             ])
         else:
             self.prompt = prompt
 
-    
-    def retrieve_(self,state:SimpleRAGState):
-        retrieved_docs = self.vector_store.similarity_search(state["question"])
-        return {"context":retrieved_docs}
+    def retrieve_(self, state: SimpleRAGState):
+        retrieved_docs = self.vector_store.similarity_search(state["question"], k=20)
+        # Pass along previous chat history
+        return {
+            "context": retrieved_docs,
+            "chat_history": state.get("chat_history", [])
+        }
 
-    def generate_(self, state:SimpleRAGState):
-        docs_content = "\n\n".join([docs.page_content for docs in state["context"]])
-        prompt_value = self.prompt.invoke({"docs_content":docs_content,"question":state["question"]})
+    def generate_(self, state: SimpleRAGState):
+        docs_content = "\n\n".join([doc.page_content for doc in state["context"]])
+        # Format the chat history nicely
+        formatted_history = "\n".join([f"Q: {q}\nA: {a}" for q, a in state.get("chat_history", [])])
+
+        prompt_value = self.prompt.invoke({
+            "docs_content": docs_content,
+            "chat_history": formatted_history,
+            "question": state["question"]
+        })
         response = self.llm.invoke(prompt_value)
 
-        return {"answer":response.content}
+        # Update history with the new QA pair
+        updated_chat_history = state.get("chat_history", []) + [(state["question"], response.content)]
+
+        return {
+            "answer": response.content,
+            "chat_history": updated_chat_history
+        }
 
     def run_mock_client(self,queries:list[str],thread_id="aaa"):
         config = {"configurable":{"thread_id":thread_id}}
