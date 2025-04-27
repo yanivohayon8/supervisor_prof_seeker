@@ -48,7 +48,7 @@ class SimpleRAGChatbot():
 
     def retrieve_(self, state: SimpleRAGState):
         retrieved_docs = self.vector_store.similarity_search(state["question"], k=20)
-        # Pass along previous chat history
+        
         return {
             "context": retrieved_docs,
             "chat_history": state.get("chat_history", [])
@@ -65,12 +65,12 @@ class SimpleRAGChatbot():
         try:
             question = self.satnitize_question_(state["question"])
         except ValueError as e:
-            answer = (
-                    "⚠️ Sorry, an unexpected error occurred while generating a response."
-            )
+            answer = "Sorry, an unexpected error occurred while generating a response."
+            self.llm.invoke(f"Echo the following:{answer}") # To make it appear in the streamlit GUI (look at self.stream_answer function)
 
             return {
                 "answer": answer,
+                "chat_history":trimmed_history
             }
 
         prompt_value = self.prompt.invoke({
@@ -85,15 +85,12 @@ class SimpleRAGChatbot():
         except BadRequestError as bre:
             if "context length" in str(bre).lower():
                 # Handle token overflow specifically
-                answer = (
-                    "⚠️ Sorry, your conversation or documents became too long for the model to handle.\n"
-                    "Please try asking a shorter question or clear some history."
-                )
+                answer = "Sorry, your conversation or documents became too long for the model to handle.\n Please try asking a shorter question or clear some history."
+                
             else:
-                # General error fallback
-                answer = (
-                    "⚠️ Sorry, an unexpected error occurred while generating a response."
-                )
+                answer = "Sorry, an unexpected error occurred while generating a response."
+            
+            self.llm.invoke(f"Echo the following:{answer}") # To make it appear in the streamlit GUI (look at self.stream_answer function)
 
         updated_chat_history = trimmed_history + [(state["question"], answer)]
 

@@ -172,10 +172,10 @@ class TestLLMasJudge(unittest.TestCase):
             context = invoke_result.get("context")
 
             rag_helpfulness_result = openevals_wrapper.evaluate_rag_helpfulness(judge_model,user_input,answer)
-            # self.assertTrue(rag_helpfulness_result["score"])
+            self.assertTrue(rag_helpfulness_result["score"])
             
             rag_retrieval_relevance_result = openevals_wrapper.evaluate_rag_retrieval_relevance(judge_model,user_input,context)
-            # self.assertTrue(rag_retrieval_relevance_result["score"])
+            self.assertTrue(rag_retrieval_relevance_result["score"])
 
     
     def test_prompt_injection(self):

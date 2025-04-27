@@ -45,7 +45,7 @@ if prompt := st.chat_input("What is up?"):
         full_response = ""
 
         for chunk in bot.stream_answer(prompt,config):
-            full_response= full_response + chunk + " "
+            full_response= full_response + "".join(chunk)
             message_placeholder.markdown(full_response + "▌")
 
         message_placeholder.markdown(full_response)
