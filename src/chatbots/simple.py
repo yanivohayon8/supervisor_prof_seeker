@@ -9,8 +9,8 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.language_models.base import BaseLanguageModel
 from langchain_core.vectorstores import VectorStore
 from typing import TypedDict, List, Optional
-
-KEYWORD_TO_QUIT_CHATBOT = ["q", "exit", "quit"]
+import re
+from openai import BadRequestError
 
 class SimpleRAGState(TypedDict):
     question: str
@@ -62,17 +62,28 @@ class SimpleRAGChatbot():
 
         formatted_history = "\n".join([f"Q: {q}\nA: {a}" for q, a in trimmed_history])
 
+        try:
+            question = self.satnitize_question_(state["question"])
+        except ValueError as e:
+            answer = (
+                    "⚠️ Sorry, an unexpected error occurred while generating a response."
+            )
+
+            return {
+                "answer": answer,
+            }
+
         prompt_value = self.prompt.invoke({
             "docs_content": docs_content,
             "chat_history": formatted_history,
-            "question": state["question"]
+            "question": question
         })
 
         try:
             response = self.llm.invoke(prompt_value)
             answer = response.content
-        except Exception as e:
-            if "context length" in str(e).lower():
+        except BadRequestError as bre:
+            if "context length" in str(bre).lower():
                 # Handle token overflow specifically
                 answer = (
                     "⚠️ Sorry, your conversation or documents became too long for the model to handle.\n"
@@ -90,6 +101,20 @@ class SimpleRAGChatbot():
             "answer": answer,
             "chat_history": updated_chat_history
         }
+    
+    def satnitize_question_(self,question:str)->str:
+        dangerous_phrases = [
+            r"(?i)\bforget\b",
+            r"(?i)\bignore\b",
+            r"(?i)\byou are now\b",
+            r"(?i)\bdisregard\b",
+            r"(?i)\bpretend\b",
+            r"(?i)\bassume\b"
+        ]
+        for pattern in dangerous_phrases:
+            if re.search(pattern, question):
+                raise ValueError("⚠️ Injection attempt detected. Please rephrase your question.")
+        return question
     
     def run_mock_client(self,queries:list[str],thread_id="aaa"):
         config = {"configurable":{"thread_id":thread_id}}
