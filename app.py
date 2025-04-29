@@ -3,51 +3,17 @@ from src.chatbots.simple import SimpleRAGChatbot
 from src.vector_store_loaders.faiss_loader import load_faiss_indexed
 from src.api_utils import get_llm_openai
 from src.utils import load_chatbot_settings
+from src.GUI.bird_eye_graph import load_bird_eye_graph
+from src.GUI.core import load_chat,load_intro
+from src.consts import BIRD_EYE_GRAPH_DATA
+
+load_bird_eye_graph(BIRD_EYE_GRAPH_DATA)
 
 vector_store = load_faiss_indexed()
 bot_settings = load_chatbot_settings()
-model_name = bot_settings.get("model_name")
-llm = get_llm_openai(model_name)
+llm = get_llm_openai(bot_settings.get("model_name"))
 bot = SimpleRAGChatbot(llm,vector_store)
-config = bot.get_config()
+bot_config = bot.get_config()
 
-st.write("Supervisor Seeker")
-
-cap = (
-    "This chatbot is designed to help MS.c and Phd students at the Computer Science department to look for a supervisor in Ben-Gurion University. "
-    "The chatbot relies on indexing the abstracts of the supervisors papers. \n"
-    "Be sure to check for more information at the department website and personal websites of the supervisors. \n" 
-    "AI CAN HALLUCINATE AND MAKE MISTAKES."
-)
-
-st.caption(cap)
-
-# Initialize chat history
-if "messages" not in st.session_state:
-    st.session_state.messages = [{"role": "assistant", "content": "Let's start chatting! 👇"}]
-
-# Display chat messages from history on app rerun
-for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
-
-# Accept user input
-if prompt := st.chat_input("What is up?"):
-    # Add user message to chat history
-    st.session_state.messages.append({"role": "user", "content": prompt})
-    # Display user message in chat message container
-    with st.chat_message("user"):
-        st.markdown(prompt)
-
-    # Display assistant response in chat message container
-    with st.chat_message("assistant"):
-        message_placeholder = st.empty()
-        full_response = ""
-
-        for chunk in bot.stream_answer(prompt,config):
-            full_response= full_response + "".join(chunk)
-            message_placeholder.markdown(full_response + "▌")
-
-        message_placeholder.markdown(full_response)
-    # Add assistant response to chat history
-    st.session_state.messages.append({"role": "assistant", "content": full_response})
+load_intro()
+load_chat(bot,bot_config)

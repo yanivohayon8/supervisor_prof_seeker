@@ -53,6 +53,9 @@ class PapersMetadataRetriever():
         
         supervisor_metadata["available_pdfs"] = available_pdfs
 
+        image_path = os.path.join(supervisor_folder,"image.png")
+        supervisor_metadata["image"] = image_path if os.path.exists(image_path) else None
+
         return supervisor_metadata
     
     def get_total_papers_path_(self):

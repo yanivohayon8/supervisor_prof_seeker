@@ -13,6 +13,14 @@
             "args":["run","${workspaceFolder}/app.py"]
         },
         {
+            "name": "test gui",
+            "type": "python",
+            "request": "launch",
+            "module":"streamlit",
+            "console": "integratedTerminal",
+            "args":["run","${workspaceFolder}/tests/test_gui.py"]
+        },
+        {
             "name": "index_pdfs",
             "type": "debugpy",
             "request": "launch",
