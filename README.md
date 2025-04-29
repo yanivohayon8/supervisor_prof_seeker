@@ -9,7 +9,7 @@ This project is an AI assistant designed to help M.Sc. and Ph.D. students find a
 <!--## Tech Stack
 Python (core language), LangChain, LangGraph, LLMs, streamlit, scrapy, pymupdf-->
 
-## Installation
+## Getting started
 Create the conda environment:
  ```
     conda env create -f environment.yml
@@ -21,9 +21,14 @@ Install the other packages with pip:
     pip install -r requirements.txt
 ```
 
-## How to run the code
+Run the application using the following command, and when prompted, paste your OPENAI_API_KEY
 ```
     python -m streamlit run app.py
 ```
 
+
+
 <!--On demand add explanation on how to do the indexing-->
+
+## License
+Distributed under the MIT License. See LICENSE file for more information.
