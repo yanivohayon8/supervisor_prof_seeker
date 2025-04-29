@@ -68,23 +68,34 @@ class PapersMetadataRetriever():
         return len(self.get_supervisors_folders_())
 
 
-    def get_supervisors_short_info(self):
-        for supervisor_folder in self.get_supervisors_folders_():
-            metadata = self.get_metadata_(supervisor_folder)
+    def get_supervisors_by_interests(self):
+        total_interests = dict()
 
-            if not metadata:
-                continue
+        for folder in self.get_supervisors_folders_():
+            metadata = self.get_metadata_(folder)
+
+            if metadata:
+                info = self.get_short_info_(folder,metadata)
+                
+                for interest in info.get("interests"):
+                    total_interests.setdefault(interest,list())
+                    total_interests[interest].append(info)
             
-            author = metadata.get("author")
-            name = author.get("name")
-            interests = [interest.get("title") for interest in author.get("interests")] if author.get("interests") else list()
-            image = self.get_supervisor_image_(supervisor_folder)
+        
+        return total_interests
+        
 
-            yield {
-                "name":name,
-                "interests": interests,
-                "image":image
-            }
+    def get_short_info_(self,folder:str,metadata:dict):
+        author = metadata.get("author")
+        name = author.get("name")
+        interests = [interest.get("title") for interest in author.get("interests")] if author.get("interests") else ["untagged"]
+        image = self.get_supervisor_image_(folder)
+
+        return {
+            "name":name,
+            "interests": interests,
+            "image":image
+        }
         
     def get_supervisor_image_(self,supervisor_folder):
         return "http://marvel-force-chart.surge.sh/marvel_force_chart_img/top_captainmarvel.png"
