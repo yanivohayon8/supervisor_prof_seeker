@@ -88,7 +88,7 @@ class PapersMetadataRetriever():
     def get_short_info_(self,folder:str,metadata:dict):
         author = metadata.get("author")
         name = author.get("name")
-        interests = [interest.get("title") for interest in author.get("interests")] if author.get("interests") else ["untagged"]
+        interests = [interest.get("title").lower() for interest in author.get("interests")] if author.get("interests") else ["untagged"]
         image = self.get_supervisor_image_(folder)
 
         return {

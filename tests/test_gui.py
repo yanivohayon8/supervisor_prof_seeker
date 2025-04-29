@@ -1,5 +1,8 @@
 import streamlit as st
 from src.GUI.bird_eye_graph import build_bird_eye_graph_,save_bird_eye_graph,load_bird_eye_graph,load_naive_graph
+from src.GUI.general_map import expander_supervisor_by_interest
+import os
+from src.indexing_pipeline import indexing_pipeline 
 
 def test_build_and_save_graph():
     nodes,edges = build_bird_eye_graph_()
@@ -64,6 +67,11 @@ def test_two_tabs():
             with st.expander(title):
                 st.write(content)
 
+def test_expander_supervisor_by_interest():
+    tests_root_folder = os.path.join("tests","data","google_scholar")
+    metadata_retriever = indexing_pipeline.PapersMetadataRetriever(tests_root_folder)
+
+    expander_supervisor_by_interest(metadata_retriever)
 
 if __name__ == "__main__":   
 
@@ -81,4 +89,6 @@ if __name__ == "__main__":
     # test_load_graph()
     # load_naive_graph()
 
-    test_two_tabs()
+    # test_two_tabs()
+
+    test_expander_supervisor_by_interest()
