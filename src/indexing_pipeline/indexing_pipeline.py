@@ -68,6 +68,26 @@ class PapersMetadataRetriever():
         return len(self.get_supervisors_folders_())
 
 
+    def get_supervisors_short_info(self):
+        for supervisor_folder in self.get_supervisors_folders_():
+            metadata = self.get_metadata_(supervisor_folder)
+
+            if not metadata:
+                continue
+            
+            author = metadata.get("author")
+            name = author.get("name")
+            interests = [interest.get("title") for interest in author.get("interests")] if author.get("interests") else list()
+            image = self.get_supervisor_image_(supervisor_folder)
+
+            yield {
+                "name":name,
+                "interests": interests,
+                "image":image
+            }
+        
+    def get_supervisor_image_(self,supervisor_folder):
+        return "http://marvel-force-chart.surge.sh/marvel_force_chart_img/top_captainmarvel.png"
 
 def get_supervisor_brief(name:str, affilations:str, interests:list[str],website:str=None)->str:
     intro_txt = f"{name} is a M.Sc. and Ph.D. supervisor at {affilations}"

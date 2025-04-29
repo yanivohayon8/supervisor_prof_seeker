@@ -103,6 +103,21 @@ class TestPapersMetadataRetriever(unittest.TestCase):
         expected_num_supervisors = len(glob(os.path.join(PAPERS_FOLDER,"*","author_details.json")))
         self.assertEqual(expected_num_supervisors,count_supervisors)
 
+    
+    def test_get_short_infor(self):
+        metadata_retriever = indexing_pipeline.PapersMetadataRetriever(PAPERS_FOLDER)
+        count_supervisors = 0
+
+        for supervisor_metadata in metadata_retriever.get_supervisors_short_info():
+            count_supervisors+=1
+
+            self.assertIn("name",supervisor_metadata.keys())
+            self.assertIn("interests",supervisor_metadata.keys())
+            self.assertIn("image",supervisor_metadata.keys())
+
+        expected_num_supervisors = len(glob(os.path.join(PAPERS_FOLDER,"*","author_details.json")))
+        self.assertEqual(expected_num_supervisors,count_supervisors)
+
 class TestPipeline(unittest.TestCase):
 
     paper_metadata = {
