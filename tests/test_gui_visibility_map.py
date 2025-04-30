@@ -1,6 +1,7 @@
 import streamlit as st
 from src.GUI.bird_eye_graph import build_bird_eye_graph_,save_bird_eye_graph,load_bird_eye_graph,load_naive_graph
 from src.GUI.general_map import expander_supervisor_by_interest
+
 import os
 from src.indexing_pipeline import indexing_pipeline 
 
@@ -75,15 +76,7 @@ def test_expander_supervisor_by_interest():
 
 if __name__ == "__main__":   
 
-    st.write("Research Supervisor Seeker")
-
-    st.caption(
-        """
-            Insert caption here.Insert caption here.
-        """
-    )
-
-    st.markdown(''':blue-background[Be sure to verify the given information as AI can make mistakes]''')
+    
 
     # test_build_and_save_graph()
     # test_load_graph()

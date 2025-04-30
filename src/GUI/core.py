@@ -1,9 +1,9 @@
 import streamlit as st
 
 def load_intro():
-    st.write("Research Supervisor Seeker")
+    st.title("AI Assistant for Seeking a Research Supervisor :sunglasses:")
 
-    st.caption(
+    st.markdown(
         """
             This project is an AI assistant designed to help M.Sc. and Ph.D. students find a suitable research supervisor.
             The assistant leverages large language models (LLMs) and relies on a knowledge base built from pre-indexed papers and publicly available information.
@@ -12,7 +12,17 @@ def load_intro():
         """
     )
 
-    st.markdown(''':blue-background[Be sure to verify the given information as AI can make mistakes]''')
+    st.caption(
+        """
+            Currently, the AI assistant supports researchers only from the Computer Science Department at Ben-Gurion University.       
+        
+            For the full list of faculty members, visit: https://in.bgu.ac.il/en/natural_science/cs/Pages/default.aspx
+
+            :blue-background[Please verify the information, as AI-generated content may contain errors.]
+        """
+    )
+
+    st.markdown('''''')
 
 
 def load_chat(bot,bot_config:dict):
