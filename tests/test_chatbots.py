@@ -2,7 +2,7 @@ import unittest
 from src.chatbots.simple import SimpleRAGChatbot
 from langchain_community.vectorstores import InMemoryVectorStore
 from langchain_openai import OpenAIEmbeddings
-from src.api_utils import verify_openai_api_key,get_llm_openai
+from src.api_utils import verify_openai_api_key,get_llm_openai,enable_langsmith_tracing
 from langchain_core.documents import Document
 from src.vector_store_loaders.faiss_loader import load_faiss_indexed
 from src.chatbots import openevals_wrapper
@@ -12,6 +12,7 @@ from src.utils import load_chatbot_settings
 class TestChatbotFunctions(unittest.TestCase):
 
     def test_invoke_answer(self):
+        enable_langsmith_tracing()
         verify_openai_api_key()
         embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
         vector_store = InMemoryVectorStore(embeddings)
@@ -27,6 +28,35 @@ class TestChatbotFunctions(unittest.TestCase):
         
         # A naive string matching here is enough just to see that the function above works
         self.assertIn("developers",res["answer"])
+    
+
+    def build_bot_(self,model_name):
+        vector_store = load_faiss_indexed()
+        llm = get_llm_openai(model_name)
+        bot = SimpleRAGChatbot(llm,vector_store)
+
+        return bot 
+
+    def test_langsmith_conversation(self):
+        enable_langsmith_tracing()
+        settings = load_chatbot_settings()
+        model_name = settings.get("model_name")
+        bot = self.build_bot_(model_name)
+
+        user_inputs = [
+            "I want to do cool things with AI, list some relevent supervisors?",
+            "Do you know others?",
+            "Who is specialized with Deep Learning?"
+        ]
+
+        for user_input in user_inputs:
+            print()
+            print("********************** User **************************")
+            print(user_input)
+            invoke_result = bot.invoke_answer(user_input)
+            answer = invoke_result.get("answer")
+            print("********************** answer **************************")
+            print(answer)
 
 
 class TestStringMatching(unittest.TestCase):

@@ -22,6 +22,12 @@ def verify_environment_variable_(name,message=None):
 def verify_openai_api_key():
     verify_environment_variable_("OPENAI_API_KEY")
 
+def enable_langsmith_tracing():
+    update_environment_variable_("LANGSMITH_TRACING","true")
+
+def disable_langsmith_tracing_key():
+    update_environment_variable_("LANGSMITH_TRACING","false")
+
 def init_openai_embeddings_(model:str):
     verify_openai_api_key()
     return OpenAIEmbeddings(model=model)
