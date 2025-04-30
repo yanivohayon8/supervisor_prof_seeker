@@ -26,7 +26,7 @@ Run the application using the following command, and when prompted, paste your O
     python -m streamlit run app.py
 ```
 
-
+![The application's home page](https://github.com/user-attachments/assets/46d51ffd-5cee-4a8b-add7-a2424b89eb7a)
 
 <!--On demand add explanation on how to do the indexing-->
 
