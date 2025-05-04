@@ -53,8 +53,14 @@ class ThreadWrapper():
     def positive_feedback(self,msg_id:str):
         self.feedback_on_message_(msg_id,"up")
     
+    def positive_feedback_last_message(self):
+        self.positive_feedback(self.last_msg_id_())
+    
     def negative_feedback(self,msg_id:str):
         self.feedback_on_message_(msg_id,"down")
+    
+    def negative_feedback_last_message(self):
+        self.negative_feedback(self.last_msg_id_())
     
     def delete_feedback(self,msg_id:str):
         self.feedback_on_message_(msg_id,None)
