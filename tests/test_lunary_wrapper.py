@@ -1,10 +1,11 @@
 import unittest
-from src.api_utils import get_langchain_openai_lunary_,verify_openai_api_key
+from src.api_utils import get_langchain_openai_lunary_,verify_openai_api_key,get_chat_langchain_openai_new
 from src.chatbots.lunary_wrapper import ConversationRecorder
 from langchain_community.vectorstores import InMemoryVectorStore
 from langchain_openai import OpenAIEmbeddings
 from langchain_core.documents import Document
 from src.chatbots.simple import SimpleRAGChatbot
+from src.vector_store_loaders.faiss_loader import load_faiss_indexed
 
 
 class TestLunaryAcessAPI(unittest.TestCase):
@@ -74,6 +75,27 @@ class TestLunaryWrapper(unittest.TestCase):
 
         res = bot.invoke_answer("What is Lunary? Answer shortly")
         self.assertIn("Lunary",res["answer"])
+    
+    def test_simple_chat_bot_faiss_db(self):
+        vector_store = load_faiss_indexed()
+        llm = get_chat_langchain_openai_new(is_lunary_audit=True)
+        conversation_recorder = ConversationRecorder(tags=self.unittest_tags)
+        bot = SimpleRAGChatbot(llm,vector_store,converstation_recorder=conversation_recorder)
+        
+        user_inputs = [
+            "I want to do cool things with AI, list some relevent supervisors?",
+            "Do you know others?",
+            "Who is specialized with Deep Learning?"
+        ]
+
+        for user_input in user_inputs:
+            print()
+            print("********************** User **************************")
+            print(user_input)
+            invoke_result = bot.invoke_answer(user_input)
+            answer = invoke_result.get("answer")
+            print("********************** answer **************************")
+            print(answer)
 
 
 
