@@ -1,7 +1,7 @@
 import lunary
 from langchain_openai import ChatOpenAI
 
-class ThreadWrapper():
+class ConversationRecorder():
 
     def __init__(self,thread_id:str=None,tags:list[str]=None,**kwargs):
         self.thread = lunary.open_thread(id=thread_id,tags=tags,**kwargs)
@@ -16,31 +16,31 @@ class ThreadWrapper():
         
         return self.msgs_ids[-1]
 
-    def save_msg_(self,msg_id):
+    def save_msg_(self,msg_id:str):
         self.msgs_ids.append(msg_id)
 
-    def track_user(self, content):
+    def track_user(self, user_input:str):
         if self.num_saved_msgs_() == 0:
-            msg_id = self.thread.track_message({"role":"user", "content":content})
+            msg_id = self.thread.track_message({"role":"user", "content":user_input})
         else:
             last_msg = self.last_msg_id_()
             with lunary.parent(last_msg):
-                msg_id = self.thread.track_message({"role":"user", "content":content})
+                msg_id = self.thread.track_message({"role":"user", "content":user_input})
 
         self.save_msg_(msg_id)
     
-    def track_assistant(self,llm:ChatOpenAI,invoke_input:str,invoke_params:dict={}):
+    def track_assistant(self,llm:ChatOpenAI,user_input:str,invoke_params:dict={}):
         '''
             llm - should be initialize with the right callbacks value (use src.api_utils.get_langchain_openai_lunary_)
         '''
         if self.num_saved_msgs_() == 0:
-            response = llm.invoke(invoke_input,**invoke_params)
+            response = llm.invoke(user_input,**invoke_params)
             msg_id = self.thread.track_message({"role":"assistant", "content":response.content})
         else:
             last_msg = self.last_msg_id_()
             with lunary.parent(last_msg):
                 # The llm.invoke must be in the context of lunary.parent to trace properly
-                response = llm.invoke(invoke_input,**invoke_params) 
+                response = llm.invoke(user_input,**invoke_params) 
                 msg_id = self.thread.track_message({"role":"assistant", "content":response.content})
 
         self.save_msg_(msg_id)

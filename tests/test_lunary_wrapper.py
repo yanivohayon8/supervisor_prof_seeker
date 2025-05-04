@@ -1,6 +1,11 @@
 import unittest
-from src.api_utils import get_langchain_openai_lunary_
-from src.chatbots.lunary_wrapper import ThreadWrapper
+from src.api_utils import get_langchain_openai_lunary_,verify_openai_api_key
+from src.chatbots.lunary_wrapper import ConversationRecorder
+from langchain_community.vectorstores import InMemoryVectorStore
+from langchain_openai import OpenAIEmbeddings
+from langchain_core.documents import Document
+from src.chatbots.simple import SimpleRAGChatbot
+
 
 class TestLunaryAcessAPI(unittest.TestCase):
     def test_public_key(self):
@@ -14,7 +19,7 @@ class TestLunaryWrapper(unittest.TestCase):
     unittest_tags =["compiling_unit_tests"]
 
     def test_track_only_users(self):
-        thread_wrapper = ThreadWrapper(tags=self.unittest_tags)
+        thread_wrapper = ConversationRecorder(tags=self.unittest_tags)
 
         thread_wrapper.track_user("Hi there, I am a new user!")
         thread_wrapper.track_user("Hello, I am the same user")
@@ -23,7 +28,7 @@ class TestLunaryWrapper(unittest.TestCase):
 
     def test_track_only_assistant(self):
         llm = get_langchain_openai_lunary_()
-        thread_wrapper = ThreadWrapper(tags=self.unittest_tags)
+        thread_wrapper = ConversationRecorder(tags=self.unittest_tags)
 
         response = thread_wrapper.track_assistant(llm,"Say Welcome")
         self.assertIn("Welcome",response.content)
@@ -32,7 +37,7 @@ class TestLunaryWrapper(unittest.TestCase):
 
     def test_track_user_assistant(self):
         llm = get_langchain_openai_lunary_()
-        thread_wrapper = ThreadWrapper(tags=self.unittest_tags)
+        thread_wrapper = ConversationRecorder(tags=self.unittest_tags)
 
         user_inputs = ["Who are you?", "What is the result of 5 plus 5?"]
 
@@ -46,6 +51,31 @@ class TestLunaryWrapper(unittest.TestCase):
                 thread_wrapper.negative_feedback_last_message()
 
         # View in the web application the last conversation for verfication
+
+    
+    def test_simple_chat_bot_1(self):
+        verify_openai_api_key()
+        embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+        vector_store = InMemoryVectorStore(embeddings)
+        vector_store.add_documents(
+            [
+                Document(page_content="LangGraph is built for developers who want to build powerful, adaptable AI agents."),
+                Document(page_content="Lunary is an open-source platform for developers of AI chatbots and other LLM-powered applications.")
+            ]
+        )
+
+        llm = get_langchain_openai_lunary_()
+        conversation_recorder = ConversationRecorder(tags=self.unittest_tags)
+        bot = SimpleRAGChatbot(llm,vector_store,converstation_recorder=conversation_recorder)
+        
+        res = bot.invoke_answer("For who does LangGraph is built? Answer shortly")
+        # A naive string matching here is enough just to see that the function above works
+        self.assertIn("developers",res["answer"])
+
+        res = bot.invoke_answer("What is Lunary? Answer shortly")
+        self.assertIn("Lunary",res["answer"])
+
+
 
 
 if __name__ == "__main__":

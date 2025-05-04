@@ -12,6 +12,8 @@ from typing import TypedDict, List, Optional
 import re
 from openai import BadRequestError
 
+from src.chatbots.lunary_wrapper import ConversationRecorder
+
 class SimpleRAGState(TypedDict):
     question: str
     context: List[Document]
@@ -20,7 +22,7 @@ class SimpleRAGState(TypedDict):
 
 class SimpleRAGChatbot():
 
-    def __init__(self, llm: BaseLanguageModel, vector_store: VectorStore, prompt: Optional[ChatPromptTemplate] = None, max_turns: int = 5):
+    def __init__(self, llm: BaseLanguageModel, vector_store: VectorStore, converstation_recorder:ConversationRecorder=None, prompt: Optional[ChatPromptTemplate] = None, max_turns: int = 5):
         self.llm = llm
         self.vector_store = vector_store
         self.max_turns = max_turns
@@ -33,6 +35,8 @@ class SimpleRAGChatbot():
         self.graph_builder.add_edge("generate_", END)
 
         self.graph = self.graph_builder.compile(checkpointer=MemorySaver())
+
+        self.converstation_recorder = converstation_recorder
 
         if not prompt:
             self.prompt = ChatPromptTemplate.from_messages([
@@ -66,7 +70,8 @@ class SimpleRAGChatbot():
             question = self.satnitize_question_(state["question"])
         except ValueError as e:
             answer = "Sorry, an unexpected error occurred while generating a response."
-            self.llm.invoke(f"Echo the following:{answer}") # To make it appear in the streamlit GUI (look at self.stream_answer function)
+            # self.llm.invoke(f"Echo the following:{answer}") # To make it appear in the streamlit GUI (look at self.stream_answer function)
+            self.echo_llm_catching_err_(answer)
 
             return {
                 "answer": answer,
@@ -80,7 +85,8 @@ class SimpleRAGChatbot():
         })
 
         try:
-            response = self.llm.invoke(prompt_value)
+            # response = self.llm.invoke(prompt_value)
+            response = self.invoke_llm_(prompt_value)
             answer = response.content
         except BadRequestError as bre:
             if "context length" in str(bre).lower():
@@ -90,7 +96,8 @@ class SimpleRAGChatbot():
             else:
                 answer = "Sorry, an unexpected error occurred while generating a response."
             
-            self.llm.invoke(f"Echo the following:{answer}") # To make it appear in the streamlit GUI (look at self.stream_answer function)
+            # self.llm.invoke(f"Echo the following:{answer}") # To make it appear in the streamlit GUI (look at self.stream_answer function)
+            self.echo_llm_catching_err_(answer)
 
         updated_chat_history = trimmed_history + [(state["question"], answer)]
 
@@ -128,13 +135,32 @@ class SimpleRAGChatbot():
         return {"configurable":{"thread_id":thread_id}}
 
     def stream_answer(self,user_input:str,config):
+        self.track_user_(user_input)
+
         for chunk, metadata in self.graph.stream({"question":user_input},
                                                  config=config,stream_mode="messages"):
             if isinstance(chunk,AIMessage):
                 yield chunk.content
 
     def invoke_answer(self, user_input:str,config:dict=None,**kwargs):
+        self.track_user_(user_input)
+        
         if not config:
             config = self.get_config()
 
         return self.graph.invoke({"question":user_input},config=config,**kwargs)
+
+    def echo_llm_catching_err_(self,answer:str,invoke_params:dict={}):
+        # To make the message about catching the error appear in the streamlit GUI (look at self.stream_answer function),
+        # an invokation to the llm should occur. Therefore, to pass the message, echoing the catching error message to the user
+        return self.invoke_llm_(f"Echo the following:{answer}",invoke_params=invoke_params)
+
+    def invoke_llm_(self,user_input:str,invoke_params:dict={}):
+        if not self.converstation_recorder:
+            return self.llm.invoke(user_input,**invoke_params)
+        else:
+            return self.converstation_recorder.track_assistant(self.llm,user_input,**invoke_params,)
+
+    def track_user_(self,user_input:str):
+        if self.converstation_recorder:
+            self.converstation_recorder.track_user(user_input)
