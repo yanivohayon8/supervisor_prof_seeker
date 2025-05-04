@@ -58,7 +58,7 @@ def get_chat_langchain_openai_new(is_lunary_audit=False,lunary_handler_params:di
     verify_openai_api_key()
 
     if is_lunary_audit:
-        get_langchain_openai_lunary_(handler_params=lunary_handler_params,**chat_settings)
+        return get_langchain_openai_lunary_(handler_params=lunary_handler_params,**chat_settings)
 
     else:
         return ChatOpenAI(**chat_settings)
