@@ -47,11 +47,18 @@ def load_chat(bot,bot_config:dict):
         with st.chat_message("assistant"):
             message_placeholder = st.empty()
             full_response = ""
+            try:
+                for chunk in bot.stream_answer(prompt, bot_config):
+                    full_response += "".join(chunk)
+                    message_placeholder.markdown(full_response + "▌")
+                message_placeholder.markdown(full_response)
+            except Exception as e:
+                error_message = (
+                    "⚠️ Oops! Something went wrong while processing your request.\n\n"
+                    "Please try again in a moment. If the issue persists, feel free to contact the developer. 🙏"
+                )
+                full_response = error_message
+                message_placeholder.markdown(full_response)
 
-            for chunk in bot.stream_answer(prompt,bot_config):
-                full_response= full_response + "".join(chunk)
-                message_placeholder.markdown(full_response + "▌")
-
-            message_placeholder.markdown(full_response)
-        # Add assistant response to chat history
+        # Add assistant response (or error) to chat history
         st.session_state.messages.append({"role": "assistant", "content": full_response})
