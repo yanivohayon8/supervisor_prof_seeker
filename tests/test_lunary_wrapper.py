@@ -53,7 +53,7 @@ class TestLunaryWrapper(unittest.TestCase):
         # View in the web application the last conversation for verfication
 
     
-    def test_simple_chat_bot_1(self):
+    def test_simple_chat_bot_InMemoryVectorStore(self):
         verify_openai_api_key()
         embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
         vector_store = InMemoryVectorStore(embeddings)
