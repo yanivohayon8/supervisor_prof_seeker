@@ -2,7 +2,7 @@ import unittest
 from src.chatbots.simple import SimpleRAGChatbot
 from langchain_community.vectorstores import InMemoryVectorStore
 from langchain_openai import OpenAIEmbeddings
-from src.api_utils import verify_openai_api_key,get_llm_openai,enable_langsmith_tracing
+from src.api_utils import verify_openai_api_key,get_llm_openai_deprecated,enable_langsmith_tracing
 from langchain_core.documents import Document
 from src.vector_store_loaders.faiss_loader import load_faiss_indexed
 from src.chatbots import openevals_wrapper
@@ -22,7 +22,7 @@ class TestChatbotFunctions(unittest.TestCase):
             ]
         )
 
-        llm = get_llm_openai("gpt-4o-mini")
+        llm = get_llm_openai_deprecated("gpt-4o-mini")
         bot = SimpleRAGChatbot(llm,vector_store)
         res = bot.invoke_answer("For who does LangGraph is built?")
         
@@ -32,7 +32,7 @@ class TestChatbotFunctions(unittest.TestCase):
 
     def build_bot_(self,model_name):
         vector_store = load_faiss_indexed()
-        llm = get_llm_openai(model_name)
+        llm = get_llm_openai_deprecated(model_name)
         bot = SimpleRAGChatbot(llm,vector_store)
 
         return bot 
@@ -75,7 +75,7 @@ class TestStringMatching(unittest.TestCase):
         ]
         vector_store.add_documents(docs)
 
-        llm = get_llm_openai("gpt-4o-mini")
+        llm = get_llm_openai_deprecated("gpt-4o-mini")
         bot = SimpleRAGChatbot(llm,vector_store)
 
         queries = ["Who is Bob?","I want to do a research on deep learning. Can you recommend on a supervisor?", "What was my first question?"]
@@ -86,7 +86,7 @@ class TestStringMatching(unittest.TestCase):
     
     def test_run_fixed_queries_1(self):
         vector_store = load_faiss_indexed()
-        llm = get_llm_openai("gpt-4o-mini")
+        llm = get_llm_openai_deprecated("gpt-4o-mini")
         bot = SimpleRAGChatbot(llm,vector_store)
 
         queries = ["I want to do a research on deep learning. Do you recommend on a supervisor?"]
@@ -100,7 +100,7 @@ class TestLLMasJudge(unittest.TestCase):
 
     def build_bot_(self,model_name):
         vector_store = load_faiss_indexed()
-        llm = get_llm_openai(model_name)
+        llm = get_llm_openai_deprecated(model_name)
         bot = SimpleRAGChatbot(llm,vector_store)
 
         return bot 
