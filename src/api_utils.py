@@ -1,12 +1,8 @@
 import os
 import getpass
-
 from langchain_openai import OpenAIEmbeddings,ChatOpenAI
 from langchain_huggingface import HuggingFaceEmbeddings
-from langchain.chat_models import init_chat_model
-
-
-from lunary import open_thread, LunaryCallbackHandler
+from lunary import LunaryCallbackHandler
 
 def update_environment_variable_(name,val):
     os.environ[name] = val
@@ -45,16 +41,8 @@ def init_embeddings(embedding_type,settings:dict):
     
     return supported_embeddings[embedding_type](**settings)
 
-# ="gpt-4o-mini"
-def get_llm_openai_deprecated(name:str,provider_specified=True):
-    verify_openai_api_key()
 
-    if provider_specified:
-        return init_chat_model(name, model_provider="openai")
-    else:
-        return init_chat_model(name)
-
-def get_chat_langchain_openai_new(is_lunary_audit=False,lunary_handler_params:dict={}, **chat_settings):
+def get_llm_langchain_openai(is_lunary_audit=False,lunary_handler_params:dict={}, **chat_settings):
     verify_openai_api_key()
 
     if is_lunary_audit:

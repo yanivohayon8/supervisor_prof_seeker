@@ -11,20 +11,18 @@ from langchain_core.vectorstores import VectorStore
 from typing import TypedDict, List, Optional
 import re
 from openai import BadRequestError
-
 from src.chatbots.lunary_wrapper import ConversationRecorder
 
 class SimpleRAGState(TypedDict):
     question: str
     context: List[Document]
     answer: str
-    chat_history: List[tuple[str, str]]  # <-- NEW: history of (question, answer) pairs
+    chat_history: List[tuple[str, str]]  # (question, answer) pairs
 
 class SimpleRAGChatbot():
 
     def __init__(self, llm: BaseLanguageModel, vector_store: VectorStore,
-                  graph_config:dict,converstation_recorder:ConversationRecorder=None, 
-                  prompt: Optional[ChatPromptTemplate] = None, max_turns: int = 5):
+                  graph_config:dict=None,converstation_recorder:ConversationRecorder=None, max_turns: int = 5):
         self.llm = llm
         self.vector_store = vector_store
         self.max_turns = max_turns
@@ -40,17 +38,18 @@ class SimpleRAGChatbot():
 
         self.converstation_recorder = converstation_recorder
 
-        if not prompt:
-            self.prompt = ChatPromptTemplate.from_messages([
-                ("system", 
-                    "You are an expert assistant designed to help M.Sc. and Ph.D. students find a suitable research supervisor. "
-                    "Use the provided context to answer questions accurately and concisely. "
-                    "\n\nContext:\n{docs_content}"
-                ),
-                ("human", "Previous conversation:\n{chat_history}\n\nNew Question: {question}")
+        self.prompt = ChatPromptTemplate.from_messages([
+            ("system", 
+                "You are an expert assistant designed to help M.Sc. and Ph.D. students find a suitable research supervisor. "
+                "Use the provided context to answer questions accurately and concisely. "
+                "\n\nContext:\n{docs_content}"
+            ),
+            ("human", "Previous conversation:\n{chat_history}\n\nNew Question: {question}")
             ])
-        else:
-            self.prompt = prompt
+
+        # NOTE: Make sure you usually don't set graph_config to null (it is valid only for a single run in the tests, rather than using with streamlit)
+        if not graph_config:
+            graph_config = generate_graph_config()
 
         self.graph_config = graph_config
 
@@ -123,22 +122,6 @@ class SimpleRAGChatbot():
             if re.search(pattern, question):
                 raise ValueError("⚠️ Injection attempt detected. Please rephrase your question.")
         return question
-    
-    # Deprecated function - to delete
-    def run_mock_client(self,queries:list[str],thread_id="aaa"):
-        config = {"configurable":{"thread_id":thread_id}}
-        
-        for query in queries:
-            query_response = ""
-            # for token in self.stream_answer(query,config):
-            for token in self.stream_answer(query):
-                query_response += token
-            
-            yield query_response
-        
-    def get_config_deprecated(self):
-        thread_id = str(uuid.uuid4())
-        return {"configurable":{"thread_id":thread_id}}
 
     def stream_answer(self,user_input:str):
         self.track_user_(user_input)
@@ -148,7 +131,7 @@ class SimpleRAGChatbot():
             if isinstance(chunk,AIMessage):
                 yield chunk.content
 
-    def mock_streaming(self,queries:list[str],config={}):
+    def mock_streaming(self,queries:list[str]):
         for query in queries:
             query_response = ""
             for token in self.stream_answer(query):
@@ -156,13 +139,14 @@ class SimpleRAGChatbot():
             
             yield query_response
 
-    def invoke_answer(self, user_input:str,config:dict=None,**kwargs):
-        self.track_user_(user_input)
+    def graph_invoke(self, user_input:str,**kwargs):
+        '''
+            This function is ment for debugging
+        '''
+        # self.track_user_(user_input)
         
-        if not config:
-            config = self.get_config_deprecated()
+        return self.graph.invoke({"question":user_input},config=self.graph_config,**kwargs)
 
-        return self.graph.invoke({"question":user_input},config=config,**kwargs)
 
     def echo_llm_catching_err_(self,answer:str,invoke_params:dict={}):
         # To make the message about catching the error appear in the streamlit GUI (look at self.stream_answer function),

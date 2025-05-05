@@ -1,5 +1,5 @@
 import unittest
-from src.api_utils import get_langchain_openai_lunary_,verify_openai_api_key,get_chat_langchain_openai_new
+from src.api_utils import get_langchain_openai_lunary_,verify_openai_api_key,get_llm_langchain_openai
 from src.chatbots.lunary_wrapper import ConversationRecorder
 from langchain_community.vectorstores import InMemoryVectorStore
 from langchain_openai import OpenAIEmbeddings
@@ -69,16 +69,16 @@ class TestLunaryWrapper(unittest.TestCase):
         conversation_recorder = ConversationRecorder(tags=self.unittest_tags)
         bot = SimpleRAGChatbot(llm,vector_store,converstation_recorder=conversation_recorder)
         
-        res = bot.invoke_answer("For who does LangGraph is built? Answer shortly")
+        res = bot.mock_streaming("For who does LangGraph is built? Answer shortly")
         # A naive string matching here is enough just to see that the function above works
         self.assertIn("developers",res["answer"])
 
-        res = bot.invoke_answer("What is Lunary? Answer shortly")
+        res = bot.mock_streaming("What is Lunary? Answer shortly")
         self.assertIn("Lunary",res["answer"])
     
     def test_simple_chat_bot_faiss_db_invoke_answer(self):
         vector_store = load_faiss_indexed()
-        llm = get_chat_langchain_openai_new(is_lunary_audit=True)
+        llm = get_llm_langchain_openai(is_lunary_audit=True)
         conversation_recorder = ConversationRecorder(tags=self.unittest_tags)
         bot = SimpleRAGChatbot(llm,vector_store,converstation_recorder=conversation_recorder)
         
@@ -92,14 +92,14 @@ class TestLunaryWrapper(unittest.TestCase):
             print()
             print("********************** User **************************")
             print(user_input)
-            invoke_result = bot.invoke_answer(user_input)
+            invoke_result = bot.mock_streaming(user_input)
             answer = invoke_result.get("answer")
             print("********************** answer **************************")
             print(answer)
     
     def test_simple_chat_bot_faiss_db_mock_streaming(self):
         vector_store = load_faiss_indexed()
-        llm = get_chat_langchain_openai_new(is_lunary_audit=True)
+        llm = get_llm_langchain_openai(is_lunary_audit=True)
         conversation_recorder = ConversationRecorder(tags=self.unittest_tags)
         bot = SimpleRAGChatbot(llm,vector_store,converstation_recorder=conversation_recorder)
         
@@ -109,10 +109,9 @@ class TestLunaryWrapper(unittest.TestCase):
             "Who is specialized with Deep Learning?"
         ]
 
-        config = bot.get_config_deprecated()
         i = 0
 
-        for answer in bot.mock_streaming(user_inputs,config=config):
+        for answer in bot.mock_streaming(user_inputs):
             print()
             print("********************** User **************************")
             print(user_inputs[i])

@@ -1,7 +1,7 @@
 import streamlit as st
 from src.chatbots.simple import SimpleRAGChatbot,generate_graph_config
 from src.vector_store_loaders.faiss_loader import load_faiss_indexed
-from src.api_utils import get_llm_openai_deprecated,get_chat_langchain_openai_new
+from src.api_utils import get_llm_langchain_openai
 from src.utils import load_chatbot_settings
 from src.GUI.core import load_chat,load_intro
 from src.chatbots.lunary_wrapper import ConversationRecorder
@@ -16,7 +16,7 @@ def load_chatbot_settings_cached():
 
 @st.cache_resource
 def load_llm(settings:dict):
-    return get_chat_langchain_openai_new(is_lunary_audit=True,**settings)
+    return get_llm_langchain_openai(is_lunary_audit=True,**settings)
 
 if __name__ == "__main__":
     vector_store = load_vector_store() 
