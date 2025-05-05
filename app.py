@@ -6,7 +6,10 @@ from src.utils import load_chatbot_settings
 from src.GUI.core import load_chat, load_intro
 from src.chatbots.lunary_wrapper import ConversationRecorder
 
-verify_openai_api_key()
+
+@st.cache_resource
+def api_key():
+    verify_openai_api_key()
 
 @st.cache_resource
 def load_vector_store():
@@ -20,7 +23,7 @@ def load_chatbot_settings_cached():
 def load_llm(settings: dict):
     return get_llm_langchain_openai(is_lunary_audit=True, **settings)
 
-# Main app logic (always runs in Streamlit)
+api_key()
 vector_store = load_vector_store()
 llm_settings = load_chatbot_settings_cached()
 llm = load_llm(llm_settings.get("ChatOpenAI"))
