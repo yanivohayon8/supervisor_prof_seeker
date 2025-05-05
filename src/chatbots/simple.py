@@ -22,7 +22,9 @@ class SimpleRAGState(TypedDict):
 
 class SimpleRAGChatbot():
 
-    def __init__(self, llm: BaseLanguageModel, vector_store: VectorStore, converstation_recorder:ConversationRecorder=None, prompt: Optional[ChatPromptTemplate] = None, max_turns: int = 5):
+    def __init__(self, llm: BaseLanguageModel, vector_store: VectorStore,
+                  graph_config:dict,converstation_recorder:ConversationRecorder=None, 
+                  prompt: Optional[ChatPromptTemplate] = None, max_turns: int = 5):
         self.llm = llm
         self.vector_store = vector_store
         self.max_turns = max_turns
@@ -49,6 +51,8 @@ class SimpleRAGChatbot():
             ])
         else:
             self.prompt = prompt
+
+        self.graph_config = graph_config
 
     def retrieve_(self, state: SimpleRAGState):
         retrieved_docs = self.vector_store.similarity_search(state["question"], k=20)
@@ -120,33 +124,43 @@ class SimpleRAGChatbot():
                 raise ValueError("⚠️ Injection attempt detected. Please rephrase your question.")
         return question
     
+    # Deprecated function - to delete
     def run_mock_client(self,queries:list[str],thread_id="aaa"):
         config = {"configurable":{"thread_id":thread_id}}
         
         for query in queries:
             query_response = ""
-            for token in self.stream_answer(query,config):
+            # for token in self.stream_answer(query,config):
+            for token in self.stream_answer(query):
                 query_response += token
             
             yield query_response
         
-    def get_config(self):
+    def get_config_deprecated(self):
         thread_id = str(uuid.uuid4())
         return {"configurable":{"thread_id":thread_id}}
 
-    def stream_answer(self,user_input:str,config):
+    def stream_answer(self,user_input:str):
         self.track_user_(user_input)
 
         for chunk, metadata in self.graph.stream({"question":user_input},
-                                                 config=config,stream_mode="messages"):
+                                                 config=self.graph_config,stream_mode="messages"):
             if isinstance(chunk,AIMessage):
                 yield chunk.content
+
+    def mock_streaming(self,queries:list[str],config={}):
+        for query in queries:
+            query_response = ""
+            for token in self.stream_answer(query):
+                query_response += token
+            
+            yield query_response
 
     def invoke_answer(self, user_input:str,config:dict=None,**kwargs):
         self.track_user_(user_input)
         
         if not config:
-            config = self.get_config()
+            config = self.get_config_deprecated()
 
         return self.graph.invoke({"question":user_input},config=config,**kwargs)
 
@@ -164,3 +178,9 @@ class SimpleRAGChatbot():
     def track_user_(self,user_input:str):
         if self.converstation_recorder:
             self.converstation_recorder.track_user(user_input)
+
+
+
+def generate_graph_config():
+    thread_id = str(uuid.uuid4())
+    return {"configurable":{"thread_id":thread_id}}

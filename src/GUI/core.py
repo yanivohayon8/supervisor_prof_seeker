@@ -25,7 +25,7 @@ def load_intro():
     st.markdown('''''')
 
 
-def load_chat(bot,bot_config:dict):
+def load_chat(bot):
     # Initialize chat history
     if "messages" not in st.session_state:
         st.session_state.messages = [{"role": "assistant", "content": "Let's start chatting! 👇"}]
@@ -48,7 +48,7 @@ def load_chat(bot,bot_config:dict):
             message_placeholder = st.empty()
             full_response = ""
             try:
-                for chunk in bot.stream_answer(prompt, bot_config):
+                for chunk in bot.stream_answer(prompt):
                     full_response += "".join(chunk)
                     message_placeholder.markdown(full_response + "▌")
                 message_placeholder.markdown(full_response)

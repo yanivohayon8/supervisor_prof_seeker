@@ -76,7 +76,7 @@ class TestLunaryWrapper(unittest.TestCase):
         res = bot.invoke_answer("What is Lunary? Answer shortly")
         self.assertIn("Lunary",res["answer"])
     
-    def test_simple_chat_bot_faiss_db(self):
+    def test_simple_chat_bot_faiss_db_invoke_answer(self):
         vector_store = load_faiss_indexed()
         llm = get_chat_langchain_openai_new(is_lunary_audit=True)
         conversation_recorder = ConversationRecorder(tags=self.unittest_tags)
@@ -96,6 +96,31 @@ class TestLunaryWrapper(unittest.TestCase):
             answer = invoke_result.get("answer")
             print("********************** answer **************************")
             print(answer)
+    
+    def test_simple_chat_bot_faiss_db_mock_streaming(self):
+        vector_store = load_faiss_indexed()
+        llm = get_chat_langchain_openai_new(is_lunary_audit=True)
+        conversation_recorder = ConversationRecorder(tags=self.unittest_tags)
+        bot = SimpleRAGChatbot(llm,vector_store,converstation_recorder=conversation_recorder)
+        
+        user_inputs = [
+            "I want to do cool things with AI, list some relevent supervisors?",
+            "Do you know others?",
+            "Who is specialized with Deep Learning?"
+        ]
+
+        config = bot.get_config_deprecated()
+        i = 0
+
+        for answer in bot.mock_streaming(user_inputs,config=config):
+            print()
+            print("********************** User **************************")
+            print(user_inputs[i])
+            i+=1
+            print("********************** answer **************************")
+            print(answer)
+            print()
+
 
 
 
