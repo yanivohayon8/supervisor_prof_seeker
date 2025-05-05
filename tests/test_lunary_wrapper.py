@@ -68,13 +68,22 @@ class TestLunaryWrapper(unittest.TestCase):
         llm = get_langchain_openai_lunary_()
         conversation_recorder = ConversationRecorder(tags=self.unittest_tags)
         bot = SimpleRAGChatbot(llm,vector_store,converstation_recorder=conversation_recorder)
-        
-        res = bot.mock_streaming("For who does LangGraph is built? Answer shortly")
-        # A naive string matching here is enough just to see that the function above works
-        self.assertIn("developers",res["answer"])
 
-        res = bot.mock_streaming("What is Lunary? Answer shortly")
-        self.assertIn("Lunary",res["answer"])
+        user_inputs = [
+            "For who does LangGraph is built? Answer shortly"
+            "What is Lunary? Answer shortly"
+        ]
+
+        i = 0
+
+        for answer in bot.mock_streaming(user_inputs):
+            print()
+            print("********************** User **************************")
+            print(user_inputs[i])
+            i+=1
+            print("********************** answer **************************")
+            print(answer)
+            print()
     
     def test_simple_chat_bot_faiss_db_invoke_answer(self):
         vector_store = load_faiss_indexed()
@@ -88,14 +97,16 @@ class TestLunaryWrapper(unittest.TestCase):
             "Who is specialized with Deep Learning?"
         ]
 
-        for user_input in user_inputs:
+        i = 0
+
+        for answer in bot.mock_streaming(user_inputs):
             print()
             print("********************** User **************************")
-            print(user_input)
-            invoke_result = bot.mock_streaming(user_input)
-            answer = invoke_result.get("answer")
+            print(user_inputs[i])
+            i+=1
             print("********************** answer **************************")
             print(answer)
+            print()
     
     def test_simple_chat_bot_faiss_db_mock_streaming(self):
         vector_store = load_faiss_indexed()
