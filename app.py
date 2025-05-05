@@ -15,14 +15,13 @@ def load_chatbot_settings_cached():
     return load_chatbot_settings()
 
 @st.cache_resource
-def load_llm():
-    return get_chat_langchain_openai_new(is_lunary_audit=True)
+def load_llm(settings:dict):
+    return get_chat_langchain_openai_new(is_lunary_audit=True,**settings)
 
 if __name__ == "__main__":
     vector_store = load_vector_store() 
-    bot_settings = load_chatbot_settings_cached()
-
-    llm = load_llm()
+    llm_settings = load_chatbot_settings_cached()
+    llm = load_llm(llm_settings.get("ChatOpenAI"))
 
     if not "thread_id" in st.session_state:
         graph_config = generate_graph_config()

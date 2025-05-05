@@ -1,4 +1,5 @@
 {
-    "model_name":"gpt-4o-mini",
-    "provider":"openai"
+    "ChatOpenAI":{
+        "model":"gpt-4o-mini"
+    }
 }
