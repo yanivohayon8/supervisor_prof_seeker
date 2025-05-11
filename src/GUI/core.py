@@ -9,6 +9,8 @@ def load_intro():
             The assistant leverages large language models (LLMs) and relies on a knowledge base built from pre-indexed papers and publicly available information.
             During conversations, it recommends potential researchers and provides detailed information about their work, even for students who may not have expertise in the research domain. 
             This includes specific research areas, motivations, and suggested foundational courses related to the research field.
+
+            For more information, visit: https://www.yanivoha.com/ai-assistant-for-msc-and-ph-d-students
         """
     )
 
@@ -18,7 +20,7 @@ def load_intro():
         
             For the full list of faculty members, visit: https://in.bgu.ac.il/en/natural_science/cs/Pages/default.aspx
 
-            :blue-background[Please verify the information, as AI-generated content may contain errors.]
+            💡:small[Heads up: this is an experimental system. Some answers may be inaccurate, so it's a good idea to double-check important information before making decisions. Also, for best results, we recommend asking your questions in English for now — Hebrew support is still limited and under development.]
         """
     )
 
