@@ -12,7 +12,7 @@ def get_author_details(supervisor_folder:str):
     path = os.path.join(supervisor_folder,"author_details.json")
 
     try:
-        with open(path,"r") as f:
+        with open(path,"r", encoding="utf8") as f:
             return json.load(f)
     except FileNotFoundError:
         return None

@@ -34,6 +34,9 @@ class PapersMetadataRetriever():
         try:
             with open(os.path.join(supervisor_folder,"author_details.json"),"r") as f:
                 return json.load(f)
+        except UnicodeDecodeError:    
+            with open(os.path.join(supervisor_folder,"author_details.json"),"r",encoding="utf8") as f:
+                return json.load(f)
         except FileNotFoundError:
             return None
 
@@ -260,6 +263,6 @@ class IndexingPipeline():
         num_suc = len(self.succeed_papers)
         num_failed = len(self.failed_papers_erros)
         num_total = num_suc+num_failed
-        print(f"Succeed to index {(100*num_suc/num_total):.2f} ({num_suc}/{num_total}) of the papers")
+        print(f"Succeed to index {(100*num_suc/num_total):.2f}% ({num_suc}/{num_total}) of the papers")
 
 
