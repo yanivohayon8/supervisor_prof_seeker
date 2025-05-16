@@ -207,7 +207,7 @@ class IndexingPipeline():
     def index_supervisor(self,supervisor_metadata:dict):
         supervisor_name = supervisor_metadata.get("supervisor_name")
         print(f"Indexing the papers of {supervisor_name} (supervisor)")
-        self.index_supervisor_brief_(supervisor_metadata)
+        self.index_supervisor_brief_(supervisor_metadata,{"supervisor_name":supervisor_name})
 
         for paper_metadata in tqdm(supervisor_metadata["available_pdfs"]):
             doc_metadata = {
@@ -218,7 +218,7 @@ class IndexingPipeline():
             self.index_paper_(paper_metadata["path"],supervisor_name,paper_metadata,doc_metadata=doc_metadata)
             
        
-    def index_supervisor_brief_(self,supervisor_metadata:dict,doc_metadata:dict={}):
+    def index_supervisor_brief_(self,supervisor_metadata:dict,doc_metadata:dict):
         name = supervisor_metadata.get("supervisor_name")
         author = supervisor_metadata.get("author")
         affilations = author.get("affiliations","Unknown affilations")

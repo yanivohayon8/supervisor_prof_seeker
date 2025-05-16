@@ -193,7 +193,7 @@ class TestPipeline(unittest.TestCase):
         }
 
         pipeline = indexing_pipeline.IndexingPipeline(override_settings=settings)
-        pipeline.index_supervisor_brief_(self.supervisor_metadata)
+        pipeline.index_supervisor_brief_(self.supervisor_metadata,{})
 
         docs = pipeline.vector_store.store.items()
         self.assertEqual(len(docs),1)
