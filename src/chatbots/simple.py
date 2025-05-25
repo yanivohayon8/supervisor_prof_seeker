@@ -162,7 +162,15 @@ class SimpleRAGChatbot():
     def track_user_(self,user_input:str):
         if self.converstation_recorder:
             self.converstation_recorder.track_user(user_input)
-
+   
+    def track_positive_feedback(self,msg_index:int):
+        self.converstation_recorder.positive_feedback(msg_index)
+    
+    def track_negative_feedback(self,msg_index:int):
+        self.converstation_recorder.negative_feedback(msg_index)
+    
+    def track_delete_feedback(self,msg_index:int):
+        self.converstation_recorder.delete_feedback(msg_index)
 
 
 def generate_graph_config():
