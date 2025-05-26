@@ -26,26 +26,42 @@ def load_intro():
 
     st.markdown('''''')
 
+def set_feedback(bot,msg_index):
+    feedback = st.feedback("thumbs",key=msg_index)
+
+    if msg_index > 0:
+        if feedback == 1:
+            bot.track_positive_feedback(msg_index)
+        elif feedback == 0:
+            bot.track_negative_feedback(msg_index)
+        elif feedback is None:
+            bot.track_delete_feedback(msg_index)
 
 def load_chat(bot):
-    # Initialize chat history
+    # Initialize chat history and feedback tracking
     if "messages" not in st.session_state:
         st.session_state.messages = [{"role": "assistant", "content": "Let's start chatting! 👇"}]
-
-    # Display chat messages from history on app rerun
-    for message in st.session_state.messages:
+    
+    # --- Display all messages ---
+    for i, message in enumerate(st.session_state.messages):
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
+
+            # Show feedback widget for assistant messages
+            if message["role"] == "assistant":
+                set_feedback(bot,i)
+
 
     # Accept user input
     if prompt := st.chat_input("What is up?"):
         # Add user message to chat history
         st.session_state.messages.append({"role": "user", "content": prompt})
-        # Display user message in chat message container
+
+        # Display user message
         with st.chat_message("user"):
             st.markdown(prompt)
 
-        # Display assistant response in chat message container
+        # Display assistant response with feedback buttons
         with st.chat_message("assistant"):
             message_placeholder = st.empty()
             full_response = ""
@@ -55,12 +71,12 @@ def load_chat(bot):
                     message_placeholder.markdown(full_response + "▌")
                 message_placeholder.markdown(full_response)
             except Exception as e:
-                error_message = (
+                full_response = (
                     "⚠️ Oops! Something went wrong while processing your request.\n\n"
                     "Please try again in a moment. If the issue persists, feel free to contact the developer. 🙏"
                 )
-                full_response = error_message
                 message_placeholder.markdown(full_response)
 
-        # Add assistant response (or error) to chat history
-        st.session_state.messages.append({"role": "assistant", "content": full_response})
+            # Add assistant response to chat history
+            st.session_state.messages.append({"role": "assistant", "content": full_response})
+            set_feedback(bot, len(st.session_state.messages)-1)
