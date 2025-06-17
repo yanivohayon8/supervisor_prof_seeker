@@ -6,23 +6,19 @@ def load_intro():
     st.markdown(
         """
             This project is an AI Agent designed to help M.Sc. and Ph.D. students find a suitable research supervisor.
-            The assistant leverages large language models (LLMs) and relies on a knowledge base built from pre-indexed papers and publicly available information.
-            During conversations, it recommends potential researchers and provides detailed information about their work, even for students who may not have expertise in the research domain. 
-            This includes specific research areas, motivations, and suggested foundational courses related to the research field.
-
             For more information, visit: https://www.yanivoha.com/ai-assistant-for-msc-and-ph-d-students
         """
     )
 
     st.caption(
-        """
-            Currently, the AI Agent supports researchers only from the Computer Science Department at Ben-Gurion University.       
-        
-            For the full list of faculty members, visit: https://in.bgu.ac.il/en/natural_science/cs/Pages/default.aspx
-
-            💡:small[Heads up: this is an experimental system. Some answers may be inaccurate, so it's a good idea to double-check important information before making decisions. Also, for best results, we recommend asking your questions in English for now — Hebrew support is still limited and under development.]
-        """
+        """💡 This is an experimental system. It's best to double-check important info. **Using English is recommended** for now, as Hebrew support is still limited.  
+        Currently, only researchers from BGU’s Computer Science Department are supported: https://in.bgu.ac.il/en/natural_science/cs/Pages/default.aspx"""
     )
+
+
+
+
+
 
     st.markdown('''''')
 
