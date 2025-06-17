@@ -1,11 +1,11 @@
 import streamlit as st
 
 def load_intro():
-    st.title("AI Assistant for Seeking a Research Supervisor :sunglasses:")
+    st.title("AI Agent for Seeking a Research Supervisor :sunglasses:")
 
     st.markdown(
         """
-            This project is an AI assistant designed to help M.Sc. and Ph.D. students find a suitable research supervisor.
+            This project is an AI Agent designed to help M.Sc. and Ph.D. students find a suitable research supervisor.
             The assistant leverages large language models (LLMs) and relies on a knowledge base built from pre-indexed papers and publicly available information.
             During conversations, it recommends potential researchers and provides detailed information about their work, even for students who may not have expertise in the research domain. 
             This includes specific research areas, motivations, and suggested foundational courses related to the research field.
@@ -16,7 +16,7 @@ def load_intro():
 
     st.caption(
         """
-            Currently, the AI assistant supports researchers only from the Computer Science Department at Ben-Gurion University.       
+            Currently, the AI Agent supports researchers only from the Computer Science Department at Ben-Gurion University.       
         
             For the full list of faculty members, visit: https://in.bgu.ac.il/en/natural_science/cs/Pages/default.aspx
 
