@@ -23,6 +23,7 @@ def load_chatbot_settings_cached():
 def load_llm(settings: dict):
     return get_llm_langchain_openai(is_lunary_audit=True, **settings)
 
+st.set_page_config(page_title="ProfectMatch")
 api_key()
 vector_store = load_vector_store()
 llm_settings = load_chatbot_settings_cached()

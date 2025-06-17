@@ -1,8 +1,6 @@
 import streamlit as st
 
 def load_intro():
-    st.set_page_config(page_title="ProfectMatch")
-
     st.title("AI Agent for Seeking a Research Supervisor :sunglasses:")
 
     st.markdown(
