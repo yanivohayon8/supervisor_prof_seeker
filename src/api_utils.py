@@ -69,5 +69,8 @@ def get_langchain_openai_lunary_(handler_params:dict={},**chat_settings):
 def verify_lunary_public_key():
     verify_environment_variable_("LUNARY_PUBLIC_KEY")
 
+def verify_lunary_private_key():
+    key_ = "LUNARY_PRIVATE_KEY"
+    verify_environment_variable_(key_)
 
-    
+    return get_environment_variable_(key_)
