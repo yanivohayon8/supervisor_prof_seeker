@@ -4,15 +4,8 @@ from src.api_utils import verify_and_get_environment_variable
 class MongoDBHandler:
     def __init__(self, uri:str, db_name:str):
         self.client = MongoClient(uri)
-        self.db_name = db_name or self._get_first_database_name()
+        self.db_name = db_name
         self.db = self.client[self.db_name]
-
-
-    def _get_first_database_name(self):
-        dbs = self.client.list_database_names()
-        if not dbs:
-            raise ValueError("No databases found on MongoDB server.")
-        return dbs[0]
 
     @classmethod
     def create_from_env_vars(cls,db_name:str,**kwargs):
