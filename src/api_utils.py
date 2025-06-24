@@ -74,3 +74,9 @@ def verify_lunary_private_key():
     verify_environment_variable_(key_)
 
     return get_environment_variable_(key_)
+
+
+def verify_and_get_environment_variable(name):
+    verify_environment_variable_(name)
+
+    return get_environment_variable_(name)
