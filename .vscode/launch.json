@@ -38,7 +38,7 @@
             "name": "write_lunary_runs",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/scripts/dataset_synthesize/write_lunary_runs.py",
+            "program": "${workspaceFolder}/scripts/evaluation/write_lunary_runs.py",
             "console": "integratedTerminal",
         },
     ]
