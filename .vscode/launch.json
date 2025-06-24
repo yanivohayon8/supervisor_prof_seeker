@@ -33,6 +33,13 @@
             "request": "launch",
             "program": "${workspaceFolder}/scrape_pdfs.py",
             "console": "integratedTerminal"
-        }
+        },
+        {
+            "name": "write_lunary_runs",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/dataset_synthesize/write_lunary_runs.py",
+            "console": "integratedTerminal",
+        },
     ]
 }

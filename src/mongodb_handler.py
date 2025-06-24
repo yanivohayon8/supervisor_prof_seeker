@@ -2,7 +2,7 @@ from pymongo import MongoClient
 from src.api_utils import verify_and_get_environment_variable
 
 class MongoDBHandler:
-    def __init__(self, uri, db_name=None):
+    def __init__(self, uri:str, db_name:str):
         self.client = MongoClient(uri)
         self.db_name = db_name or self._get_first_database_name()
         self.db = self.client[self.db_name]
@@ -15,14 +15,14 @@ class MongoDBHandler:
         return dbs[0]
 
     @classmethod
-    def create_from_env_vars(cls,**kwargs):
+    def create_from_env_vars(cls,db_name:str,**kwargs):
         username = verify_and_get_environment_variable("MongoDBUsername")
         password = verify_and_get_environment_variable("MongoDBPassword")
         host = verify_and_get_environment_variable("MongoDBHost")
 
         uri = cls.get_uri_(username,password,host)
 
-        return cls(uri,**kwargs)
+        return cls(uri,db_name,**kwargs)
 
     @classmethod
     def get_uri_(cls,username:str,password:str,host:str):

@@ -6,10 +6,7 @@ import json
 LUNARY_END_POINT = "https://api.lunary.ai/v1"
 ALLOWED_LUNARY_TYPE_LLM_RUN_KEYS = {"id","projectId","feedback","parentFeedback","feedbacks","type","name","createdAt","endedAt","tokens","tags","input","output","metadata"}
 
-def write_to_db(mongo_handler:MongoDBHandler=None):
-    mongo_handler = mongo_handler or MongoDBHandler.create_from_env_vars()
-    collection_name = "runs_from_lunary"
-
+def write_to_db(collection_name:str,mongo_handler:MongoDBHandler):
     mongo_handler.ensure_indexes(collection_name, [
         ("id", {"unique": True}),
         ("createdAt", {})

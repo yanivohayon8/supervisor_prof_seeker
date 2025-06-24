@@ -1,0 +1,4 @@
+write_lunary_runs:
+  MongoDB:
+    db_name: evaluation
+    collection_name: lunary_runs

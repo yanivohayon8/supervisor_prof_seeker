@@ -9,7 +9,7 @@ class TestMongoDBHandler(unittest.TestCase):
         cls.collection_name = "test_collection"
 
         # Create handler using environment-based factory
-        cls.handler = MongoDBHandler.create_from_env_vars(db_name=cls.db_name)
+        cls.handler = MongoDBHandler.create_from_env_vars(cls.db_name)
 
     @classmethod
     def tearDownClass(cls):

@@ -9,7 +9,7 @@ class TestLunaryHandler(unittest.TestCase):
     def setUpClass(cls):
         cls.db_name = "test_lunary_handler"
         cls.collection_name = "test_lunary_handler"
-        cls.mongo_handler = MongoDBHandler.create_from_env_vars(db_name=cls.db_name)
+        cls.mongo_handler = MongoDBHandler.create_from_env_vars(cls.db_name)
     
     @classmethod
     def tearDownClass(cls):
@@ -44,7 +44,7 @@ class TestLunaryHandler(unittest.TestCase):
         os.remove(tmp_path)
 
     def test_write_to_db(self):
-        lunary_handler.write_to_db(mongo_handler=self.mongo_handler)
+        lunary_handler.write_to_db(self.collection_name,mongo_handler=self.mongo_handler)
         
 if __name__ == "__main__":
     unittest.main()
