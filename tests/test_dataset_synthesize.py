@@ -1,50 +1,50 @@
 import unittest
-from src.dataset_synthesize import synthesizer
+from src.dataset_synthesize import lunary_handler
+from src.mongodb_handler import MongoDBHandler
+import json
+import os
+class TestLunaryHandler(unittest.TestCase):
 
-class TestLunaryDataset(unittest.TestCase):
-
-    def test_read_dataset_from_file_(self):
-        desired_record = 24
-
-        for thread in synthesizer.read_dataset_from_file_():
-            
-            if desired_record == 0:
-
-                for mess in thread["messages"]:
-                    print(f"**************** {mess["role"]} ****************")
-                    print(mess["content"])
-
-                break
-            else:
-                desired_record-=1
+    @classmethod
+    def setUpClass(cls):
+        cls.db_name = "test_lunary_handler"
+        cls.collection_name = "test_lunary_handler"
+        cls.mongo_handler = MongoDBHandler.create_from_env_vars(db_name=cls.db_name)
+    
+    @classmethod
+    def tearDownClass(cls):
+        cls.mongo_handler.drop_database(cls.db_name)
 
     def test_get_url(self):
-        url = synthesizer.get_url_("runs")
+        url = lunary_handler.get_url_("runs")
         self.assertTrue(url.endswith("/runs"))
 
     def test_get_runs_compiles(self):
         pages = 0
-        for runs in synthesizer.get_runs():
+        result = []
+
+        for runs in lunary_handler.get_runs():
             self.assertIsInstance(runs,list)
             self.assertGreater(len(runs),0)
             pages+=1
+            result = result + runs
         
         self.assertGreater(pages,0)
-
-    
-    def test_read_dataset(self):
-        count = 0
-
-        for thread in synthesizer.read_dataset():
-            count+=1
-
-            for mess in thread["messages"]:
-                print(f"**************** {mess["role"]} ****************")
-                print(mess["content"])
-
-            break
+        tmp_path ="tests/tmp/lunary_dataset_updated.json"
         
-        self.assertGreater(count,0)
+        with open(tmp_path,"w") as f:
+            json.dump(result,f)
+        
+        bytes_size = os.path.getsize(tmp_path)
+        mb = bytes_size/1000/1000
+        print(f"The rough size of dataset in lunary is {mb} MB")
+
+        self.assertGreater(mb,0)
+
+        os.remove(tmp_path)
+
+    def test_write_to_db(self):
+        lunary_handler.write_to_db(mongo_handler=self.mongo_handler)
         
 if __name__ == "__main__":
     unittest.main()

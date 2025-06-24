@@ -14,7 +14,7 @@ class TestMongoDBHandler(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
         # Drop the test DB to clean up
-        cls.handler.client.drop_database(cls.db_name)
+        cls.handler.drop_database(cls.db_name)
 
     def test_connection_ping(self):
         """Test that MongoDB connection is alive using ping command."""

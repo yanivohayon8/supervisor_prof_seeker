@@ -1,9 +1,31 @@
-from src.utils import load_jsonl_to_dict_list
+from src.mongodb_handler import MongoDBHandler
 from src.api_utils import verify_lunary_private_key
 import requests
 import json
 
 LUNARY_END_POINT = "https://api.lunary.ai/v1"
+ALLOWED_LUNARY_TYPE_LLM_RUN_KEYS = {"id","projectId","feedback","parentFeedback","feedbacks","type","name","createdAt","endedAt","tokens","tags","input","output","metadata"}
+
+def write_to_db(mongo_handler:MongoDBHandler=None):
+    mongo_handler = mongo_handler or MongoDBHandler.create_from_env_vars()
+    collection_name = "runs_from_lunary"
+
+    mongo_handler.ensure_indexes(collection_name, [
+        ("id", {"unique": True}),
+        ("createdAt", {})
+    ])
+
+    for runs in get_runs():
+        filtered_runs = [
+            {k: run[k] for k in ALLOWED_LUNARY_TYPE_LLM_RUN_KEYS if k in run}
+            for run in runs
+        ]
+        if filtered_runs:
+            try:
+                mongo_handler.insert_many(collection_name,filtered_runs, ordered=False) # 
+            except Exception as e:
+                print(f"Error inserting batch: {e}")
+
 
 def get_runs():
     url = get_url_("runs")
@@ -45,6 +67,3 @@ def http_get_lunary_(url,  params=None, headers=None):
 
 def convert_bytes_to_str(data:bytes,decoding="utf-8"):
     return data.decode(decoding)
-
-def read_dataset(file_path:str=None):
-    pass

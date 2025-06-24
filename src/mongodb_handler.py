@@ -42,3 +42,6 @@ class MongoDBHandler:
         collection = self.db[collection_name]
         for field, options in indexes:
             collection.create_index(field, **options)
+
+    def drop_database(self,db_name:str):
+        self.client.drop_database(db_name)
