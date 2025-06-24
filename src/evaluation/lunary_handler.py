@@ -2,6 +2,7 @@ from src.mongodb_handler import MongoDBHandler
 from src.api_utils import verify_lunary_private_key
 import requests
 import json
+from src.evaluation.ragas_handler import USER_INPUT,RESPONSE,RETRIEVED_CONTEXTS
 
 LUNARY_END_POINT = "https://api.lunary.ai/v1"
 ALLOWED_LUNARY_TYPE_LLM_RUN_KEYS = {"id","projectId","feedback","parentFeedback","feedbacks","type","name","createdAt","endedAt","tokens","tags","metadata"} # "input","output"
@@ -85,24 +86,24 @@ def process_run_(run:dict)->dict:
                 
     for message in run["input"]:
         if message["role"] == "system":                    
-            if processed_run.get("input_retrieved_context"):
+            if processed_run.get(RETRIEVED_CONTEXTS):
                 ValueError("Found two system messages")
 
-            processed_run["input_retrieved_context"] = get_context_(message["content"])
+            processed_run[RETRIEVED_CONTEXTS] = get_context_(message["content"])
         
         if message["role"] == "user":
-            if processed_run.get("input_user",None):
+            if processed_run.get(USER_INPUT,None):
                 raise ValueError(f"Two input messages of a user in run {run["id"]}")
             
-            processed_run["input_user"] = message["content"]
+            processed_run[USER_INPUT] = message["content"]
     
-    if not "input_retrieved_context" in processed_run.keys():
+    if not RETRIEVED_CONTEXTS in processed_run.keys():
         raise ValueError("Didn't found retrieved context")
 
     if not run["output"].get("content"):
         raise ValueError("Did not found output of assistant")
     else:
-        processed_run["output_assistant"] = run["output"]["content"]
+        processed_run[RESPONSE] = run["output"]["content"]
 
     return processed_run
 
