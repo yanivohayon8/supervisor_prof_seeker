@@ -24,17 +24,28 @@ class MongoDBHandler:
     def insert_many(self, collection_name, documents, **kwargs):
         if not documents:
             return
-        collection = self.db[collection_name]
+        collection = self.get_collection_(collection_name)
         collection.insert_many(documents, **kwargs)
+    
+    def get_collection_(self,collection_name):
+        return self.db[collection_name]
 
     def ensure_indexes(self, collection_name, indexes):
         """
         indexes: List of (field, kwargs) tuples.
         e.g., [("id", {"unique": True}), ("createdAt", {})]
         """
-        collection = self.db[collection_name]
+        collection = self.get_collection_(collection_name)
         for field, options in indexes:
             collection.create_index(field, **options)
 
     def drop_database(self,db_name:str):
         self.client.drop_database(db_name)
+
+    def read_all(self, collection_name: str, projection: dict = None):
+        collection = self.get_collection_(collection_name)
+        return collection.find({}, projection or {})
+
+    def read(self, query: dict, collection_name: str, projection: dict = None):
+        collection = self.get_collection_(collection_name)
+        return collection.find(query, projection or {})

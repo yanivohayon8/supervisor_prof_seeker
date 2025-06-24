@@ -40,3 +40,21 @@ class TestMongoDBHandler(unittest.TestCase):
         indexes = self.handler.db[self.collection_name].index_information()
         self.assertIn("id_1", indexes)
         self.assertTrue(indexes["id_1"].get("unique", False))
+
+    def test_read_all(self):
+        """Test read_all returns all inserted documents."""
+        docs = [{"id": 10, "val": "x"}, {"id": 11, "val": "y"}]
+        self.handler.insert_many(self.collection_name, docs)
+        results = list(self.handler.read_all(self.collection_name, projection={"_id": 0}))
+        self.assertIn({"id": 10, "val": "x"}, results)
+        self.assertIn({"id": 11, "val": "y"}, results)
+
+    def test_read_with_query_and_projection(self):
+        """Test read returns filtered documents with correct projection."""
+        docs = [{"id": 100, "val": "secret", "flag": True}, {"id": 101, "val": "secret", "flag": False}]
+        self.handler.insert_many(self.collection_name, docs)
+        query = {"flag": True}
+        projection = {"_id": 0, "id": 1}
+        results = list(self.handler.read(query, self.collection_name, projection))
+        self.assertEqual(results, [{"id": 100}])
+
