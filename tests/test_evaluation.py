@@ -1,8 +1,9 @@
 import unittest
-from src.evaluation import lunary_handler
+from src.evaluation import lunary_handler,ragas_handler
 from src.mongodb_handler import MongoDBHandler
 import json
 import os
+from ragas import EvaluationDataset
 class TestLunaryHandler(unittest.TestCase):
 
     @classmethod
@@ -46,5 +47,54 @@ class TestLunaryHandler(unittest.TestCase):
     def test_write_to_db(self):
         lunary_handler.write_to_db(self.collection_name,mongo_handler=self.mongo_handler)
         
+class TestRagasHandler(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        cls.db_name = "evaluation"
+        cls.collection_name = "test_ragas_handler"
+        cls.mongo_handler = MongoDBHandler.create_from_env_vars(cls.db_name)
+
+        # Seed the test collection with documents
+        cls.seed_data = [
+            {
+                ragas_handler.USER_INPUT: "What is Python?",
+                ragas_handler.RETRIEVED_CONTEXTS: ["Python is a programming language.","Java is a programming language."],
+                ragas_handler.RESPONSE: "Python is a general-purpose language.",
+            },
+            {
+                ragas_handler.USER_INPUT: "What is MongoDB?",
+                ragas_handler.RETRIEVED_CONTEXTS: ["MongoDB is a NoSQL database.","MySQL is a NoSQL database."],
+                ragas_handler.RESPONSE: "MongoDB stores data in documents.",
+            }
+        ]
+        cls.mongo_handler.insert_many(cls.collection_name, cls.seed_data)
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.mongo_handler.get_collection_(cls.collection_name).drop()
+
+    def test_create_dataset_from_list(self):
+        sample_list = [
+            {
+                ragas_handler.USER_INPUT: "Hi",
+                ragas_handler.RETRIEVED_CONTEXTS: ["Hello!"],
+                ragas_handler.RESPONSE: "Goodbye",
+                "reference": "Empty ref"
+            }
+        ]
+        dataset = ragas_handler.create_dataset_from_list(sample_list)
+        self.assertIsInstance(dataset, EvaluationDataset)
+        self.assertEqual(len(dataset), 1)
+
+    def test_create_dataset_from_collection(self):
+        dataset = ragas_handler.create_dataset_from_collection(
+            self.mongo_handler, self.collection_name
+        )
+        self.assertIsInstance(dataset, EvaluationDataset)
+        self.assertGreaterEqual(len(dataset), 2)
+
+
+
 if __name__ == "__main__":
     unittest.main()
