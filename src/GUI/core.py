@@ -1,26 +1,16 @@
 import streamlit as st
 
 def load_intro():
-    st.title("AI Agent for Seeking a Research Supervisor :sunglasses:")
+    st.markdown("<h1 style='text-align: center;'>ProfectMatch 🎓💘🧑‍🏫</h1>", unsafe_allow_html=True)
 
     st.markdown(
-        """
-            This project is an AI Agent designed to help M.Sc. and Ph.D. students find a suitable research supervisor.
-            For more information, visit: https://www.yanivoha.com/ai-assistant-for-msc-and-ph-d-students
-        """
+        "Are you a Ph.D. or M.Sc. student looking for the right professor to guide your research? **ProfectMatch** helps you find your perfect match in academia. [Learn more](https://www.yanivoha.com/ai-assistant-for-msc-and-ph-d-students)"
     )
 
     st.caption(
-        """💡 This is an experimental system. It's best to double-check important info. **Using English is recommended** for now, as Hebrew support is still limited.  
-        Currently, only researchers from BGU’s Computer Science Department are supported: https://in.bgu.ac.il/en/natural_science/cs/Pages/default.aspx"""
+    """💡 This is an experimental system. Please double-check important info. **Using English is recommended** for now, while Hebrew support continues to improve.  
+    Currently, only researchers from [BGU’s Computer Science Department are supported](https://in.bgu.ac.il/en/natural_science/cs/Pages/default.aspx)."""
     )
-
-
-
-
-
-
-    st.markdown('''''')
 
 def set_feedback(bot,msg_index):
     feedback = st.feedback("thumbs",key=msg_index)
