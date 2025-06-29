@@ -1,4 +1,5 @@
 import streamlit as st
+import random
 
 def load_intro():
     st.markdown("<h1 style='text-align: center;'>ProfectMatch 🎓💘🧑‍🏫</h1>", unsafe_allow_html=True)
@@ -39,7 +40,7 @@ def load_chat(bot):
 
 
     # Accept user input
-    if prompt := st.chat_input("What is up?"):
+    if prompt := st.chat_input(get_placeholder_()):
         # Add user message to chat history
         st.session_state.messages.append({"role": "user", "content": prompt})
 
@@ -66,3 +67,12 @@ def load_chat(bot):
             # Add assistant response to chat history
             st.session_state.messages.append({"role": "assistant", "content": full_response})
             set_feedback(bot, len(st.session_state.messages)-1)
+
+def get_placeholder_():
+    prompts = [
+    "What topics or courses do you find most interesting?",
+    "Which field of research sounds exciting to you?",
+    "Tell me what you'd love to explore during your degree.",
+    "What kind of problems do you enjoy solving?",
+    ]
+    return random.choice(prompts)
