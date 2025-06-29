@@ -96,4 +96,5 @@ def get_placeholder_():
     "Tell me what you'd love to explore during your degree.",
     "What kind of problems do you enjoy solving?",
     ]
-    return random.choice(prompts)
+    # return random.choice(prompts)
+    return prompts[0]
