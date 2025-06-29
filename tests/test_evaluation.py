@@ -4,6 +4,9 @@ from src.mongodb_handler import MongoDBHandler
 import json
 import os
 from ragas import EvaluationDataset
+
+from unittest.mock import patch, MagicMock
+
 class TestLunaryHandler(unittest.TestCase):
 
     @classmethod
@@ -94,6 +97,61 @@ class TestRagasHandler(unittest.TestCase):
         self.assertIsInstance(dataset, EvaluationDataset)
         self.assertGreaterEqual(len(dataset), 2)
 
+
+
+
+class TestRagEvaluator(unittest.TestCase):
+    def setUp(self):
+        sample = [{
+            ragas_handler.USER_INPUT: "What is the capital of France?",
+            ragas_handler.RETRIEVED_CONTEXTS: ["Paris is the capital of France."],
+            ragas_handler.RESPONSE: "The capital of France is Paris.",
+            "reference": "Paris"
+        }]
+        self.fake_dataset = EvaluationDataset.from_list(sample)
+
+    # @patch("src.api_utils.get_llm_langchain_openai")
+    # @patch("src.rag_evaluator.evaluate")
+    # def test_evaluate_with_default_metrics(self, mock_evaluate, mock_get_llm):
+    #     """Test evaluate() with default metric set."""
+    #     mock_evaluate.return_value = {"faithfulness": 0.7}
+    #     mock_get_llm.return_value = MagicMock(name="FakeLLM")
+
+    #     evaluator = ragas_handler.RagEvaluator(dataset=self.fake_dataset)
+    #     result = evaluator.evaluate()
+
+    #     mock_evaluate.assert_called_once()
+    #     args, kwargs = mock_evaluate.call_args
+
+    #     self.assertEqual(kwargs["dataset"], self.fake_dataset)
+    #     self.assertTrue("metrics" in kwargs)
+    #     self.assertTrue("llm" in kwargs)
+    #     self.assertEqual(result, {"faithfulness": 0.7})
+
+    # @patch("src.rag_evaluator.get_llm_langchain_openai")
+    # @patch("src.rag_evaluator.evaluate")
+    # def test_evaluate_with_specific_metrics(self, mock_evaluate, mock_get_llm):
+    #     """Test evaluate() with specific metric names."""
+    #     mock_evaluate.return_value = {"factual_correctness": 0.9}
+    #     mock_get_llm.return_value = MagicMock(name="FakeLLM")
+
+    #     evaluator = ragas_handler.RagEvaluator(dataset=self.fake_dataset)
+    #     result = evaluator.evaluate(metric_names=["factual_correctness"])
+
+    #     called_metrics = mock_evaluate.call_args[1]["metrics"]
+    #     self.assertEqual(len(called_metrics), 1)
+    #     self.assertEqual(result, {"factual_correctness": 0.9})
+
+    # @patch("src.rag_evaluator.get_llm_langchain_openai")
+    # def test_invalid_metric_raises_error(self, mock_get_llm):
+    #     """Test that unsupported metric names raise ValueError."""
+    #     mock_get_llm.return_value = MagicMock(name="FakeLLM")
+    #     evaluator = ragas_handler.RagEvaluator(dataset=self.fake_dataset)
+
+    #     with self.assertRaises(ValueError) as context:
+    #         evaluator.evaluate(metric_names=["not_a_real_metric"])
+
+    #     self.assertIn("Unsupported metrics requested", str(context.exception))
 
 
 if __name__ == "__main__":
