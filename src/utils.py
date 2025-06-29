@@ -20,3 +20,19 @@ def load_chatbot_settings(file_path:str=None,override_settings:dict=None)->dict:
         file_path = os.path.join("src","chatbots","config.json")
     
     return load_json_settings(file_path,override_settings=override_settings)
+
+def load_jsonl_to_dict_list(filepath):
+    """
+    Generator that yields one JSON object (as a dict) at a time from a JSONL file.
+    
+    Args:
+        filepath (str): Path to the .jsonl file.
+        
+    Yields:
+        dict: The next JSON object from the file.
+    """
+    with open(filepath, 'r', encoding='utf-8') as f:
+        for line in f:
+            line = line.strip()
+            if line:
+                yield json.loads(line)
